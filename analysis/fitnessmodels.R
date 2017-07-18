@@ -26,7 +26,7 @@ slim$int<-with(slim, paste(studyid,genus,species,genus2,species2))
 
 total<-merge(rawtaxa[,c("studyid","intid","int")], slim, by=c("studyid","int"))
 
-#Q1- test of match-mismatch hypothesis
+#####   Q1- test of match-mismatch hypothesis #####
 # chose best fitness IF multiple
 HMK011- survival1= fledged chicks
 HMK026- reproduction
@@ -70,8 +70,8 @@ trans2<-subset(total, studyid!="HMK002")
 sub<-subset(total, studyid=="HMK002" & fitnesstype=="demographic1")
 total<-rbind(trans2,sub)
 
-trans2<-subset(total, intid!="29")
-sub<-subset(total, intid=="29" & fitnesstype=="fitness")
+trans2<-subset(total, intid!="int29")
+sub<-subset(total, intid=="int29" & fitnesstype=="fitness")
 total<-rbind(trans2,sub)
 
 trans2<-subset(total, studyid!="HMK025")
@@ -108,8 +108,19 @@ total3<-merge(total2, sups, by=c("studyid","intid"))
 total3$fitness_center<-with(total3, fitnessvalue/fitnessmean)
 
 # FITNESS: only for intxns where NEGATIVE effect of mismatch predicted i.e. consumers in resource-consumer intxns (ANY SPP WITH POSITIVE ROLE), exclude competition, parasitism but include pollinator
-go<-subset(total3, intid!="38" & studyid!="HMK039" & studyid!="HMK052" & studyid!="HMK018" & studyid!="HMK024") # get rid of HMK018 because residuals, HMK024 because no raw data; include HMK050 for now- even if standardized
+go<-subset(total3, intid!="int38" & studyid!="HMK039" & studyid!="HMK052" & studyid!="HMK050" & studyid!="HMK018" & studyid!="HMK024") # get rid of HMK018 because residuals, HMK024 because no raw data; HMK050 because same as HMK054
 
+N<-nrow(go)
+y<-go$fitnessvalue
+year<-go$phenodiff
+Nint<-length(unique(go$intid))
+intxn<-as.numeric(as.factor(go$intid))
+
+
+fit.model<-stan("analysis/stanmodels/twolevelrandomintercept.stan", data=c("N","Nint","y","intxn","year"), iter=3000, chains=4)
+print(fit.model, pars = c("mu_a", "sigma_y", "a", "b"))
+
+#EXPLORATORY
 # Just magnitude
 go2<-subset(go, studyid!="HMK003")
 sub<-subset(go, studyid=="HMK003" & phenodiff>0)
@@ -128,16 +139,16 @@ doPlot <- function(sel_name) {
 #formula=y~x+I(x^2),
 lapply(unique(go$studyid), doPlot)
 
-ggplot(go, aes(y=fitness_center, x=phenodiff_center, colour=as.factor(intid)))+geom_point()
+ggplot(go, aes(y=fitnessvalue, x=phenodiff, colour=as.factor(intid)))+geom_point()+geom_smooth(method="lm")
 
 # make a f(x), which I adapted from one I found online
 # and use lapply
 doPlot <- function(sel_name) {
    subby <- go[go$studyid == sel_name,]
-   ggobj <- ggplot(data=subby, aes(x=phenodiff_center, y=fitnessvalue)) +
+   ggobj <- ggplot(data=subby, aes(x=phenodiff_center, y=fitness_center)) +
        geom_point(size=3) + facet_wrap(~intid)+geom_smooth(method="lm")+theme_bw()+ theme(legend.position="none",axis.title.x =element_text(size=17), axis.text.x=element_text(size=17), axis.text.y=element_text(size=17), axis.title.y=element_text(size=17, angle=90))+ylab("fitness")+xlab("mismatch")
    print(ggobj)
-   ggsave(sprintf("graphs/int%s_center.pdf", sel_name))
+   ggsave(sprintf("graphs/int%s_bothcenter.pdf", sel_name))
 }
 #formula=y~x+I(x^2),
 lapply(unique(go$studyid), doPlot)
@@ -149,3 +160,17 @@ doPlot <- function(sel_name) {
    ggsave(sprintf("graphs/hist_int%s.pdf", sel_name))
 }
 lapply(unique(go$studyid), doPlot)
+
+#Q2- long-term effects of changes in mismatch
+
+slim2<-rawlong[,c("studyid","year","phenodiff","genus","species","genus2","species2")]
+slim2$int<-with(slim2, paste(studyid,genus,species,genus2,species2))
+
+newya<-merge(rawtaxa[,c("studyid","intid","int")], slim2, by=c("studyid","int"))
+newya<-na.omit(newya)
+newya<-unique(newya[,c("studyid","intid","year","phenodiff","genus","species","genus2","species2")])
+newya$year2<-with(newya, round(year, digits=0))
+
+ggplot(newya, aes(y=phenodiff, x=year2, colour=as.factor(intid)))+geom_point()+geom_smooth(method="lm")
+
+
