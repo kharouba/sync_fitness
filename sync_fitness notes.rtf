@@ -1,0 +1,235 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fswiss\fcharset0 ArialMT;
+\f3\fnil\fcharset0 Calibri;\f4\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red58\green58\blue58;\red246\green246\blue246;\red36\green36\blue36;
+\red83\green83\blue83;\red38\green38\blue38;\red26\green26\blue26;}
+\margl1440\margr1440\vieww19600\viewh14160\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs28 \cf0 June 16 2017- \
+\
+Search options\
+(1) Search phenolog* AND 
+\f1 AND mismatch* OR synchron* AND interact* AND fitness* = 510\
+
+\f0 (2) Search phenolog* AND 
+\f1 AND mismatch* OR synchron* AND interact* AND (fitness* OR performance*)\
+(3) 
+\f0 Search phenolog* AND 
+\f1 AND mismatch* OR synchron* AND interact* AND performance* =2804\
+\
+
+\f0 ** USED THIS ONE: (2) Search phenolog* AND 
+\f1 AND mismatch* OR synchron* AND interact* AND (fitness* OR performance*) =2906, then excluded computer science, engineering  etc=>1500 [
+\f2\b \cf2 \cb3 \expnd0\expndtw0\kerning0
+Refined by:
+\b0 \expnd0\expndtw0\kerning0
+ [excluding] 
+\b \expnd0\expndtw0\kerning0
+WEB OF SCIENCE CATEGORIES:
+\b0 \expnd0\expndtw0\kerning0
+\'a0( ENGINEERING ELECTRICAL ELECTRONIC OR COMPUTER SCIENCE THEORY METHODS OR NEUROSCIENCES OR COMPUTER SCIENCE SOFTWARE ENGINEERING OR COMPUTER SCIENCE INFORMATION SYSTEMS OR COMPUTER SCIENCE ARTIFICIAL INTELLIGENCE OR COMPUTER SCIENCE HARDWARE ARCHITECTURE OR TELECOMMUNICATIONS ]\
+Then refined by looking through all titles and/or abstracst = 393 papers
+\f1 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+Used web of science to export to bibtex, and then jabref to export to .csv\
+\
+ISSUES FROM SEARCH:\
+
+\fs36 Exclude- satellite-derived data (e.g. NDVI), interactions are only described as potential (HMK021), meta-analyses (Dunn et al. 2014); those without independent estimates of fitness (e.g. Gullett used first egg dates to predict length of breeding season, no other measure incl), taxa without single pheno phases (length of season doesn\'92t count)\
+Include- modelled estimates (incl. peak Nitrogen, GDD (precedence- is chlorophyll a concentrations=phytoplankton) or surrogates (date of sea-ice breakup), direct observations \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f3 \cf0 \
+\
+Lizzie- used seaice breakup date as proxy for polar bear timing\
+Lizzie- sea-ice adjusted light as a proxy for the spring phytoplankton-bloom onset (i.e. microwave data)\
+Lizzie- used model/estimated some years where missing data- so far, not used (HMK002)
+\f1 \
+
+\f3 \
+Lizzie- estimates of phenology for animals too! See hmk022\
+Lizzie- recruitment is modelled- see HMK024, survival  probbaility calculated (hmk042)\
+Lizzie-later phenophase (hatch date) AND only one given is estimated from earlier phenophase (lay date)
+\fs28 \
+\
+
+\fs36 NOTES FOR ANALYSIS\
+1. used pheno phases that were used by authors in their mismatch calculation\
+2.  used THEIR mismatch values whenever possible\
+3.  standardized mismatch scale for all interactions-\
+	- larger values=further days apart (worse)	\
+	WHEN negative and positive values:\
+	b) for interactions where fitness data is for CONSUMER, then mismatch is calculated such that positive values= what\'92s better for 	consumer e.g. consumer emerges when there is food (therefore mismatch=consumer-resource)\
+	c) for interactions where fitness data is for RESOURCE, then mismatch is calculated such that positive values= what\'92s better for\
+	resource e.g. prey emerges BEFORE predator \
+3.  double checked that larger values of mismatch= further apart (magnitude only, direction doesn\'92t matter i.e. before or after), will take absolute value (i.e. larger/higher values= increasing mismatch)\
+4. chose best fitness proxy when multiple per spp (HMK011-3, HMK026-2, HMK029-2, HMK030-2, HMK016-3, HMK050-4, HMK002-2, HMK042-3, HMK025-3, HMK046-2, HMK054-2); current- prioritize demographic over fitness EXCEPT HMK042\
+5. Definitions of fitness- lifetime fitness (average lifetime reproductive output per individual)> integrated fitness (survival X reprod; population growth rate)>demographic (abundance, density)> reproductive (number of offspring per individual)\
+6. Get rid of HMK018 because fitness is modelled as residuals\
+7.  Can\'92t fit quadratic because assuming specific relationship but unlikely to be the same negative vs. positive (e.g. without food vs. without good food)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f1 \cf0  RECHECK WHTHER ANY AXES WERE LOGGED AND NOT ACCOUNTED FOR WHEN DIGITIZED!\
+EMAIL authors of HMK024\
+\
+studies with problems- HMK003 (ok- no relationship in paper), HMK013, HMK031, HMK032, HMK035, HMK046 (ok now switched to demographic instead of fitness which is derived and represents loss/mortality not survival)
+\f3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf0 \
+ISSUES FOR ANALYSIS\
+
+\fs28 standardize mismatch? => center it (gets rid of mismatch values that are all negative, so now all on same axis)\
+quadratic or linear\
+studies that have negative and postive mismatch- HMK003, HMK006, HMK013, HMK016, HMK023, HMK032, HMK035, HMK042, HMK046, HMK054\
+incorporate lagged 1 year mismatch effect?\
+incorporate lagged 1 year abundance - for density dependence
+\f1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 Mismatch calculations- Two types:\
+Authors calculated mismatch themselves\
+OR I used raw pheno data and took difference\
+Units are index, percentage, days\
+-Think about looking at variability/variation in fitness over years\
+** THINK ABOUT WHETHER I SHOULD ACCOUNT FOR POPULATION FIRST BEFORE LOOKING AT SYNCHRONY~FITNESS!\
+*some mistakes found for pheno frequency for first paper\
+- assuming mismatch effects will be visible on X measure of consequence (could be wrong measure) OR assuming reproductive success (for ex) is largely determined by synchrony (temporal overlap)  BUT length of period over which food is available  (width of food peak) and max amount of biomass available (height of peak) also important\
+- two measures of mismatch IN A SINGLE study- HMK049\
+- will need to check all fitness classifications- e.g. is parasitism demographic? Don\'92t trust classifications! \
+- RECHECK WHTHER ANY AXES WERE LOGGED AND NOT ACCOUNTED FOR WHEN DIGITIZED!\
+-HMK052 - fitness actually measured on negative spp (in this case host of parasite) (also one for AO001)\
+-using operational definition of mismatch- i.e. NOT defined by fitness (i.e. where highest fitness is where mismatch is 0)\
+\
+Studies with consumer AND resource fitness data\
+HMK002\
+HMK035\
+HMK036\
+HMK042\
+AO001\
+RE001\
+\
+Studies with ONLY resource fitness data\
+SET005 (BUT objective of paper was breeding success of consumers so not sure how good fitness proxy is for resource)\
+HMK057\
+\
+Studies with multiple sites\
+HMK035\
+\
+Two types of papers:\
+1. papers with years such that all questions can be asked (e.g. link mismatch to pop decline over time)\
+2. data available but no years provided, can only ask question about mismatch and fitness consequence\
+\
+TRY DEMOGRAPH* OR POPULATION*\
+\
+\
+Discussion\
+- negative impact of mismatch can be quickly overcome in response to subsequent favourable conditions\
+- evidence for mismatch- change in timing (days) OR change in food QUALITY during pheno phase of consumer\
+\
+\
+Related ideas:\
+mismatch between interacting species (biotic mismatch)\
+mismatch between species and abiotic environment (abiotic mismatch)\
+mismatch between interacting species/populations across space \
+influence of changes in timing on single species
+\f0 \
+\
+\pard\pardeftab720
+
+\f2 \cf4 \expnd0\expndtw0\kerning0
+Papers to check for fitness consequences:\
+\
+The phenology mismatch hypothesis: are declines of migrant birds linked to uneven global climate change?
+\i \expnd0\expndtw0\kerning0
+ Jones T, Cresswell W J Anim Ecol. 2010 Jan; 79(1):98-108\
+\
+\pard\pardeftab720
+
+\i0\b \cf0 \expnd0\expndtw0\kerning0
+2015 Trophic mismatch and its effects on the growth of young in an Arctic herbivore. 
+\b0 \expnd0\expndtw0\kerning0
+doi: 10.1111/gcb.13057\
+\
+\pard\pardeftab720\li200\fi-200\ri920\sa200
+\cf5 \expnd0\expndtw0\kerning0
+(3)- Plard et al. 2014; https://doi.org/10.1371/journal.pbio.1001828\
+\
+(4) 
+\f0 \cf6 \expnd0\expndtw0\kerning0
+Dunn, P. O. and M\'f8ller, A. P. 2014. Changes in breeding phenology and population size of birds. \'96 
+\i \expnd0\expndtw0\kerning0
+J. Anim. Ecol
+\i0 \expnd0\expndtw0\kerning0
+. 
+\b \expnd0\expndtw0\kerning0
+83
+\b0 \expnd0\expndtw0\kerning0
+: 729\'96739.\
+(5) Saino, N., Ambrosini, R., Rubolini, D., von Hardenberg, J., Provenzale, A., Huppop, K. 
+\i \expnd0\expndtw0\kerning0
+et\'a0al
+\i0 \expnd0\expndtw0\kerning0
+. (2011) Climate warming, ecological mismatch at arrival and population decline in migratory birds. 
+\i \expnd0\expndtw0\kerning0
+Proceedings of the Royal Society of London B
+\i0 \expnd0\expndtw0\kerning0
+, 
+\b \expnd0\expndtw0\kerning0
+278
+\b0 \expnd0\expndtw0\kerning0
+, 835\'96842.\'92\'92\
+(6) 
+\f2 \cf7 \expnd0\expndtw0\kerning0
+Samplonius, J.M., Kappers, E.F., Brands, S. and Both, C., 2016. Phenological mismatch and ontogenetic diet shifts interactively affect offspring condition in a passerine. 
+\i \expnd0\expndtw0\kerning0
+Journal of Animal Ecology
+\i0 \expnd0\expndtw0\kerning0
+, 
+\i \expnd0\expndtw0\kerning0
+85
+\i0 \expnd0\expndtw0\kerning0
+(5), pp.1255-1264.\
+(7) Knell, R.J. and Thackeray, S.J., 2016. Voltinism and resilience to climate-induced phenological mismatch. 
+\i \expnd0\expndtw0\kerning0
+Climatic change
+\i0 \expnd0\expndtw0\kerning0
+, 
+\i \expnd0\expndtw0\kerning0
+137
+\i0 \expnd0\expndtw0\kerning0
+(3-4), pp.525-539.\
+(8) Abarca M. 2015 Warming effects hatching time and early season survival
+\f0 \cf6 \expnd0\expndtw0\kerning0
+\
+READ: 
+\f4 \cf0 \kerning1\expnd0\expndtw0 Lof, M. E. et al. 2012. Timing in a fluctuating environment:\
+\pard\pardeftab720
+\cf0 environmental variability and asymmetric fitness curves can\
+lead to adaptively mismatched avian reproduction. \'96 Proc. R.\
+Soc. B 279: 3161\'963169.
+\f0 \cf6 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\li200\fi-200\ri920\sa200
+\cf6 \expnd0\expndtw0\kerning0
+Good reference:\
+\pard\pardeftab720
+
+\f2 \cf7 \expnd0\expndtw0\kerning0
+Senner, N.R., Stager, M. and Sandercock, B.K., 2017. Ecological mismatches are moderated by local conditions for two populations of a long\uc0\u8208 distance migratory bird. 
+\i \expnd0\expndtw0\kerning0
+Oikos
+\i0 \expnd0\expndtw0\kerning0
+, 
+\i \expnd0\expndtw0\kerning0
+126
+\i0 \expnd0\expndtw0\kerning0
+(1), pp.61-72.\
+\
+McLean, N., Lawson, C.R., Leech, D.I. and Pol, M., 2016. Predicting when climate\uc0\u8208 driven phenotypic change affects population dynamics. 
+\i \expnd0\expndtw0\kerning0
+Ecology letters
+\i0 \expnd0\expndtw0\kerning0
+, 
+\i \expnd0\expndtw0\kerning0
+19
+\i0 \expnd0\expndtw0\kerning0
+(6), pp.595-608.}
