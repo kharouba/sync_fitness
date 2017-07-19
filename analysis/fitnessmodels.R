@@ -11,6 +11,7 @@ library(grid)
 library(nlme)
 library(dplyr)
 library(ggrepel)
+library(lme4)
 
 #get data
 rawlong <- read.csv("analysis/input/rawfitness.csv", header=TRUE)
@@ -107,18 +108,54 @@ sups<-aggregate(total["fitnessvalue"], total[c("studyid", "intid")], FUN=mean, n
 total3<-merge(total2, sups, by=c("studyid","intid"))
 total3$fitness_center<-with(total3, fitnessvalue/fitnessmean)
 
+sds<-aggregate(total["fitnessvalue"], total[c("studyid", "intid")], FUN=sd); names(sds)[3]<-"fitness_sd"
+total4<-merge(total3, sds, by=c("studyid","intid"))
+
+total4$fitness_z<-with(total4, (fitnessvalue-fitnessmean)/fitness_sd)
+
+
 # FITNESS: only for intxns where NEGATIVE effect of mismatch predicted i.e. consumers in resource-consumer intxns (ANY SPP WITH POSITIVE ROLE), exclude competition, parasitism but include pollinator
-go<-subset(total3, intid!="int38" & studyid!="HMK039" & studyid!="HMK052" & studyid!="HMK050" & studyid!="HMK018" & studyid!="HMK024") # get rid of HMK018 because residuals, HMK024 because no raw data; HMK050 because same as HMK054
+go<-subset(total4, intid!="int38" & studyid!="HMK039" & studyid!="HMK052" & studyid!="HMK050" & studyid!="HMK018" & studyid!="HMK024") # get rid of HMK018 because residuals, HMK024 because no raw data; HMK050 because same as HMK054
 
-N<-nrow(go)
-y<-go$fitnessvalue
-year<-go$phenodiff
-Nint<-length(unique(go$intid))
-intxn<-as.numeric(as.factor(go$intid))
+#double check count per intxn
+go$count<-1
+sun<-aggregate(go["count"], go[c("studyid", "intid")], FUN=sum)
+
+#Analysis
+# Approach 1s- exclude studies where changing values on mismatch axis means 2 things
+yano<-subset(go, intid=="int37" | intid=="int1" | intid=="int4" | intid=="int5" | intid=="int6" | intid=="int30" | intid=="int14" | intid=="int15" | intid=="int17" | intid=="int22" | intid=="int23" | intid=="int24" | intid=="int33") #n=13 interactions: 37, 1, 4, 5, 6, 30, 14, 15, 17, 22, 23, 24, 33
+
+# Approach 2- only take part of axis where food available (i.e. positive)
+yano<-subset(go, phenodiff>0)
+sun<-aggregate(yano["count"], yano[c("studyid", "intid")], FUN=sum)
+names(sun)[3]<-"totalcount"
+yano2<-merge(yano, sun, by=c("studyid", "intid"))
+yano3<-subset(yano2, totalcount>4)
+yano<-yano3
+
+N<-nrow(yano)
+y<-yano$fitness_z
+year<-yano$phenodiff
+Nint<-length(unique(yano$intid))
+intxn<-as.numeric(as.factor(yano$intid))
+
+fit.model<-stan("analysis/stanmodels/twolevelrandomintercept.stan", data=c("N","Nint","y","intxn","year"), iter=6000, chains=4)
+print(fit.model, pars = c("mu_a", "mu_b", "sigma_y", "a", "b"))
+
+fit.model<-stan("analysis/stanmodels/twolevelrandomeffects.stan", data=c("N","Nint","y","intxn","year"), iter=12000, chains=4)
+print(fit.model, pars = c("mu_a", "mu_b", "sigma_y", "a", "b"))
 
 
-fit.model<-stan("analysis/stanmodels/twolevelrandomintercept.stan", data=c("N","Nint","y","intxn","year"), iter=3000, chains=4)
-print(fit.model, pars = c("mu_a", "sigma_y", "a", "b"))
+#non-bayesian
+1|unit= random intercept
+x= random slope
+0+x|unit = random regression coefficient without corresponding random intercept
+1+x|unit= random intercept AND slope (or just x|unit)
+m1<-lmer(fitness_z~1 + (1+phenodiff|intid), data=yano); summary(m1)
+m2<-lmer(fitness_z~phenodiff + (1+phenodiff|intid), data=yano); summary(m2)
+AIC(m1,m2)
+
+
 
 #EXPLORATORY
 # Just magnitude
@@ -139,16 +176,15 @@ doPlot <- function(sel_name) {
 #formula=y~x+I(x^2),
 lapply(unique(go$studyid), doPlot)
 
-ggplot(go, aes(y=fitnessvalue, x=phenodiff, colour=as.factor(intid)))+geom_point()+geom_smooth(method="lm")
+ggplot(subset(go, phenodiff>0), aes(y=fitness_z, x=phenodiff, colour=as.factor(intid)))+geom_point()+geom_smooth(method="lm")
 
 # make a f(x), which I adapted from one I found online
 # and use lapply
 doPlot <- function(sel_name) {
    subby <- go[go$studyid == sel_name,]
-   ggobj <- ggplot(data=subby, aes(x=phenodiff_center, y=fitness_center)) +
-       geom_point(size=3) + facet_wrap(~intid)+geom_smooth(method="lm")+theme_bw()+ theme(legend.position="none",axis.title.x =element_text(size=17), axis.text.x=element_text(size=17), axis.text.y=element_text(size=17), axis.title.y=element_text(size=17, angle=90))+ylab("fitness")+xlab("mismatch")
+   ggobj <- ggplot(data=subset(subby, phenodiff>0), aes(x=phenodiff, y=fitness_z)) +geom_point(size=3) + facet_wrap(~intid)+geom_smooth(method="lm")+theme_bw()+ theme(legend.position="none",axis.title.x =element_text(size=17), axis.text.x=element_text(size=17), axis.text.y=element_text(size=17), axis.title.y=element_text(size=17, angle=90))+ylab("fitness")+xlab("mismatch")
    print(ggobj)
-   ggsave(sprintf("graphs/int%s_bothcenter.pdf", sel_name))
+   ggsave(sprintf("graphs/int%s_pos.pdf", sel_name))
 }
 #formula=y~x+I(x^2),
 lapply(unique(go$studyid), doPlot)
