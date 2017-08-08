@@ -1,3 +1,4 @@
+#Started July 2017
 rm(list=ls()) 
 options(stringsAsFactors = FALSE)
  
@@ -12,6 +13,7 @@ library(nlme)
 library(dplyr)
 library(ggrepel)
 library(lme4)
+source("/users/kharouba/google drive/UBC/multiplot.R")
 
 #get data
 rawlong <- read.csv("analysis/input/rawfitness.csv", header=TRUE)
@@ -21,7 +23,12 @@ rawlong<-subset(rawlong, phenodiffunits!="correlation coefficient")
 
 rawtaxa$int<-with(rawtaxa, paste(studyid,genus,species,genus2,species2))
 
+#for intxn with mult sites: chose site with biggest sample size
+trans2<-subset(rawlong, studyid!="HMK023")
+sub<-subset(rawlong, studyid=="HMK023" & site=="nopporo")
+rawlong<-rbind(trans2,sub)
 
+#now join
 slim<-rawlong[,c("studyid","phenodiff","genus","species","genus2","species2","fitnessvalue","fitnesstype")]
 slim$int<-with(slim, paste(studyid,genus,species,genus2,species2))
 
@@ -96,7 +103,6 @@ sub<-subset(total, studyid=="HMK059" & fitnesstype=="demographic1")
 total<-rbind(trans2,sub)
 
 
-! TAKE MEAN BEFORE OR AFTER ABSOLUTE VALUE ??
 #center mismatch and fitness
 total<-na.omit(total)
 sup<-aggregate(total["phenodiff"], total[c("studyid", "intid")], FUN=mean, na.action=na.omit); names(sup)[3]<-"phenodiffmean"
@@ -115,7 +121,9 @@ total4$fitness_z<-with(total4, (fitnessvalue-fitnessmean)/fitness_sd)
 
 
 # FITNESS: only for intxns where NEGATIVE effect of mismatch predicted i.e. consumers in resource-consumer intxns (ANY SPP WITH POSITIVE ROLE), exclude competition, parasitism but include pollinator
-go<-subset(total4, intid!="int38" & studyid!="HMK039" & studyid!="HMK052" & studyid!="HMK050" & studyid!="HMK018" & studyid!="HMK024") # get rid of HMK018 because residuals, HMK024 because no raw data; HMK050 because same as HMK054
+
+go<-subset(total4, intid!="int38" & studyid!="HMK039" & studyid!="HMK052" & studyid!="HMK050" & studyid!="HMK018" & studyid!="HMK024" & studyid!="HMK026" & intid!="int17") # get rid of HMK018 because residuals, HMK024 because no raw data; HMK050 because same as HMK054; HMK026 because same as HMK030
+# exclude int17 because mismatch index => not measured in days!
 
 #double check count per intxn
 go$count<-1
@@ -123,10 +131,39 @@ sun<-aggregate(go["count"], go[c("studyid", "intid")], FUN=sum)
 
 #Analysis
 # Approach 1s- exclude studies where changing values on mismatch axis means 2 things
+
+RECHECK THESE INTXNS
 yano<-subset(go, intid=="int37" | intid=="int1" | intid=="int4" | intid=="int5" | intid=="int6" | intid=="int30" | intid=="int14" | intid=="int15" | intid=="int17" | intid=="int22" | intid=="int23" | intid=="int24" | intid=="int33") #n=13 interactions: 37, 1, 4, 5, 6, 30, 14, 15, 17, 22, 23, 24, 33
 
 # Approach 2- only take part of axis where food available (i.e. positive)
+go$count<-1
 yano<-subset(go, phenodiff>0)
+sun<-aggregate(yano["count"], yano[c("studyid", "intid")], FUN=sum)
+names(sun)[3]<-"totalcount"
+yano2<-merge(yano, sun, by=c("studyid", "intid"))
+yano3<-subset(yano2, totalcount>4)
+yano2<-yano3
+
+m1<-lmer(fitness_z~phenodiff+ (1|intid), data=yano2); summary(m1)
+m2<-lmer(fitness_z~phenodiff+ (phenodiff|intid), data=yano2); summary(m2)
+
+dad<-read.csv("analysis/input/studies_geog.csv", header=TRUE, na.strings="NA", as.is=TRUE)
+yano3<-merge(yano2, dad[,c("studyid","eco1","eco2")], by="studyid")
+yano2<-subset(yano3, eco1!="terrestrial")
+yano2<-subset(yano3, eco1=="terrestrial")
+
+
+N<-nrow(yano2)
+y<-yano2$fitness_z
+year<-yano2$phenodiff
+Nint<-length(unique(yano2$intid)); Nint
+intxn<-as.numeric(as.factor(yano2$intid))
+
+
+
+##Approach 3- only take part of axis where negative
+go$count<-1
+yano<-subset(go, phenodiff<0)
 sun<-aggregate(yano["count"], yano[c("studyid", "intid")], FUN=sum)
 names(sun)[3]<-"totalcount"
 yano2<-merge(yano, sun, by=c("studyid", "intid"))
@@ -136,77 +173,87 @@ yano<-yano3
 N<-nrow(yano)
 y<-yano$fitness_z
 year<-yano$phenodiff
-Nint<-length(unique(yano$intid))
+Nint<-length(unique(yano$intid)); Nint
 intxn<-as.numeric(as.factor(yano$intid))
 
-fit.model<-stan("analysis/stanmodels/twolevelrandomintercept.stan", data=c("N","Nint","y","intxn","year"), iter=6000, chains=4)
+
+## Approach 4- take intxns with negative and positive mismatch
+super<-subset(go, intid!="int4" & intid!="int5" & intid!="int6" & intid!="int30" &  intid!="int15" & intid!="int17" & intid!="int22" & intid!="int23" & intid!="int24" & intid!="int33") 
+su<-aggregate(super["phenodiff"], super[c("studyid", "intid")], FUN=range); nrow(su) # check no positive datasets; 
+super$year2<-(super$phenodiff_center)^2
+
+dad<-read.csv("analysis/input/studies_geog.csv", header=TRUE, na.strings="NA", as.is=TRUE)
+super2<-merge(super, dad[,c("studyid","eco1","eco2")], by="studyid")
+super3<-subset(super2, eco1!="terrestrial")
+super3<-subset(super2, eco1=="terrestrial")
+
+N<-nrow(super)
+y<-super$fitness_z
+year<-super$phenodiff_center
+year2<-super$year2
+Nint<-length(unique(super$intid)); Nint
+intxn<-as.numeric(as.factor(super$intid))
+
+#which random effects model for quad?
+m1<-lmer(fitness_z~phenodiff_center + I(phenodiff_center^2)+(1|intid), data=super); summary(m1) #only random intercepts
+m2<-lmer(fitness_z~phenodiff_center + I(phenodiff_center^2)+(0+phenodiff_center|intid), data=super); summary(m2) #only random slopes
+m3<-lmer(fitness_z~phenodiff_center+ I(phenodiff_center^2)+ (1+phenodiff_center|intid), REML=FALSE, data=super); summary(m3) #both intercepts and slopes
+AIC(m1,m2,m3)
+
+#which random effects model for linear?
+m1<-lmer(fitness_z~phenodiff_center +(1|intid), data=super); summary(m1) #only random intercepts
+m2<-lmer(fitness_z~phenodiff_center +(0+phenodiff_center|intid), data=super); summary(m2) #only random slopes
+m3<-lmer(fitness_z~phenodiff_center+ (1+phenodiff_center|intid), REML=FALSE, data=super); summary(m3) #both intercepts and slopes
+AIC(m1,m2,m3)
+
+#quad or linear
+m1<-lmer(fitness_z~phenodiff_center +(0+phenodiff_center|intid), data=super); summary(m1)
+m2<-lmer(fitness_z~phenodiff_center + I(phenodiff_center^2)+(0+phenodiff_center|intid), data=super); summary(m2)
+AIC(m1,m2)
+confint(m1) #profile confidence intervals
+
+fit.model<-stan("analysis/stanmodels/twolevelrandomeffects.stan", data=c("N","Nint","y","intxn","year"), iter=16000, chains=4)
 print(fit.model, pars = c("mu_a", "mu_b", "sigma_y", "a", "b"))
 
-fit.model<-stan("analysis/stanmodels/twolevelrandomeffects.stan", data=c("N","Nint","y","intxn","year"), iter=12000, chains=4)
-print(fit.model, pars = c("mu_a", "mu_b", "sigma_y", "a", "b"))
+fit.model<-stan("analysis/stanmodels/twolevelrandomslopes_quad.stan", data=c("N","Nint","y","intxn","year", "year2"), iter=8000, chains=4)
+print(fit.model, pars = c("mu_b1", "mu_b2", "sigma_y", "a", "b1"))
 
+fit.model<-stan("analysis/stanmodels/twolevelrandomslope.stan", data=c("N","Nint","y","intxn","year"), iter=16000, chains=4)
+print(fit.model, pars = c("mu_b", "sigma_y", "a", "b"))
+summary(fit.model, pars="mu_b")[[1]]
+asdf<-summary(fit.model, pars="b")[[1]]
+mean(asdf[1:21]; 
+
+#fit.model<-stan("analysis/stanmodels/twolevelrandomintercept.stan", data=c("N","Nint","y","intxn","year"), iter=6000, chains=4)
+#print(fit.model, pars = c("mu_a", "sigma_y", "a", "b"))
+
+#overall figure
+goo<-extract(fit.model)
+mean(colMeans(goo$a))
+ggplot(yano2, aes(y=fitness_z, x=phenodiff, colour=as.factor(intid)))+geom_hline(yintercept=0, linetype="dashed")+geom_point()+geom_smooth(method="lm", se=FALSE)+theme_bw()+theme(legend.position="none", axis.title.x = element_text(size=15), axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), axis.title.y=element_text(size=15, angle=90))+geom_abline(slope=-0.02, intercept=0.45, size=0.75)+ylab("Fitness (z-score)")+xlab("mismatch (days)")
+
+a<-ggplot(subset(yano3, eco1=="terrestrial"), aes(y=fitness_z, x=phenodiff, colour=as.factor(intid)))+geom_point()+geom_smooth(method="lm", se=FALSE)+theme_bw()+theme(legend.position="none", axis.title.x = element_text(size=15), axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), axis.title.y=element_text(size=15, angle=90))+geom_abline(slope=-0.04, intercept=0.45, size=0.75)+ylab("Fitness (z-score)")+xlab("mismatch (days)")
+ggplot(subset(yano3, eco1!="terrestrial"), aes(y=fitness_z, x=phenodiff, colour=as.factor(intid)))+geom_point()+geom_smooth(method="lm", se=FALSE)+theme_bw()+theme(legend.position="none", axis.title.x = element_text(size=15), axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), axis.title.y=element_text(size=15, angle=90))+geom_abline(slope=-0.02, intercept=0.45, size=0.75)+ylab("Fitness (z-score)")+xlab("mismatch (days)")
+
+#quadratic
+asdf<-summary(fit.model, pars="mu_b2")
+a<-ggplot(super, aes(y=fitness_z, x=phenodiff, colour=as.factor(intid)))+geom_vline(xintercept=0, linetype="dashed")+geom_hline(yintercept=0, linetype="dashed")+geom_point(size=1)+geom_smooth(method="lm", se=FALSE, formula=y~x+I(x^2))+theme_bw()+theme(legend.position="none", axis.title.x = element_text(size=15), axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), axis.title.y=element_text(size=15, angle=90))+ylab("Fitness (z-score)")+xlab("mismatch (days)")
+b<-ggplot(super, aes(y=fitness_z, x=phenodiff, colour=as.factor(intid)))+geom_vline(xintercept=0, linetype="dashed")+geom_hline(yintercept=0, linetype="dashed")+geom_point(size=1)+geom_smooth(method="lm", se=FALSE)+theme_bw()+theme(legend.position="none", axis.title.x = element_text(size=15), axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), axis.title.y=element_text(size=15, angle=90))+ylab("")+xlab("mismatch (days)")
+multiplot(a,b, cols=2)
 
 #non-bayesian
 1|unit= random intercept
 x= random slope
 0+x|unit = random regression coefficient without corresponding random intercept
 1+x|unit= random intercept AND slope (or just x|unit)
-m1<-lmer(fitness_z~1 + (1+phenodiff|intid), data=yano); summary(m1)
-m2<-lmer(fitness_z~phenodiff + (1+phenodiff|intid), data=yano); summary(m2)
-AIC(m1,m2)
+m1<-lmer(fitness_z~phenodiff + (1+phenodiff|intid), data=yano); summary(m1)
+m2<-lmer(fitness_z~phenodiff + (0+phenodiff|intid), data=yano); summary(m2)
+m3<-lmer(fitness_z~phenodiff + (1|intid), data=yano); summary(m3)
+m4<-lmer(fitness_z~1 + (1|intid), data=yano); summary(m4)
+AIC(m1,m2, m3, m4)
+
+mo2<-update(m1,~.-1); anova(m1,mo2)
 
 
-
-#EXPLORATORY
-# Just magnitude
-go2<-subset(go, studyid!="HMK003")
-sub<-subset(go, studyid=="HMK003" & phenodiff>0)
-sub$phenodiff<-with(sub, -(phenodiff))
-sub1<-subset(go, studyid=="HMK003" & phenodiff<0)
-sub1$phenodiff<-abs(sub1$phenodiff)
-go<-rbind(go2, sub, sub1)
-
-doPlot <- function(sel_name) {
-   subby <- go[go$studyid == sel_name,]
-   ggobj <- ggplot(data=subset(subby, phenodiff>0), aes(x=phenodiff, y=fitnessvalue)) +
-       geom_point(size=3) + facet_wrap(~intid)+geom_smooth(method="lm")+theme_bw()+ theme(legend.position="none",axis.title.x =element_text(size=17), axis.text.x=element_text(size=17), axis.text.y=element_text(size=17), axis.title.y=element_text(size=17, angle=90))+ylab("fitness")+xlab("mismatch")
-   print(ggobj)
-   ggsave(sprintf("graphs/int%s_mag.pdf", sel_name))
-}
-#formula=y~x+I(x^2),
-lapply(unique(go$studyid), doPlot)
-
-ggplot(subset(go, phenodiff>0), aes(y=fitness_z, x=phenodiff, colour=as.factor(intid)))+geom_point()+geom_smooth(method="lm")
-
-# make a f(x), which I adapted from one I found online
-# and use lapply
-doPlot <- function(sel_name) {
-   subby <- go[go$studyid == sel_name,]
-   ggobj <- ggplot(data=subset(subby, phenodiff>0), aes(x=phenodiff, y=fitness_z)) +geom_point(size=3) + facet_wrap(~intid)+geom_smooth(method="lm")+theme_bw()+ theme(legend.position="none",axis.title.x =element_text(size=17), axis.text.x=element_text(size=17), axis.text.y=element_text(size=17), axis.title.y=element_text(size=17, angle=90))+ylab("fitness")+xlab("mismatch")
-   print(ggobj)
-   ggsave(sprintf("graphs/int%s_pos.pdf", sel_name))
-}
-#formula=y~x+I(x^2),
-lapply(unique(go$studyid), doPlot)
-
-doPlot <- function(sel_name) {
-   subby <- go[go$studyid == sel_name,]
-   ggobj <- hist(subby$fitnessvalue)
-   print(ggobj)
-   ggsave(sprintf("graphs/hist_int%s.pdf", sel_name))
-}
-lapply(unique(go$studyid), doPlot)
-
-#Q2- long-term effects of changes in mismatch
-
-slim2<-rawlong[,c("studyid","year","phenodiff","genus","species","genus2","species2")]
-slim2$int<-with(slim2, paste(studyid,genus,species,genus2,species2))
-
-newya<-merge(rawtaxa[,c("studyid","intid","int")], slim2, by=c("studyid","int"))
-newya<-na.omit(newya)
-newya<-unique(newya[,c("studyid","intid","year","phenodiff","genus","species","genus2","species2")])
-newya$year2<-with(newya, round(year, digits=0))
-
-ggplot(newya, aes(y=phenodiff, x=year2, colour=as.factor(intid)))+geom_point()+geom_smooth(method="lm")
 
 
