@@ -227,6 +227,16 @@ mean(asdf[1:21];
 #fit.model<-stan("analysis/stanmodels/twolevelrandomintercept.stan", data=c("N","Nint","y","intxn","year"), iter=6000, chains=4)
 #print(fit.model, pars = c("mu_a", "sigma_y", "a", "b"))
 
+#summary figure
+change<-summary(fit.model, pars="b")[[1]][1:24]
+low<-summary(fit.model, pars="b")[[1]][73:96]
+upper<-summary(fit.model, pars="b")[[1]][169:192]
+dr<-data.frame(cbind(change, low, upper))
+dr$id<-1:24
+ggplot(dr, aes(x=reorder(factor(id), change), y=change))+geom_errorbar(aes(ymin=low, ymax=upper), width=.0025, colour="black")+geom_hline(yintercept=0, linetype="dashed")+geom_point(size=4, aes(order=abs(change)))+theme_bw()+coord_flip()+xlab("Interaction")+ylab("Change in fitness with relative timing(z/days)")+theme(legend.position="none", axis.title.x = element_text(size=15), axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), axis.title.y=element_text(size=15, angle=90))
+
+ggplot(dr, aes(x=change))+geom_histogram(binwidth=0.0075, colour="black", fill="grey", alpha=.2)+theme_bw()+geom_vline(xintercept=-0.023,size=0.75, colour="red")+geom_vline(xintercept=0,linetype=2,size=0.75)+theme(legend.position="none", axis.title.x = element_text(size=17), axis.text.x=element_text(size=17), axis.text.y=element_text(size=17), axis.title.y=element_text(size=17, angle=90))+ylab("Number of interactions")+xlab("Change in fitness with relative timing (z/days)")+annotate("rect", xmin = -0.041, xmax = -0.00728, ymin = 0, ymax = 5, alpha = .4)
+
 #overall figure
 goo<-extract(fit.model)
 mean(colMeans(goo$a))

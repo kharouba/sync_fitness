@@ -119,7 +119,7 @@ year<-go$newyear
 Nint<-length(unique(go$intid)); Nint
 intxn<-as.numeric(as.factor(go$intid))
 
-ggplot(go, aes(y=fitness_z, x=year, colour=as.factor(intid)))+geom_point(size=1)+geom_smooth(method="lm")+theme_bw()+theme(legend.position="none", axis.title.x = element_text(size=20), axis.text.x=element_text(size=20), axis.text.y=element_text(size=20), axis.title.y=element_text(size=20, angle=90))+ylab("Fitness (z-score)")+xlab("Year")
+ggplot(go, aes(y=fitness_z, x=year, colour=as.factor(intid)))+geom_point(size=1)+geom_smooth(method="lm", se=FALSE)+theme_bw()+theme(legend.position="none", axis.title.x = element_text(size=20), axis.text.x=element_text(size=20), axis.text.y=element_text(size=20), axis.title.y=element_text(size=20, angle=90))+ylab("Fitness (z-score)")+xlab("Year")
 #+geom_hline(yintercept=0, line="dashed")
 #+geom_abline(slope=0.0063, intercept=-12.64, size=0.75)
 
@@ -154,6 +154,6 @@ low<-summary(fit.model, pars="b")[[1]][76:100]
 upper<-summary(fit.model, pars="b")[[1]][176:200]
 dr<-data.frame(cbind(asdf, low, upper))
 dr$id<-1:25
-ggplot(dr, aes(x=factor(id), y=change))+geom_errorbar(aes(ymin=low, ymax=upper), width=.0025, colour="black")+geom_hline(yintercept=0, linetype="dashed")+geom_point(size=4, aes(order=abs(change)))+theme_bw()+coord_flip()+ylab("Interaction")+xlab("Change in fitness (z/year)")
+ggplot(dr, aes(x=reorder(factor(id), change), y=change))+geom_errorbar(aes(ymin=low, ymax=upper), width=.0025, colour="black")+geom_hline(yintercept=0, linetype="dashed")+geom_point(size=4, aes(order=abs(change)))+theme_bw()+coord_flip()+xlab("Interaction")+ylab("Change in fitness (z/year)")+theme(legend.position="none", axis.title.x = element_text(size=15), axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), axis.title.y=element_text(size=15, angle=90))
 
 
