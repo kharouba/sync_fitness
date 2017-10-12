@@ -152,8 +152,8 @@ ggplot(uni, aes(x=fitness))+geom_histogram(binwidth=0.2, colour="black", fill="g
 change<-summary(fit.model, pars="b")[[1]][1:25]
 low<-summary(fit.model, pars="b")[[1]][76:100]
 upper<-summary(fit.model, pars="b")[[1]][176:200]
-dr<-data.frame(cbind(asdf, low, upper))
+dr<-data.frame(cbind(change, low, upper))
 dr$id<-1:25
-ggplot(dr, aes(x=reorder(factor(id), change), y=change))+geom_errorbar(aes(ymin=low, ymax=upper), width=.0025, colour="black")+geom_hline(yintercept=0, linetype="dashed")+geom_point(size=4, aes(order=abs(change)))+theme_bw()+coord_flip()+xlab("Interaction")+ylab("Change in fitness (z/year)")+theme(legend.position="none", axis.title.x = element_text(size=15), axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), axis.title.y=element_text(size=15, angle=90))
+ggplot(dr, aes(x=reorder(factor(id), change), y=change))+geom_errorbar(aes(ymin=low, ymax=upper), width=.0025, colour="black")+geom_hline(yintercept=0, linetype="dashed")+geom_point(size=4, aes(order=abs(change)))+theme_bw()+coord_flip()+xlab("Interaction")+ylab("Change in fitness (z/year)")+theme(legend.position="none", axis.title.x = element_text(size=15), axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), axis.title.y=element_text(size=15, angle=90))+geom_hline(yintercept=summary(fit.model, pars="mu_b")[[1]][1], linetype="solid", colour="red")
 
 

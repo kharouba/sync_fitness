@@ -71,6 +71,11 @@ letstry2<-rbind(letstry, sums[,c("studyid", "intid","year","phenodiff","genus","
 newya2<-letstry2
 newya2$yr1980 <- newya2$newyear-1980
 
+
+newya2$count<-1
+sun<- aggregate(newya2["count"], newya2[c("studyid", "intid")], FUN=sum)
+
+
 N<-nrow(newya2)
 y<-abs(newya2$phenodiff)
 year<-newya2$yr1980
@@ -102,6 +107,6 @@ t.test(abs(rowMeans(it1000, na.rm=TRUE)))
 wilcox.test(abs(rowMeans(it1000, na.rm=TRUE)))
 median(abs((rowMeans(it1000, na.rm=TRUE)*10)))
 
-b<-ggplot(uni, aes(x=abs(mismatch*10)))+geom_histogram(binwidth=2, colour="black", fill="grey")+theme_bw()+geom_vline(xintercept=0,linetype=2,size=0.75)+theme(legend.position="none", axis.title.x = element_text(size=20), axis.text.x=element_text(size=20), axis.text.y=element_text(size=20), axis.title.y=element_text(size=20, angle=90))+ylab("")+xlab("Change in number of days/decade")
-a<-ggplot(uni, aes(x=mismatch*10))+geom_histogram(binwidth=2, colour="black", fill="grey")+ylim(0,15)+theme_bw()+geom_vline(xintercept=0,linetype=2,size=0.75)+theme(legend.position="none", axis.title.x = element_text(size=20), axis.text.x=element_text(size=20), axis.text.y=element_text(size=20), axis.title.y=element_text(size=20, angle=90))+ylab("Number of interactions")+xlab("Change in number of days/decade")
+a<-ggplot(uni, aes(x=abs(mismatch*10)))+geom_histogram(binwidth=2, colour="black", fill="grey")+theme_bw()+ylim(0,13)+geom_vline(xintercept=0,linetype=2,size=0.75)+theme(legend.position="none", axis.title.x = element_text(size=17), axis.text.x=element_text(size=17), axis.text.y=element_text(size=17), axis.title.y=element_text(size=17, angle=90))+ylab("Number of interactions")+xlab("relative timing change (days/decade)")+geom_vline(xintercept=median(abs((rowMeans(it1000, na.rm=TRUE)*10))),size=0.75, colour="red")
+b<-ggplot(uni, aes(x=mismatch*10))+geom_histogram(binwidth=2, colour="black", fill="grey")+ylim(0,13)+theme_bw()+geom_vline(xintercept=0,linetype=2,size=0.75)+theme(legend.position="none", axis.title.x = element_text(size=17), axis.text.x=element_text(size=17), axis.text.y=element_text(size=17), axis.title.y=element_text(size=17, angle=90))+ylab("Number of interactions")+xlab("relative timing change (days/decade)")+geom_vline(xintercept=-0.08830949,size=0.75, colour="red")
 multiplot(a,b, cols=2)
