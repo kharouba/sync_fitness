@@ -1,26 +1,47 @@
 ## to make normal distribution curves
 
-plot(function(x) dnorm(x, mean=0), -7, 7, lwd=3)
+plot(function(x) dnorm(x, mean=0), -3, 3, lwd=3, xaxt="n", yaxt="n", xlab="day of year", ylab="fitness", cex.lab=3)
 curve(dnorm(x), add=T)
-curve(dnorm(x), add=T, col=1)
-curve(dnorm(x, sd=2), add=T, col=2, lwd=3) #directly overlap
-curve(dnorm(x, mean=-2, sd=2), add=T, col=2, lwd=3)
-curve(dnorm(x, mean=2, sd=2), add=T, col=2, lwd=3, yaxis="")
+curve(dnorm(x), add=T, col=1, lwd=4)
+curve(dnorm(x, sd=1.5), add=T, col=2, lwd=4) #directly overlap
+curve(dnorm(x, mean=-2, sd=1.5), add=T, col=2, lwd=4)
+curve(dnorm(x, mean=2, sd=1.5), add=T, col=2, lwd=4, yaxis="")
+
+#baseline
+plot(function(x) dnorm(x, mean=0), -3, 3, lwd=3, xaxt="n", yaxt="n", xlab="relative timing (days)", ylab="fitness", cex.lab=3)
+curve(dnorm(x), add=T)
+curve(dnorm(x), add=T, col=1, lwd=4)
+curve(dnorm(x, sd=4), add=T, col=2, lwd=4) #directly overlap
 
 OR
-d1<-density(rnorm(1000000, mean=0, sd=2))
-d2<-density(rnorm(1000000, mean=0, sd=3))
-plot(range(d1$x, d2$x), range(d1$y, d2$y), type="n")
+d1<-density(rnorm(1000000, mean=0, sd=4))
+d2<-density(rnorm(1000000, mean=0, sd=5.5))
+plot(range(d1$x, d1$x), range(d1$y, d2$y), type="n", xaxt="n", yaxt="n", xlab="day of year", ylab="fitness", cex.lab=3)
+lines(d2, col="red", lwd=4)
+lines(d1, col="black", lwd=4)
+
+
+d1<-density(rnorm(1000000, mean=0, sd=4))
+d2<-density(rnorm(1000000, mean=-5, sd=5.5))
+d3<-density(rnorm(1000000, mean=5, sd=3))
+plot(range(d1$x, d2$x), range(d1$y, d1$y), type="n", xaxt="n", yaxt="n", xlab="day of year", ylab="fitness", cex.lab=3)
+lines(d1, col="black", lwd=4)
+lines(d2, col="red", lwd=4)
+lines(d3, col="black")
+
+#baseline
+d1<-density(rnorm(1000000, mean=0, sd=6))
+d2<-density(rnorm(500, mean=0, sd=10))
+plot(range(d1$x, d1$x), range(d1$y, d2$y), type="n")
 lines(d1, col="red")
 lines(d2, col="black")
 
-d1<-density(rnorm(1000000, mean=0, sd=2))
-d2<-density(rnorm(1000000, mean=-5, sd=3))
-d3<-density(rnorm(1000000, mean=5, sd=3))
-plot(range(d1$x, d2$x), range(d1$y, d1$y), type="n")
-lines(d1, col="red")
-lines(d2, col="black")
-lines(d3, col="black")
+plot(function(x) dnorm(x, mean=0), -4,4, lwd=4)
+#curve(dnorm(x), add=T)
+#curve(dnorm(x), add=T, col=1)
+curve(dnorm(x, sd=4.5), add=T, col=2, lwd=4) #directly overlap
+#curve(dnorm(x, mean=-2, sd=2), add=T, col=2, lwd=3)
+#curve(dnorm(x, mean=2, sd=2), add=T, col=2, lwd=3, yaxis="")
 
 
 #EXPLORATORY
