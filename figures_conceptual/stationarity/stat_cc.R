@@ -10,3 +10,6 @@ ylim <- c(110, 190)
 
 plot(sp1~yrs, type="l", col="darkslategray", xlim=xlim, ylim=ylim)
 lines(sp2~yrs, col="darkred", xlim=xlim, ylim=ylim)
+
+## And now get a normal distribution
+plot(density(rnorm(100000000, 0, 10)))
