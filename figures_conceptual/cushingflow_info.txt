@@ -1,0 +1,19 @@
+Started 20 Jan 2019
+
+We are a little slippery on assumptions and how testing them relates to mechanisms ... and then predictions. I wondered if a figure that fleshes this out for us (and the audience?) might help.
+
+I didn't finish the figure but the way it goes is a flow diagram to get from the hypothesis to predictions:
+
+First you test the assumptions: If they are NOT MET you get your first prediction (see figure).
+
+If they ARE MET then you test for a pre-climate change baseline. I am not sure what terms to use here but I think most studies assume the peak of the curve before climate change (I called this 'synchrony'). 
+
+From 'synchrony' then you could make some simple predictions: as asynchrony increases fitness of consumer declines, at some extreme it is zero. (I think we could highlight this pathway from testing assumption to predictions in one color and point out that many studies aim to do this or assume this ...).
+
+Other pathways:
+
+Assumptions met to asynchrony: puts you a on sub-pathway BEFORE predictions to test the mechanism underlying asynchrony (we list a few) and then you get to predicts based on mechanism underlying asynchrony. 
+
+Assumptions only somewhat met (especially 1, right?) put you a a sub-pathway to test mechanistically why they are not met. This should eventually have an arrow that points back up to 'test pre-climate change baseline.'
+
+I was hoping we could also fit FOOD WEB studies in here ... these are ones that don't really measure fitness, right? So maybe we could have some text to the LEFT of the current boxes that says 'assumptions not tested' --> food web studies.... what do you think?
