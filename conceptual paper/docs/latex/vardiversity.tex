@@ -1,0 +1,247 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage{textcomp}
+\usepackage{amsfonts}
+\usepackage{verbatim}
+\usepackage[english]{babel}
+\usepackage{pifont}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{lscape}\parskip=6pt
+
+\usepackage{gensymb} % You have to have this to use \degree
+\usepackage{float}
+\usepackage{latexsym}
+\usepackage{hyperref} 
+\usepackage{url}
+% Reference Supp labels
+% \usepackage{zref-xr}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage{caption}
+\usepackage{lineno}
+\usepackage[utf8]{inputenc}
+\usepackage{sectsty,setspace,natbib}
+\usepackage[top=1.00in, bottom=1.0in, left=1in, right=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{latexsym,epsf,rotating}
+\usepackage{epstopdf}
+\usepackage{todonotes}
+
+\linespread{1.2} % was 1.66 for double-spaced 
+% \raggedright
+\setlength{\parindent}{0.5in}
+
+\setcounter{secnumdepth}{0}
+
+\pagestyle{empty}
+
+\renewcommand{\tableofcontents}{}
+
+
+\pagenumbering{arabic}
+\pagestyle{plain}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LO]{Variety diversity}
+\fancyhead[RO]{\today}
+% put in your own RH (running head)
+
+\def\labelitemi{--}
+\setlength\parindent{0pt} % make document noindent all the way through
+
+%%%%%%%%%%%%%%%%%%%%%%
+%% To do notes %%
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+% \noindent RH: Interactive cues and spring phenology
+% put in your own RH (running head)
+\thispagestyle{empty}
+\bigskip
+\medskip
+\begin{center}
+
+% Insert your title:
+\noindent{\Large Why variety diversity is critical to winegrowing's warmer future} 
+\bigskip
+
+\noindent {\normalsize \sc
+E. M. Wolkovich$^{1}$ \& I. Morales-Castilla$^{2}$}\\
+\noindent {\small \it
+$^1$ Forest \& Conservation Sciences, Faculty of Forestry, University of British Columbia, 2424 Main Mall, Vancouver, BC V6T 1Z4\\
+$^2$ Department of Life Sciences, University of Alcal\'a, Alcal\'a de Henares, 28871, Spain}\\
+
+\end{center}
+\medskip
+\noindent E-mail: e.wolkovich@ubc.ca.\\
+
+\begin{abstract}
+(100/100) Climate change's warming seasons and shifting precipitation regimes have impacted winegrowing regions across the globe: grapes are harvested earlier, alcohol has increased and recent years have seen lower yields in some regions. Here we review how the $>1,000$ different varieties grown today could help regions adapt. These varieties possess tremendous diversity in their responses to climate, yet most exist only in the Old World, with New World regions growing fewer varieties and planting most hectares with only 1\% of the total diversity. We discuss ways to better exploit this diversity and understand which varieties will be ideal in coming decades. 
+\end{abstract}
+
+
+\noindent \emph{Keywords:} phenology, climate change, variety, diversity, resilience\\ %c\'epage, 
+
+% Things not included in MS that we wanted to ...
+% Something about stationarity and how winegrapes were built under stationarity ... and now we're very unstationary. 
+% moving wave of climate change
+% Genetic engineering of grapes (see Nacho's comment below)
+% More on how to make data sharing happen, online repositories etc. (see Nacho's comment below)
+
+\newpage
+(1961/2000)
+Climate change poses a major challenge to agriculture \citep{Porter2014}. Research predicts shifting harvest times, declining yields, and major shifts in agricultural lands as growers aim to keep up with warmer weather, shifting precipitation regimes and increasing extremes in heat and storm-related activity \citep{ipcc2013}. In winegrapes (\emph{Vitis vinifera} subsp. \emph{vinifera}) many of these changes are already occurring: harvest dates are earlier (see Fig. \ref{fig:timeseries}), land in England and other northern areas is being converted for growing early-ripening varieties (e.g., Chardonnay and Pinot noir) and yields may already be declining in some areas \citep{webb2012,ollat2016}. The fact that climate change impacts on winegrapes are particularly obvious should perhaps be expected, as terroir---and its connotations of how climate influences wine---highlights how tightly climate and winegrapes are linked \citep{Gladstones2011}. 
+% https://www.theguardian.com/world/2017/aug/25/france-faces-worst-wine-grape-harvest-since-1945
+
+Winegrape growers have many options for how to adapt to climate change. The amount of adaptive potential---that is, how much climate change a vineyard can sustain without major changes in production---that growers gain generally co-varies with effort \citep{kimmy2012}. At the lowest level, growers can do nothing, but then may struggle to obtain quality harvests as climate change brings an increasingly altered climate. At the next level, growers can alter the microclimates of their vineyard through smaller changes; for example, they can reduce temperatures through shade-cloth, canopy management or micromisting systems \citep{ollat2016,parker2016,vanLeeuwen2016}. Beyond this growers face much larger changes such as shifting where they grow grapes---generally needing to move poleward or up in altitude to track the cooler climates that their vineyard had decades ago---or they may shift the varieties and rootstock that they grow. 
+
+Changing varieties, though requiring a major shift, has several major advantages. First, it allows vineyards to stay in place, thus taking advantage of decades or centuries of local knowledge. Second, it provides a large degree of climate change adaptation potential. As growers currently grow grapes across climates that vary by at least 8$\degree$C \citep{kees2013}, winegrapes as a crop have a great deal of adaptive potential through different varieties (see Fig. \ref{fig:photos}).
+
+Here we review the diversity of winegrape varieties, where it is located and why it is important for climate change adaptation \citep{Wolkovich2017}. We discuss next steps for growers and researchers alike who want to consider shifting varieties as the climate continues to warm. \\
+
+\emph{Winegrape diversity: How much is there and where is it located?}
+
+Estimates of how many winegrape varieties there are today vary widely, from 1,000 to 8,000 being commonly mentioned \citep{Bouquet2002,galet2015}. Until some years ago estimates of tens of thousands were not uncommon but are rarely seen today as genetic testing has shown many varieties sharing different names are actually the same variety. For example, Pinot noir has over 30 other names \citep{winegrapesbook} and what is called Zinfandel in California is the same as what is called Primitivo in Italy, which is the same as Tribidrag, a Croatian variety \citep{winegrapesbook}. Today, an official estimate of the number (richness) of winegrape varieties is still difficult but at least 1,100 non-hybrid \emph{Vitis vinifera} subsp. \emph{vinifera} varieties are grown across the globe \citep{varbook}, with more located in research collections and hundreds more in hybrid varieties. 
+% Maybe mention new varieties developed through genetic engeneering noting that this alternative is incredibly expensive? 
+
+Eleven-hundred planted varieties is an unusually high number for a crop. Further, this number ignores variation due to clones, and rootstocks---yielding an extremely high number of possible plants for a grower to consider when planting. Yet across the globe most hectares are planted with only a sliver of this diversity.  
+
+Globally, 43\% of regions plant more than half their hectares with just 12 varieties (see Fig. \ref{fig:maps}). These twelve varieties are so widely planted around the globe, that they have been termed `international varieties' (Cabernet Sauvignon, Chardonnay, Merlot,  Pinot noir, Syrah, Sauvignon Blanc, Riesling, Muscat Blanc a Petits Grains, Gewurztraminer, Viognier, Pinot Blanc, Pinot Gris). Most of these varieties are French in origin and lead to a strong influence of French varieties globally (see Fig. \ref{fig:maps}). This trend is especially notable in New World winegrowing regions where regions average 71\% of hectares planted with French varieties, including many regions with 90-100\% of hectares of French varieties; in contrast, in Europe outside of France only 26\% of hectares are planted with French varieties. 
+
+The reasons for this focus on such a narrow slice of the total winegrape diversity are many. Geographical labeling laws from the Old World prevented New World growers from labelling blends as `Bordeaux' or `Champagne', which may have contributed to New World growers switching to bottling more single variety wines. This single-variety production caused a need for consumers to focus on what variety is in the bottle---narrowing the market to a small number of varieties that consumers could recognize. Some of the lesser-grown varieties may have had little information on how to manage them for good harvests and thus led growers to plant the most common, well-known varieties. Whatever the reason, the end result is a winegrowing industry that is focused on a small number of varieties, which in turn may limit how resilient the industry will be with climate change. 
+
+
+\emph{Why diversity matters}
+
+Resilience in ecosystems is often defined as the capacity to maintain normal processes and function in the face of stress or disturbance \citep{Folke2004}. Vineyards are human-altered ecosystems; thus they possess resilience just as natural ecosystems do, and both types of ecosystems will be challenged by climate change. Climate change alters the stress that plants experience---through higher average temperatures, more extreme heat, and shifted precipitation patterns, including more rain in a single storm event and longer, more severe droughts \citep{ipcc2013,knutti2013}. Thus, vineyards hoping to maintain production with climate change need to critically manage for resilience. % http://www.reefresilience.org/resilience/what-is-resilience/ecological-resilience/:
+% Climate change has and will continue to fundamentallu alter the earth's climate system, bringing many changes that will alter the stress that plants experience---higher average temperatures, more extreme heat, and shifted precipitation patterns including both more rain in a single storm event and longer, more severe drougts
+
+Decades of ecological research have found that increasing genetic diversity---such as that present in different varieties of winegrapes---can increase a system's resilience \citep{Folke2004}. This is because the different varieties have slightly different responses to a variety of stressors, for example some varieties are more drought tolerant than others \citep{bota2016}, but may respond less well to other stressors, such as high rainfall events or pests. If growers maintain a diversity of varieties then they should generally have some varieties that are doing well, despite climatic stressors. Selecting which varieties these are for each particular vineyard and region requires considering the traits most critical to successful viticulture with climate change.
+
+Many attributes---or `traits'---of varieties are important to consider with climate change, but the major ones relate to how plants respond most directly to temperature and rainfall (see Fig. \ref{fig:framework}). Phenology, including the timing of budburst, flowering, veraison and maturity, affects how well matched a variety is to a region's climate. Thus growers in regions newly available to viticulture through a warming climate select the fastest ripening varieties to fit within new regions' short growing seasons. In contrast, growers in established regions may need to shift to varieties that take longer to ripen as their regions warm beyond what is ideal for current varieties. Growers will also need to carefully consider how different varieties reach maturity---while some varieties may be well-matched for some phenological stages (e.g., budburst and flowering), and reach sugar maturity before the end of the season, growers need varieties that also reach acid and other chemical qualities at the correct time with sugar maturity \citep{rienth2016,torregrosa2017,arriz2018}. Additional important traits include how well a variety fares in heat and cold extremes, and precipitation extremes---including drought for areas that cannot or prefer not to irrigate, and high rainfall events. Such traits clearly co-vary with phenology as how well a variety withstands such extremes generally varies across the seasonal development of each plant \citep[for examples see][]{petrie2005,greer2010}.
+
+A final reason that diversity often harbors resilience comes from the unknown. With climate change some critical plants traits are obvious, including those outlined above; however, other important traits may be yet unseen. For example, disease risk and spread may increase with climate change and new diseases may emerge alongside shifting climate regimes and increasing transport of crops, plants and animals around the globe \citep{fisher2012}. Resistance to disease generally comes from the genes of unique varieties or other \emph{Vitis} species; thus maintaining a diverse repository of plants is critical to mitigating new or changing disease threats. Maintaining such diversity is often handled by government and related scientific organizations, which growers can support through research collaborations and exchanges of methods, practices and data. 
+
+\emph{Next steps}
+
+Adapting viticulture to climate change will require widespread collaborative efforts between growers and researchers, including the sharing of data, information and practices across vineyards and regions. While we outlined a number of plant traits above that growers should consider when choosing potential new varieties, such data are available for few varieties. For example, some data are available for the phenology of many varieties, but it is often from only one to two locations, making it difficult to extrapolate the phenology to other climates. Growers, however, observe phenological data each season; if such data were collected and shared then researchers could quickly scale up models to predict the phenology of many varieties in climates around the globe. Combined with future climate projections, growers could then see what a different variety would look like in terms of timing of budburst, flowering, veraison and maturity in the future in their region. Growers similarly have data on maturity of sugar, acid, tannins and other metrics that could quickly and critically improve understanding of how these juice traits develop over a season---and how much they may depend on climate averages versus extremes, for example. Other metrics are not observed as often or as easily by growers. Drought and heat stress may appear through phenology but ideally require careful measurements of the stress experienced by plants. To increase data on these traits across varieties researchers need to expand the set of varieties and climates they study. 
+
+With such data in hand growers could make better informed decisions for new varieties for their vineyards with climate change. Getting these data to growers, however, requires active and timely collaboration and communication by researchers. Models of phenology and maturity must be rapidly shared with growers and developed at useful scales. 
+
+A continual exchange of information would be most valuable for growers and researchers. As growers develop lists of potentially useful varieties and grow them in small test blocks in their vineyards they will generate new data for varieties in new climates, providing opportunities to test and improve researchers' models. Further, as unexpected changes emerge---such as new or transformed pests and diseases---strong grower-researcher collaborations could provide important opportunities to test out new varieties or practices. If well-executed these collaborations could serve as the basis for scientifically-informed adaptive decisions on a wealth of future winegrowing issues.
+
+% Should we suggest the need of platforms (online or not) devoted to centralize any efforts aimed at sharing data? This is, even though growers wanted to share their data, there is a lack of venues to do so in an easy/centralized way. I'm not saying it is our duty doing so, but if we facilitated growers to contribute their observations through citizen science programmes, perhaps more would be inclined to do so... just a thought. % Good thought, but that will take a lot of words and we're already over. If you have suggestions for what to cut, let me know. 
+
+\emph{Conclusions}
+
+Winegrapes' more than 1,000 varieties possess tremendous variation in their responses to climate and are a major reservoir of diversity that growers can exploit to adapt to climate change's warming seasons and shifting precipitation regimes. Ultimately, however, the solutions we outline may work only up to a point. Current emissions scenarios predict an average warming by the end of the century of 4$\degree$C \citep{ipcc2013}, with many winegrowing regions expected to warm much more. As such the resilience of the winegrowing industry will be dependent on how much warming the globe experiences, as well as how nimble growers are to shift in step with a continually changing climate. 
+
+%=======================================================================
+% \section{}
+%=======================================================================
+
+%=======================================================================
+%\section{Acknowledgements}
+%=======================================================================
+
+
+
+%=======================================================================
+% References
+%=======================================================================
+%\newpage
+\bibliography{/Users/Lizzie/Documents/EndnoteRelated/Bibtex/LizzieMainMinimal}
+\bibliographystyle{apa}
+
+
+%=======================================================================
+% Tables
+%=======================================================================
+
+%\begin{center}  
+%\begin{table}
+%\caption{Key differences between PWR and traditional PCMs such as PGLS.}
+%\begin{tabular}{ | p{4cm} | p{5.5 cm} | p{5.5 cm} |}   \hline 
+%& PWR & PCMs (e.g., PGLS) \\ \hline \hline
+%Major goal & Study of evolution of correlation between variables across species & Study of evolution of correlation between variables across species\\ \hline
+%\emph{Assumption 1:} Nature of correlation between two or more variables & Non-stationary (changes through phylogeny in a phylogenetically conserved fashion) & Stationary (constant) throughout phylogeny (all variation is noise) \\ \hline
+%\emph{Assumption 2:} Completeness of variables & Substitutes phylogeny for variables (simple or complex) not in the model that interact with variables in the model & Assumes variables in model are primary drivers of correlational relationship \\ \hline
+%Inferential mode & Usually exploratory & Hypothesis testing (statistical significance)\\ \hline
+%Outputs & Coefficients of regression changing through the phylogeny & p-value and single set of coefficients presumed to apply to entire phylogeny with their confidence intervals\\ \hline
+
+%Method to avoid overfitting & Cross-validation (boot-strapped determination of optimal band-width for accurate prediciton of hold-outs) & Exact analytical model of errors and degrees of freedom\\ \hline \hline
+%\end{tabular}
+%\end{table}
+%\end{center}
+
+\newpage
+
+%=======================================================================
+% Figures
+%=======================================================================
+
+
+
+\begin{figure}[t!]
+\centering
+\includegraphics[width=1\textwidth]{figures/Harvest_temp_time_BorGHDcoreBEST.pdf}
+\caption{As temperatures across the globe have risen significantly since the early 1980s harvest times have shifted earlier. Here we show (left) global temperature anomalies (the change in global surface temperature relative to 1951-1980 average temperatures) and harvest times (relative to 31st August) averaged across France, and (right) for the Bordeaux region. Temperature anomalies data from NASA-GISS (\url{https://climate.nasa.gov/vital-signs/global-temperature/}) and BEST (Berkeley Earth Surface Temperatures, BEST; \url{http://berkeleyearth.org/data/}), harvest data from \citet{daux2012,cookwine2016}. Note that harvest data end in 2007, while we show climate data through 2017.}
+  \label{fig:timeseries}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[t!]
+\centering
+\includegraphics[width=0.5\textwidth]{figures/photos/mam_sm.jpg}
+\includegraphics[width=0.5\textwidth]{figures/photos/sag_sm.jpg}
+\caption{Two different Italian grape varieties photographed on the same day (4 August 2016) at a research vineyard (at the Robert Mondavi Institute at University of California, Davis) show how differently varieties can develop under the same climate. Here, Mammolo (top) is still undergoing veraison (Brix at 12.6), while Sagrantino (bottom) has completed veraison and is at 20.4 Brix.}
+  \label{fig:photos}
+\end{figure}
+\clearpage 
+
+\begin{figure}[t!]
+\centering
+\includegraphics[width=1\textwidth]{figures/maps/adelaideRichTotHect_bysuperregion.pdf}
+\includegraphics[width=1\textwidth]{figures/maps/adelaideFrenchTotHect_bysuperregion.pdf}
+\caption{Maps of the total hectares of each region (size of circle) and the number of varieties planted in each region (purple shading, top) and the percent of hectares planted with French varieties (pink shading, bottom). For clarity, regions are shown at the super-region level as defined by \citet{ozclarke}.}
+  \label{fig:maps}
+\end{figure}
+% see wine.diversity.maps.R
+\clearpage
+
+
+\begin{figure}[t!]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/Framework_winevitjournal_v2.png}
+\caption{Growers need to consider a number of factors when deciding which varieties may be best for their vineyard in the future with climate change. First (A), they must know the climate-relevant characteristics of all the considered varieties, such as the variety's phenology and other major attributes of its physiology, such as heat and drought tolerance, then (B) they need to consider future climate scenarios for their regions. Combining these two datasources (C) should give a list of varieties for growers to test in their vineyards (D). }
+  \label{fig:framework}
+\end{figure}
+\clearpage
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%=======================================================================
+% to-do listing
+%=======================================================================
+
+\listoftodos
+
+%=======================================================================
+\section*{Other loose ends}
+%=======================================================================
+
+\section*{Old notes on thermal tolerances. }
+
+Thus you may consider thermal tolerances/limits (and where is the species optimum?) when designing growth chamber studies  ...These tests could be especially useful for understanding range limits: look at treatments beyond the variation seen within a species' range and see if there is abrupt change or you see continuous change, if no abrupt change then it may suggest that something else must limit range (e.g., biotic cues, minima temperature after which species) 
+(IMC): Above is true, but perhaps it is far afield. If we decide to leave it in, I would consider emphasizing the fact that while thermal physiology is receiving increased attention to delineate species ranges, for trees that sort of information may not be particularly insightful given the following reasons: (a) there's still little data on CTmax and CTmin for a majority of tree species, (b) there are not huge differences in those thermal tolerances among tree species, and (c) a given tree species may tolerate very high or low temperatures before it dies, but if its phenology advances (or delays) too much, it may cease to reproduce. 
+

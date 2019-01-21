@@ -1,0 +1,660 @@
+\documentclass[12pt]{article}
+
+\usepackage[left=1in,right=1in]{geometry}                
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{lineno}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{natbib}
+\usepackage{subfigure}
+\usepackage{booktabs}
+\usepackage{lscape}
+
+\newcounter{count.exercises}[section]
+\newcommand{\Ex}{\stepcounter{count.exercises} \paragraph{Exercise \arabic{section}.\arabic{count.exercises}:}}
+
+%\renewcommand{\thetable}{I-\arabic{table}}
+
+
+\pagestyle{fancy}
+\fancyhead[L]{ESA 2009}
+\fancyhead[R]{\LaTeX~Workshop Exercises}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{2ex}
+
+%\doublespacing
+\title{ESA 2009 \LaTeX workshop}
+\author{Y. Lucero}
+\date{}
+
+%\bibpunct{(}{)}{,}{a}{}{;}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\linenumbers
+\maketitle
+\tableofcontents
+%\listoftables
+%\listoffigures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Basic Typesetting}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Ex Set up a basic input file modeled on the file shown in the slide. If you like, you can copy filler text from the file LatexExercises.tex. 
+%This is filler text. It is just here so that you can have paragraphs that look like proper paragraphs. You aren't actually meant to read it. In fact, it is distracting. So now we will switch to latin, because I am pretty sure you can't read latin. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non metus id eros tempor placerat. Mauris sed lectus et dui vehicula vehicula. Phasellus dapibus elit sit amet risus. Nam ut erat. Nam cursus est quis ipsum. Nunc blandit enim et justo. Cras sollicitudin, purus nec consequat laoreet, magna nibh venenatis sapien, vitae commodo eros lorem non lacus. Quisque nulla. Aliquam convallis ante ut dolor. Nulla ultrices eros vitae lacus. Donec magna. Aenean at lectus. Donec in sem ac nulla ornare iaculis. Etiam at diam. Phasellus varius, orci sit amet luctus condimentum, dolor metus ultrices sapien, mollis convallis neque nunc a libero. Nulla facilisi. Morbi sit amet quam et ligula ultrices ullamcorper. Curabitur vitae turpis in sapien blandit tempus. Praesent viverra mauris. In commodo cursus nulla.
+\Ex Use the options in \verb|\documentclass[options]{class}| to change the font size of your document. Note that there are only templates types for three font sizes: 10pt, 11pt and 12 pt, where 10pt is the default.
+\Ex Add section headings using \verb|\section{text}|
+\Ex Add subsection headings using \verb|\subsection{text}|
+\Ex Make an unnumbered section heading, \verb|\section*{text}|
+\Ex Make an unnumbered subsection heading, \verb|\subsection*{text}|
+\Ex Latex has a built in run in heading. These are called paragraph headings. Add paragraph headings using \verb|\paragraph{text} text text|
+\Ex Make a sub-paragraph headings \verb|\subparagraph{text} text text |
+\Ex Change some text to bold \verb|\textbf{text}|
+\Ex Emphasize some text (with italics) using \verb|\emph{text}|
+\Ex Underline some text using \verb|\underline{text}|
+\paragraph{Environments:} Many important things are handled with environments. For example, off set equations are created using the equation environment: typing 
+\begin{verbatim}
+\begin{equation} 
+E=mc^2 
+\end{equation}
+\end{verbatim} 
+creates:
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+E = mc^2
+\label{eq.first}\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Environments are a powerful concept that are used in a variety of ways within latex. We will return to this concept many times. For now, try using the itemize environment in the next exercise.
+\Ex Create a list:
+\begin{verbatim}
+\begin{itemize}
+\item green
+\item blue
+\item red
+\end{itemize}
+\end{verbatim}
+This should produce:
+\begin{itemize}
+\item green
+\item blue
+\item red
+\end{itemize}
+\Ex Reproduce the list above as a numbered list using the enumerate environment 
+\Ex Special characters. Some character in tex have special uses, like \% is used for commenting lines out and \$ is used to offset mathematics within a paragraph. In order to actually use these characters in the text, you have to place an escape in front of them: \verb|\%|. Add these characters to your document: \%, \$, \&, \#, \@, \{. 
+\Ex A quirk of latex is the lack of smart quotes. When you type quotes, you always get closed quotes. In order to get an open quote, you have to use the upper left key with the $\sim$ on it: \verb|``quoted"| yields ``quoted"
+\Ex Foreign language: Use \verb|\~n| to get \~n.  Also try \verb|\^a| and \verb|\.x|
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mathematics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Make sure that you have the following packages in your preamble:
+\begin{verbatim}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{amsmath}
+\end{verbatim}
+\Ex You can create math notation within a paragraph (called inline math) by surrounding the text with dollar symbols: \verb|$c^2$|. The \$ symbols open and close math mode. Reproduce the following inline math text:
+
+The pythagorean equation is sometimes also written as $c^2=a^2+b^2$.
+
+Reproduce the equations in this section using some of the commands given. 
+\Ex Follow the example given in Equation \ref{eq.first} to set up a basic equation using the equation environment: \verb|\begin{equation}|...
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+S = c A^z
+\label{eq.}\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\Ex use the function \verb|\sqrt{}| to write this formula
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+c = \sqrt{a^2 + b^2}
+\label{eq.}\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\Ex Create a ratio with the function \verb|\frac{numerator}{denominator}|
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+I = \frac{aP}{1+abP}
+\label{eq.}\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\Ex use the function \verb|\hat{}| to add a modifier to $S$
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+\hat{S} = \frac{I P}{I+E}
+\label{eq.}\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\Ex Create delimitters that can adjust their size: \verb|\left( content \right)|
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+\frac{dN}{dt}= rN\left(1-\frac{N}{K}\right)
+\label{eq.}\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\Ex Special characters: create the greek letters with \verb|\epsilon|, \verb|\mu| and \verb|\sigma| and use \verb|\sim| to create the tilde symbol
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+\epsilon \sim Norm(\mu,\sigma^2)
+\label{eq.}\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\Ex Create superscripts with more than one character: \verb|e^{-rx}| and create a sum with subscripts \verb|\sum_x|
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+1=\sum_x e^{-rx}l(x)b(x)
+\label{eq.}\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\Ex Create a sum with multi-character subscripts and a superscript \verb|\sum_{i=0}^k|
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+RSS = \sum_{i=1}^N (y_{pred}-y_{obs})^2
+\label{eq.}\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\Ex Special characters and spaces, use \verb|\cdots| to create a ellipses and \verb|\qquad| to create a space. Also, use the greek \verb|\beta|
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+y \sim \beta_0+\beta_1x_1 + \cdots  \beta_ix_i+ \epsilon \qquad \epsilon \sim Norm(\mu,\sigma^2)
+\label{eq.}\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\Ex Special characters: \verb|\rightarrow| and \verb|\infty| and the function \verb|\lim_{x}|
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+e^x = \lim_{n \rightarrow \infty} \left( 1 + \frac{x}{n} \right)^n
+\label{eq.}\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\Ex Use \verb|\mid| to create a vertical line and and escape character to get curly braces without an error: \verb|\{ text \}|
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+Pr\{A \mid B\} = \frac{Pr\{A,B\}}{Pr\{B\}}
+\label{eq.}\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\Ex Use \verb|\textup{}| to get the plain text ``good."
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+Pr\{J_i(T) = A\} = Pr\{H(A) = \textup{good}\} Pr\{S(T)>dist(A,B) \mid J_i(0) = B, t=T\}
+\label{eq.}\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\Ex Make one equation number label go away by using \verb|\nonumber| before you close the equation environment. Notice that the equation numbering skips over that equation.
+\Ex There are a few alternatives to the equation environment for creating equations in display mode. You can use the displaymath environment or you can use the square bracket notation: 
+\begin{verbatim}
+\[ E=mc^2 \]
+\end{verbatim}
+These options do not number the equations, only the equation environment does that. 
+\Ex Change the equation numbering to be on the left side by adding the document class option ``leqno" in the preamble:
+\begin{verbatim}
+\documentclass[11pt,leqno]{article}
+\end{verbatim}
+\Ex Also, try the document class option ``fleqn" to have the equations flush left.  
+\Ex The align environment is used for creating multi-line equations. The the \verb|\\| is used to break the lines and the \& is used to indicate where to align the different lines. 
+\begin{verbatim}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{align}
+ f(x) = x^4 &+ 7x^3 +2x^2 \nonumber \\
+ & +10x + 12
+\end{align}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\end{verbatim}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{align}
+ f(x) = x^4 &+ 7x^3 +2x^2 \nonumber \\
+ &  +10x + 12
+\end{align}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Here, I have used the command \verb|\nonumber| on the first line, so the equation produced only numbers the second line. We could also use the environments \verb|align*| to produce an unnumbered equation.
+\Ex Notice that in the equation environment the characters in the denominator are sometimes very small:
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+x = a_0 + \frac{1}{a_1 + \frac{1}{a_2 + \frac{1}{a_3 + a_4}}}
+\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Let's subvert this by reformating the characters. Use the command \verb|\displaystyle{denominator}| in the denominators to produce:
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+  x = a_0 + \frac{1}{\displaystyle a_1 
+          + \frac{1}{\displaystyle a_2 
+          + \frac{1}{\displaystyle a_3 + a_4}}}
+\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\Ex The amsmath package gives us five environments for creating matrices: pmatrix, bmatrix, Bmatrix, vmatrix and Vmatrix. We use these environment within the equation environment. We use the command \verb|\\| to break lines and \& to separate columns. Use the code below to create a matrix, and then try out all five environments.
+\begin{verbatim}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+A = \begin{pmatrix}
+a_{11}   & a_{12}   & a_{13} \\
+a_{21}   & a_{22}   & a_{23} \\
+a_{31}   & a_{32}   & a_{33}
+\end{pmatrix}
+\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\end{verbatim}
+\Ex The cases environment is used to create piecemeal equations. As before, we use the command \verb|\\| to break lines and \& to separate columns. For example:
+\begin{verbatim}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+f(x)=\begin{cases}
+0		& \text{for} \; i = 0		\\
+1	& \text{for} \; i > 0
+\end{cases}
+\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\end{verbatim}
+The command \verb|\text{text}| formats the characters as words rather than math. Within any math environment, the command \verb|\;| creates a single blank space. Use the cases environment to reproduce Equation \ref{eq.cases}. You will require the symbol \verb|\leq| for the lesser-than-or-equal-to symbol.
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{equation}
+f(x,y)=\begin{cases}
+0 &\text{for}\;x\leq 0\,,\\
+\sin x+\phi &\text{for}\;x > 0\,.
+\end{cases}
+\label{eq.cases}\end{equation}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Figures}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In both Word and in Latex, figures and tables are usually created as floats. Floats are objects that cannot be broken up into parts and do not need to appear in the exact location where they are placed within the text. Each time we use the figure environment to create a figure, we create a float objects. 
+
+Make sure that you have \verb|\usepackage{graphicx}| in your preamble. 
+\Ex To include figures, we will use the command \verb|\includegraphics[options]{filename}|. Make sure that you have a file named fig1.pdf in the same directory as your tex file, then use the following code to create a basic figure. 
+\begin{verbatim}
+%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.4]{fig1}
+\caption{A very basic figure.}
+\end{center}
+\end{figure}
+%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+\end{verbatim}
+By default, \verb|\includegraphics{filename}| assumes that the file given is a pdf file. You can use files in many formats, including jpg, gif, png and ps. If you are using a file format other than pdf, then you must include the file suffix when you specify the file name. 
+\Ex You may specify a longer pathname in the command \verb|\includegraphics{pathname}|. Create subdirectory named figs in your current folder, and move fig1.pdf to that subdirectory. Then specify \verb|\includegraphics{figs/fig1}|. You should also be able to move up a directory using the pathname \verb|./fig1|
+\Ex In the above example, we used the option ``scale" for includegraphics. Try these other options: 
+\begin{verbatim}
+\includegraphics[width=5in, height=4in, angle=90]{filename}
+\end{verbatim}
+\Ex The figure environment has options for figure placement: h for here, t for top of page, b for bottom of page and p for place it on a floats only page. For example, try \verb|\begin{figure}[t]|. 
+
+LaTeX tries to follow your placement directions, but it will only do so if the figure ``fits." I.e., if you specify that you want to place a five inch figure ``here," but the page is already mostly filled with text, LaTeX will override your specification and find another place to fit the figure. Therefore, you can specify several placement options at once, and LaTeX will follow them in the order that you specify. For example, the default figure option is often written: [htbp]. Note, LaTeX will try to find a place where the figure fits in both width and height. This means that if your figure is too wide for the page, it will not fit anywhere and LaTeX will place it at the end of your document. Furthermore because floats are placed in order, this will cause Òall of your remaining figures will be placed at the end of the document as well. 
+\Ex Of course, in manuscript form you \emph{want} to place the figures at the end of the document and on its own page. To do this, place your figures at the end of your document and use the command \verb|\newpage| before each figure.
+\Ex Make sure you have the subfigure package loaded and recreate Figure \ref{fig.subfigs} with the following text.  Use the command \verb|\\| to break between rows of figures. 
+\begin{verbatim}
+%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+\begin{figure}[htbp]
+  \begin{center}
+    \subfigure[cap 1]{\label{fig.1a}\includegraphics[scale=0.20]{figs/fig1}}
+    \subfigure[cap 2]{\label{fig.1b}\includegraphics[scale=0.20]{figs/fig1}} \\
+    \subfigure[cap 3]{\label{fig.1c}\includegraphics[scale=0.10]{figs/fig1}}
+    \subfigure[cap 4]{\label{fig.1d}\includegraphics[scale=0.10]{figs/fig1}}
+    \subfigure[cap 5]{\label{fig.1d}\includegraphics[scale=0.10]{figs/fig1}}
+  \end{center}
+  \caption{Master caption.}
+\end{figure}
+%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+\end{verbatim}
+%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+\begin{figure}[htbp]
+  \begin{center}
+    \subfigure[cap 1]{\label{fig.1a}\includegraphics[scale=0.20]{figs/fig1}}
+    \subfigure[cap 2]{\label{fig.1b}\includegraphics[scale=0.20]{figs/fig1}} \\
+    \subfigure[cap 3]{\label{fig.1c}\includegraphics[scale=0.10]{figs/fig1}}
+    \subfigure[cap 4]{\label{fig.1d}\includegraphics[scale=0.10]{figs/fig1}}
+    \subfigure[cap 5]{\label{fig.1d}\includegraphics[scale=0.10]{figs/fig1}}
+  \end{center}
+  \caption{Master caption.}
+\end{figure}
+%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Tables} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Table \ref{tab.basic} is a very basic table produced by this code:
+\begin{verbatim}
+%$$$$$$$$$$$$$$$$$$$$$$
+\begin{table}[htdp]
+\caption{default}
+\begin{center}
+\begin{tabular}{ c c c }
+\hline
+  1 & 2 & 3 \\
+  4 & 5 & 6 \\
+  7 & 8 & 9 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+%$$$$$$$$$$$$$$$$$$$$$$
+\end{verbatim}
+Opening the table environment creates a float. Notice the same placement specifiers as used for the figure environment. The \verb|\caption{}| command creates a caption. We open a centering environment so that the table is centered on the page. Opening the tabular environment starts the table itself. The tabular arguments are how the columns should be aligned: c is for centerd, r is for right aligned, and l is for left aligned. The command \verb|\hline| creates a horizontal line. Rows are broken with \verb|\\| and columns are broken with \&.
+%$$$$$$$$$$$$$$$$$$$$$$
+\begin{table}[htdp]
+\caption{default}
+\begin{center}
+\begin{tabular}{ c c c }
+\hline
+  1 & 2 & 3 \\
+  4 & 5 & 6 \\
+  7 & 8 & 9 \\
+\hline
+\end{tabular}
+\end{center}
+\label{tab.basic}
+\end{table}
+%$$$$$$$$$$$$$$$$$$$$$$
+\Ex Re-create Table \ref{tab.greeks}. You will need to use the inline math mode for the greek letters, i.e. \verb|$\gamma$|. Also, center the columns with symbols in them, but left align the columns with text. 
+%$$$$$$$$$$$$$$$$$$$$$$
+\begin{table}[htdp]
+\caption{Some greek letters.}
+\begin{center}
+\begin{tabular}{ c l c l}
+$\omega$ 	 & omega 		& $\Omega$	& Omega \\
+$\lambda$ 	 & lambda 	& $\Lambda$	& Lambda \\
+$\gamma$ 	& gamma 		& $\Gamma$	& Gamma \\
+\end{tabular}
+\end{center}
+\label{tab.greeks}
+\end{table}
+%$$$$$$$$$$$$$$$$$$$$$$
+\Ex The booktabs package creates more professional looking tables. Make sure you include the booktabs package and try replacing \verb|\hline| with the booktabs commands \verb|\toprule|, \verb|\bottomrule|, and \verb|\midrule|. Also, create a horizontal line that only stretches across some columns, i.e. for columns 1 through 2: \verb|\cmidrule{1-2}|
+\Ex \verb|\begin{tabular}{c l c l c}| Note the distinction between the lower case letter ``l" and the vertical bar $\mid$ (located on the \textbackslash~key). For left alignment, use the letter. To get vertical lines between columns, use the vertical bar between the column alignment arguments to tabular.  
+\Ex The multirow package gives us two commands for grouping rows and columns: \verb|\multicolumn{#columns}{orientation}{text}| and \verb|\multirow{#rows}{width}{text}|. For the width parameter, we can either specify a width (2in) or we can use \verb|*| to get latex to choose the best fitting width. Add this heading to Table \ref{tab.greeks} using the multirow package and the booktabs package:
+\begin{verbatim}
+\toprule
+\multicolumn{2}{c}{lowercase}&\multicolumn{2}{c}{uppercase} \\
+\midrule
+\end{verbatim}
+\Ex Next, use the multirow command to group rows. 
+\begin{verbatim}
+\multirow{3}{*}{familiar}&$\omega$ 	 & omega 		& $\Omega$	& Omega \\
+&$\lambda$ 	 & lambda 	& $\Lambda$	& Lambda \\
+&$\gamma$ 	& gamma 		& $\Gamma$	& Gamma \\\end{verbatim}
+Don't forget to add the empty column on the other grouped rows that don't have the multirow command on them.
+\Ex Put it all together to reproduce Table \ref{tab.greeks2}
+%$$$$$$$$$$$$$$$$$$$$$$
+\begin{table}[htdp]
+\caption{Some harder greek letters.}
+\begin{center}
+\begin{tabular}{c c l c l}
+\toprule
+&\multicolumn{2}{c}{lowercase}&\multicolumn{2}{c}{uppercase} \\
+\cmidrule{2-5}
+\multirow{3}{*}{familiar}&$\omega$ 	 & omega 		& $\Omega$	& Omega \\
+&$\lambda$ 	 & lambda 	& $\Lambda$	& Lambda \\
+&$\gamma$ 	& gamma 		& $\Gamma$	& Gamma \\
+\midrule
+\multirow{2}{*}{unfamiliar}& $\xi$ & xi & $\Xi$ & Xi \\
+& $\upsilon$ & upsilon & $\Upsilon$ & Upsilon \\
+\bottomrule
+\end{tabular}
+\end{center}
+\label{tab.greeks2}
+\end{table}
+%$$$$$$$$$$$$$$$$$$$$$$
+\Ex Frequently, it is desirable to produce tables where a column of numbers are aligned so that they center around a decimal point. This can be done using the specifier \verb|@{text}| which inserts some text in every row. This command suppresses the inter-column space normally placed between columns. Try the following table:
+\begin{verbatim}
+%$$$$$$$$$$$$$$$$$$$$$$
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{r@{.}l}
+3    & 14159   \\                     
+16   & 2       \\                           
+123  & 456     \\ 
+\end{tabular}
+\end{center}
+\end{table}
+%$$$$$$$$$$$$$$$$$$$$$$
+\end{verbatim}
+\Ex By default, if the text in a column is too wide for the page, LaTeX won’t automatically wrap it. Using \verb|p{width}| as a specifier in the tabular environment, you can define a special type of column which will wrap-around the text as in a normal paragraph. For example, try re-creating a version of Table \ref{tab.wrap} using the following:
+\begin{verbatim}
+\begin{tabular}[h]{l | p{3in}}
+\end{verbatim}
+%$$$$$$$$$$$$$$$$$$$$$$
+\begin{table}[h]
+\centering
+\caption{Example of columns with wrapped text. Also, useful list of packages for making sophisticated tables.}
+\label{tab.wrap}
+\begin{tabular}[h]{l | p{3in}}
+Package & 	Description \\
+\midrule
+hhline & Do whatever you want with horizontal lines \\
+array& gives you more freedom on how to define columns\\
+colortbl& make your table more colorful\\
+supertab& for tables that need to stretch over several pages\\
+longtable& same as above. Note: footnotes do not work properly in a normal tabular environment. If you replace it with a longtable environment, footnotes work properly\\
+xtabular& Yet another package for tables that need to span many pages\\
+tabulary& modified tabular* allowing width of columns set for equal heights\\
+array & Does several things, including letting you create paragraph columns where text is bottom aligned or centered.
+\end{tabular}
+\end{table}
+%$$$$$$$$$$$$$$$$$$$$$$
+\Ex You can resize tables with \verb|\resizebox{width}{height}{tabular object}|. Using the symbol ! for the height preserves the original width/height ratio. Try resizing one of your tables with:
+\begin{verbatim}
+\resizebox{5in}{!}{
+\begin{tabular}{...}
+...
+\end{tabular}
+}
+\end{verbatim}
+\Ex You can also try \verb|\scalebox{ratio}{tabular object}|
+\Ex Use the landscape environment to rotate your table to landscape orientation. This environment requires the lscape package, so be sure to add lscape in your pre-amble with other packages. This package was not included in the original test.tex file and so may not be available offline to some users.
+\begin{verbatim}
+\begin{landscape}
+\begin{table}
+....
+\end{table}
+\end{landscape}
+\end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Advanced Typesetting}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Working with counters, references and labels}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Counters} Latex uses counters to keep track of the numbering of sections, equations, tables, figures, etc. Here is a partial list of important counters that are automatically created: chapter, section, part, paragraph, page, equation, figure, table, footnote, section, subsection, subsubsection.
+\Ex Use the command \verb|\setcounter{counter.name}{new value}| to change the current page number to page ten: \verb|\setcounter{page}{10}|. Then change it back.
+\Ex Change the table numbering so that it skips table 1 by placing \verb|\setcounter{table}{2}| before the first table float is created.
+\Ex You can simply advance a counter using \verb|\addtocounter{counter}|
+\Ex You can see the value of a counter by placing \textbackslash the in front of the counter name, e.g. \verb|\thesection| will print the section number.
+\Ex Importantly, you can reformat how numbering appears using \verb|\renewcommand{}{}|. To reformat how the counter appears, you can use any of the following: \verb|\arabic{counter}|, \verb|\alph{counter}|, \verb|\Alph{counter}|, \verb|\roman{counter}|, \verb|\Roman{counter}|. For example place the following in your preamble: 
+\begin{verbatim}
+\renewcommand{\thetable}{I-\arabic{table}}
+\end{verbatim}
+\paragraph{Labels and References} Any counter can be dynamically referenced. First, you use the command \verb|\label{lab.text}| to marcate a section, table, figure or equation. Then later, you use the command \verb|\ref{lab.text}| to reference it. For equations, the label should be placed within the equation environment. For sections, you only need to place the label after the section has been created. For figures and tables, the label should be placed after the \verb|\caption{text}| command, because this is when the counter is officially advanced. 
+
+It is a good idea to have a naming system for choosing labels. For example, I usually follow this convention:
+\begin{itemize}
+\item tab.name for tables
+\item fig.name for figures
+\item eq.name for equations
+\item sec.name for sections
+\end{itemize}
+where ``name" is something short and memorable. The goal is to choose labels that are easy to remember so that you spend minimal time going back to look them up. 
+\Ex Label and then references at least one of each: table, figure, equation and section. Note that for the references to work, you must compile twice. This is because LaTeX collects the labels on the first pass, and fills in the references on the second pass. 
+\Ex Try out \verb|\pageref{your.label.here}|. This will return the page number instead of the counter number. 
+\Ex You can automatically change the section heading style for an appendix. Place the command \verb|\appendix| towards the end of your document and then create some new section headings afterwards. Notice that you now have a new style of section numbering for your appendix. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Titles, Line Numbers, Headers and Footers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Ex You can automatically create a formal title by defining a few fields and then adding the command \verb|\maketitle| where you want the title to show up (usually immediately below \verb|\begin{document}|. To define the title page fields, add the following to your preamble:
+\begin{verbatim}
+\title{Best Article Ever}
+\author{your name here!}
+\date{December 31, 1999}
+...
+\begin{document}
+\maketitle
+\end{verbatim}
+\Ex If you fail to define the date field, the latex will default to today's date. If you prefer no date, you can put \verb|\date{}|
+\Ex You can add line numbers with \verb|\usepackage{lineno}| and the following command inside your document: \verb|\linenumbers|
+\Ex Insert a table of contents into your document by adding the command \verb|\tableofcontents| after \verb|\maketitle|. You will need to compile twice. Notice that this command creates a file with the .toc suffix. This is a simple text file, and if you open it you will see the latex code used to typeset your table of contents. 
+\Ex In exactly the same way, you can add \verb|\listoffigures| or \verb|\listoftables|. Again, text files are produced with the suffixes .lof and .lot and you will need to compile twice. Latex will place the list where you place the commands. You may prefer to have these lists at the end of your document. 
+\Ex These two commands draw on the captions to generate the lists. If you prefer a shorter title be used in the list, you can go back to the caption in the figure or table and use the options:  \verb|\caption[short caption for list]{real caption}|
+\Ex Notice that latex adds page numbers to your document by default. Try removing the page numbers by adding the command \verb|\pagestyle{empty}| in your preamble.
+\Ex Suppose you want to put the page number as page x of y. By default, latex only keeps track of the current page and not the total number of pages. But you can use the lastpage package to keep track of the total number of pages. Like with \verb|\ref{}|, you will need to compile twice to make this work. Try adding this to your preamble:
+\begin{verbatim}
+\usepackage{lastpage}
+\cfoot{\thepage\ of \pageref{LastPage}}
+\end{verbatim}
+\Ex You can also create customized headers and footers using the fancy header package. Add the following to your preamble
+\begin{verbatim}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{Date updated: \today{}}
+\fancyhead[R]{\LaTeX~Exercises}
+\end{verbatim}
+There are a couple of new things going on in the example above. I am using the command \verb|\today{}| to print out the current date in the heading. I am using the command \verb|\LaTeX| (case sensitive) to get the name to print out in the official \LaTeX way. And I am using the symbol \verb|~| to preserve a space in between \LaTeX and Exercises. Try removing the \verb|~| and see that the words are pushed together. 
+\Ex Add a footer using \verb|\fancyfoot[selector]{text}|. The selectors can be L for left, R for right, or C for center. Also, try leaving the selector out altogether and see what happens.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Working with the EA style file}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Ex Go get the ecologyLatexClass.tar. This is a style file and supporting materials for the journal Ecological Applications written by Todd Jobe, a UNC postdoc. Unzip these files and compile the example file.
+\Ex Next, put a copy of ecology.cls into the same directory as your exercises.tex file. Change the document class of your document from ``article" to ``ecology." Compile this document, ignoring the errors that come up. Observe how this style file changes your document. Particularly note what it does with figures and tables.
+\Ex Fill out the empty fields of the title page (Running Head, etc.). Look to the preamble in the example file to learn how to do this.
+\Ex Use the environments for abstract and keywords to add an abstract and keywords to your document. Look to the example file for a demonstration of this.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Manipulating White Space}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Latex recognizes a few very specific measurements, Table \ref{tab.measurements} lists the types of units that are available to you when using spacing commands.
+%$$$$$$$$$$$$$$$$$$$$$$
+\begin{table}[htdp]
+\caption{Measurement units used in LaTeX}
+\label{tab.measurements}
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+pt	&	a point is 1/72.27 inch, that means about 0.0138 inch or 0.3515 mm.\\
+bp	&	a big point is 1/72 inch, that means about 0.0139 inch or 0.3527 mm.\\
+mm	&	a millimeter\\
+cm	&	a centimeter\\
+in	&	inch\\
+ex	&	roughly the height of an 'x' in the current font\\
+em	&	roughly the width of an 'M' (note the uppercase) of the current font\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+%$$$$$$$$$$$$$$$$$$$$$$
+\Ex Add a vertical space of three inches between two paragraphs: \verb|\vspace{3in}|
+\Ex \label{ex.length}Add a small blank space inside the middle of a word: \verb|\hspace{1em}|
+
+Here is a list of several built in length parameters that control different parts of the page layout:
+\begin{itemize}
+\item \verb|\baselineskip| The normal vertical distance between lines in a paragraph
+\item \verb|\baselinestretch|  Multiplies \verb|\baselineskip|
+\item \verb|\pagewidth| The width of the page
+\item \verb|\pageheight| The height of the page
+\item \verb|\parindent| The normal paragraph indentation
+\item \verb|\parskip| The extra vertical space between paragraphs
+\item \verb|\tabcolsep| The default separation between columns in a tabular environment
+\item \verb|\textheight| The height of text on the page
+\item \verb|\textwidth| The width of the text on the page
+\item \verb|\topmargin| The size of the top margin (bottom margin is pageheight-topmargin)
+\end{itemize}
+\Ex Choose a parameter and use the set length command to simply change the value: \verb|\setlength{\parskip}{5ex}|. Notice that you can place this command anywhere in your document (including the preamble) and it will only change the parameter after the command is issued. 
+\Ex Alternatively, make changes relative to the the default value: 
+\begin{verbatim}
+\addtolength{\baselineskip}{1in}
+\end{verbatim}
+\Ex By default, latex will indent new paragraphs. I generally prefer that paragraphs not be indented but that there be spaces between paragraphs. To achieve my preferred formatting, I add this to the preamble:
+\begin{verbatim}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{2ex}
+\end{verbatim}
+\Ex Use the geometry package options in the preamble to change the margin size of the document, e.g.:
+\begin{verbatim}
+\usepackage[left=1in,right=1in]{geometry}                
+\end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bibliographies}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Bibliographies without BibTeX}
+The very simplest bibliographies are created with an environment called thebibliography. 
+\Ex Try this code to generate a short reference list:
+\begin{verbatim}
+\begin{thebibliography}{}
+\bibitem{lamport.1994}
+  Leslie Lamport,
+  \emph{\LaTeX: A Document Preparation System}.
+  Addison Wesley, Massachusetts, 2nd Edition, 1994.
+\end{thebibliography}
+\end{verbatim}
+Each bibliographic item is started with \verb|\bibitem{citekey}|. Next you write out the reference. The line breaks above are for readability, latex will actually ignore them. 
+\Ex if you would like to cite this reference, type \verb|\cite{lamport.1994}|. As before, you will need to compile twice. By default, latex uses numbered citations. To change this we require the bibtex and the natbib package.
+%%%%%%%%%%%%%%%%%%%%%%
+\subsection{BibTeX}
+%%%%%%%%%%%%%%%%%%%%%%
+Make sure you have these files in the same directory as your tex file: example.bib, ea.bst
+\Ex Now we will use bibtex to create a reference list. There are four steps. 
+
+1. Cite the references in your document. Place this code in somewhere in your document
+\begin{verbatim}
+\nocite{ives.2003,kuparinen.2009,kuparinen.2009a,maechler.2005,zwillinger.1992}
+\end{verbatim}
+\nocite{ives.2003,kuparinen.2009,kuparinen.2009a,maechler.2005,zwillinger.1992}
+
+2. Call the bibliography style file: 
+\begin{verbatim}
+\bibliographystyle{ea} 
+\end{verbatim}
+The command \verb|\bibliographystyle{}| can be placed anywhere in the document, including the preamble, so long as it appears before you issue the command \verb|\bibliography{}|. 
+
+3. Call the bibliography data file 
+\begin{verbatim}
+\bibliography{example}
+\end{verbatim}
+Place the command where you want the reference list to appear and be sure the leave off the .bib suffix. 
+
+4. Compile. In TeXnic Center, the inclusion of bibtex happens in a single step along with the usual compile command. However in any unix-like system, including TeXshop on OSX, this is done in four steps:
+\begin{enumerate}
+\item compile LaTeX (shift-apple-L): gather cite keys
+\item compile BibTeX (shift-apple-B): looks up cite keys in .bib file, generates .bbl file
+\item compile LaTeX (shift-apple-L): inserts reference list
+\item compile LaTeX (shift-apple-L): inserts citations where cite keys are
+\end{enumerate}
+This should produce the following:
+%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{ea} 
+\bibliography{example}
+%%%%%%%%%%%%%%%%%%%%%%
+\Ex Bibtex generates a .bbl file. This is also a simple text file. You can open it up and see how your reference list is generated. 
+\Ex Let's cite some of these references within the text now. We would like to use author/year format and so we require the natbib package. Make sure that you have \verb|\usepackage{natbib}| in your preamble. Now try: \verb|\citep{maechler.2005}|. This should produce \citep{maechler.2005}
+\Ex Use the command \verb|\bibpunct| to change the citation style:
+\begin{verbatim}
+\bibpunct{[}{]}{,}{a}{}{;}
+\end{verbatim}
+It has six mandatory arguments:
+\begin{enumerate}
+\item the opening bracket symbol, default = (
+\item the closing bracket symbol, default = )
+\item the punctuation between multiple citations, default = ;
+\item the letter `n' for numerical style, or `s' for numerical superscript style, any other letter for author-year, default = author-year;
+\item the punctuation that comes between the author names and the year
+\item the punctuation that comes between years or numbers when common author names are suppressed (default = ,)
+\end{enumerate}
+\Ex Now, refer to Table \ref{tab.natbib} for the full list of citation commands in natbib. Try each one out.  
+%$$$$$$$$$$$$$$$$$$$$$$
+\begin{table}[htdp]
+\caption{Natbib commands}
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Citation command	& Output \\
+\midrule
+\verb|\citet{goossens93}|	& Goossens et al. (1993)\\
+\verb|\citep{goossens93}|	& (Goossens et al., 1993)\\
+\verb|\citet*{goossens93}|	& Goossens, Mittlebach, and Samarin (1993)\\
+\verb|\citep*{goossens93}|	& (Goossens, Mittlebach, and Samarin, 1993)\\
+\verb|\citeauthor{goossens93}|	& Goossens et al.\\
+\verb|\citeauthor*{goossens93}|	& Goossens, Mittlebach, and Samarin\\
+\verb|\citeyear{goossens93}|	& 1993\\
+\verb|\citeyearpar{goossens93}|	& (1993)\\
+\bottomrule
+\end{tabular}
+\end{center}
+\label{tab.natbib}
+\end{table}
+%$$$$$$$$$$$$$$$$$$$$$$
+\Ex We provided several bibliography style files: ecology.bst, science.bst, nature.bst and plos.bst. Make sure these files are in your directory and sexperiment with the various style files. For example,
+\begin{verbatim}
+\bibliographystyle{science} 
+\end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
