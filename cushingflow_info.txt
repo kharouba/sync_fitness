@@ -1,0 +1,93 @@
+Started 20 Jan 2019
+
+We are a little slippery on assumptions and how testing them relates to mechanisms ... and then predictions. I wondered if a figure that fleshes this out for us (and the audience?) might help.
+
+I didn't finish the figure but the way it goes is a flow diagram to get from the hypothesis to predictions:
+
+First you test the assumptions: If they are NOT MET you get your first prediction (see figure).
+
+If they ARE MET then you test for a pre-climate change baseline. I am not sure what terms to use here but I think most studies assume the peak of the curve before climate change (I called this 'synchrony'). 
+
+From 'synchrony' then you could make some simple predictions: as asynchrony increases fitness of consumer declines, at some extreme it is zero. (I think we could highlight this pathway from testing assumption to predictions in one color and point out that many studies aim to do this or assume this ...).
+
+Other pathways:
+
+Assumptions met to asynchrony: puts you a on sub-pathway BEFORE predictions to test the mechanism underlying asynchrony (we list a few) and then you get to predicts based on mechanism underlying asynchrony. 
+
+Assumptions only somewhat met (especially 1, right?) put you a a sub-pathway to test mechanistically why they are not met. This should eventually have an arrow that points back up to 'test pre-climate change baseline.'
+
+I was hoping we could also fit FOOD WEB studies in here ... these are ones that don't really measure fitness, right? So maybe we could have some text to the LEFT of the current boxes that says 'assumptions not tested' --> food web studies.... what do you think?
+
+-----
+Feb 11 2019
+HK comments:
+
+- Love this idea!!
+
+- In general- I think we can be more deliberate with our language in the figure and in the text. 
+
+- I think we should have boxes around each grouping of text :)
+
+- Can't decide whether we should have numbered boxes
+
+- Thoughts on flow of diagram: 
+box 1: assumptions met? 
+box 2: mechanism of hypothesis known? (rather than 'somewhat', although not sure how to link assumptions and mechanisms, I imagine we want to focus on mechanisms testing hypothesis?)
+box 3: baseline hypotheses
+box 4: baseline predictions
+box 5: ultimate goal:
+box X: assumptions NOT met 
+
+- I think you can test assumptions with food web studies without fitness data, or at least test that consumer dynamics dependent on resource. 
+
+- Box for assumptions: Consumer and resource show seasonality in their periods of activity vs. dormancy (?)
+
+- Can you bold/underline titles of each box
+
+- Not sure how much text we should have in the boxes vs in the Figure caption.
+
+- Box for baseline- Include word 'hypothesis' with (H1) synchrony: consumer fitness was highest before climate change (i.e. consumer fitness was matched to the peak availability of its resource) and (H2) asynchrony: consumer fitness was not highest before climate change (i.e. consumer fitness was not matched to the peak availability of its resource). Again, not sure if these words need to be in the box or in caption.
+
+- For asynchrony- test hypothesis first or test mechanism? Does prediction change depending on mechanism? Seems like it could get complicated fast if we get too specific? Seems to me to suggest studies test hypothesis then mechanism
+
+- include somewhere, potentially in Box with baseline hypotheses- mechanisms for asynchrony: alternative life-history strategies (e.g., maximizing fecundity over mortality, bet-hedging), phenological cues not historically correlated but are now synchronized. Also thinking type of interaction (mutualism less likely to face mismatch than predator-prey given direction of selection pressures) but because we're only focusing on trophic in our review, not sure if we should include
+
+- I think baseline predictions should include climate change because without cc, they're just straight predictions of Cushing...
+
+
+- Box for baseline predictions:[these are independent of mechanism] If climate change increases the gap in the relative timing of a consumer and resource (i.e. increases the number of days between the key life history events of a consumer and resource), 
+prediction for H1: consumer fitness should decline and at some extreme limit, decline to zero. 
+prediction for H2: no associated change in consumer fitness
+
+
+- Box X- "No, assumptions not met"
+
+- Include box at the end of the circuit? Predict mismatch based on climate change
+
+- EMW comment: I think we could highlight this pathway from testing assumption to predictions in one color and point out that many studies aim to do this or assume this ...
+- HK comment in response: Not sure exactly what you mean but sounds like it could be good!
+** EMW on 15 Feb 2019: I have no idea either! **
+
+
+-----
+Feb 15 2019
+EMW
+
+- Currently figure does not include life history studies versus food web ones: any ideas how to include or include in caption or skip including?
+
+- HK wrote: "Box for baseline- Include word 'hypothesis' with (H1) synchrony: consumer fitness was highest before climate change (i.e. consumer fitness was matched to the peak availability of its resource) and (H2) asynchrony: consumer fitness was not highest before climate change (i.e. consumer fitness was not matched to the peak availability of its resource). Again, not sure if these words need to be in the box or in caption." ...
+
+EMW: I just put synchrony and asynchrony for now .. Let me know how you want me to change.
+
+- Text mechanisms: I think we maybe should mention only ultimate mechanisms (aren't cues just proximate) or clearly label proximate versus ultimate ... also, I tried color coding mechanisms that go with asynchrony versus synchrony .. what do you think, can we add more?
+
+- Testing mechanisms and testing baseline are supposed to happen at the same time(ish) according to the current figure and working out each one will help inform the other (feedback arrow)
+
+- I adjusted predictions a touch, take a look and let me know how you want the text changed. 
+
+- What did I miss?
+
+- What else should we change?
+
+
+
