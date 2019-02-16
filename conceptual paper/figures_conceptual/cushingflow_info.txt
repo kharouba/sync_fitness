@@ -66,8 +66,28 @@ prediction for H2: no associated change in consumer fitness
 
 - EMW comment: I think we could highlight this pathway from testing assumption to predictions in one color and point out that many studies aim to do this or assume this ...
 - HK comment in response: Not sure exactly what you mean but sounds like it could be good!
+** EMW on 15 Feb 2019: I have no idea either! **
 
 
+-----
+Feb 15 2019
+EMW
+
+- Currently figure does not include life history studies versus food web ones: any ideas how to include or include in caption or skip including?
+
+- HK wrote: "Box for baseline- Include word 'hypothesis' with (H1) synchrony: consumer fitness was highest before climate change (i.e. consumer fitness was matched to the peak availability of its resource) and (H2) asynchrony: consumer fitness was not highest before climate change (i.e. consumer fitness was not matched to the peak availability of its resource). Again, not sure if these words need to be in the box or in caption." ...
+
+EMW: I just put synchrony and asynchrony for now .. Let me know how you want me to change.
+
+- Text mechanisms: I think we maybe should mention only ultimate mechanisms (aren't cues just proximate) or clearly label proximate versus ultimate ... also, I tried color coding mechanisms that go with asynchrony versus synchrony .. what do you think, can we add more?
+
+- Testing mechanisms and testing baseline are supposed to happen at the same time(ish) according to the current figure and working out each one will help inform the other (feedback arrow)
+
+- I adjusted predictions a touch, take a look and let me know how you want the text changed. 
+
+- What did I miss?
+
+- What else should we change?
 
 
 
