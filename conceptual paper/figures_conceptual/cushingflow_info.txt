@@ -90,4 +90,19 @@ EMW: I just put synchrony and asynchrony for now .. Let me know how you want me 
 - What else should we change?
 
 
+-------
+Feb 19 2019
+HK comments
+- Changes look good!
+- It occurs to me that we can be a lot clearer about mechanisms in the main text too. We hint that we need to test mechanisms but never address them head on (until the baseline section). 
+- I think we can separate mechanisms by food web vs. life history. I also think we need to make it even more clear which ones relate to synchrony vs. asynchrony
+- One idea we could do is have a box of general mechanisms (though still food web vs. life history) and then specify potential mechanisms in the box with the two baseline hypotheses
+e.g. general mechanism= optimal timing depends on trade-offs between the costs of (a-)synchrony and the costs of mistiming other events; specific one for synchrony= prioritize mortality over fecundity vs. asynchrony= maximize fecundity over mortality)
 
+- Is there a reason why box around assumptions is red? Could be confusing with the asynchrony colour
+- wondering about resource quality vs. quantity
+- I think we want to be careful about not getting into the context in which mismatch occur, which we argue in our intro has been reviewed elsewhere. Another reason to only get into ultimate mechanisms ?? Instead of interaction type we could say co-evolution
+- Singer and Parmesan also suggest that genetic constraints on size or phenology could be another mechanism for asynchrony
+
+- I think having the asynchrony in  'if climate change causes asynchrony' could be confusing although I don't have a better suggestion 
+ 
