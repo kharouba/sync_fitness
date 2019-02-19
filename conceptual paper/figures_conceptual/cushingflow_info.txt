@@ -91,18 +91,29 @@ EMW: I just put synchrony and asynchrony for now .. Let me know how you want me 
 
 
 -------
-Feb 19 2019
-HK comments
-- Changes look good!
-- It occurs to me that we can be a lot clearer about mechanisms in the main text too. We hint that we need to test mechanisms but never address them head on (until the baseline section). 
-- I think we can separate mechanisms by food web vs. life history. I also think we need to make it even more clear which ones relate to synchrony vs. asynchrony
-- One idea we could do is have a box of general mechanisms (though still food web vs. life history) and then specify potential mechanisms in the box with the two baseline hypotheses
+Feb 18 2019
+HK comments with EMW replies ... 
+(1) Changes look good!
+(2) It occurs to me that we can be a lot clearer about mechanisms in the main text too. We hint that we need to test mechanisms but never address them head on (until the baseline section). EMW: Yes!
+
+(3) I think we can separate mechanisms by food web vs. life history. I also think we need to make it even more clear which ones relate to synchrony vs. asynchrony. 
+(4) One idea we could do is have a box of general mechanisms (though still food web vs. life history) and then specify potential mechanisms in the box with the two baseline hypotheses
 e.g. general mechanism= optimal timing depends on trade-offs between the costs of (a-)synchrony and the costs of mistiming other events; specific one for synchrony= prioritize mortality over fecundity vs. asynchrony= maximize fecundity over mortality)
 
-- Is there a reason why box around assumptions is red? Could be confusing with the asynchrony colour
-- wondering about resource quality vs. quantity
-- I think we want to be careful about not getting into the context in which mismatch occur, which we argue in our intro has been reviewed elsewhere. Another reason to only get into ultimate mechanisms ?? Instead of interaction type we could say co-evolution
-- Singer and Parmesan also suggest that genetic constraints on size or phenology could be another mechanism for asynchrony
+-> EMW (in reply to 3-4 comments): Okay, I worry this might be too much for one box though ... so we need to:
+(a) Figure out what the goal of the figure is then work towards that, eliminating some stuff along the way.
+(b) I am not sure we have enough space to separate out synchrony/asynchrony mechanisms and food-web/life history mechanisms. If we do it has to be an extra column of the flow, so we have to decide what comes first. I am not sure the mechanisms should be separated into boxes ... they should be somewhat consistent in some cases, no?
+(c) If we don't do this we could *either* focus on just synchrony and follow through food web/life history OR focus on life history and follow through on synchrony/asynchrony. Based on how the flow works now, we are only focusing on asynchrony when it occurs due to some OTHER reason than Cushing hypothesis assumptions not being met.
+(d) *So, it would help me a LOT if you can tell me what the 'ultimate goal' people would follow this flow chart is for. And if you could send a PDF sketch (you can just do it on paper) of the major mechanisms we think belong in this flow chart and what they lead to, feel free to also color code or such by life-history or food web. At this point I think the back and forth by text is not helping me enough.*
 
-- I think having the asynchrony in  'if climate change causes asynchrony' could be confusing although I don't have a better suggestion 
+
+(5) Is there a reason why box around assumptions is red? Could be confusing with the asynchrony colour -- EMW: No, we can change all the colors once the figure is closer to final.
+(6) wondering about resource quality vs. quantity
+(7) I think we want to be careful about not getting into the context in which mismatch occur, which we argue in our intro has been reviewed elsewhere. Another reason to only get into ultimate mechanisms ?? Instead of interaction type we could say co-evolution
+-> EMW (6-7) I think this sounds good, but then what is the ultimate goal in the figure? To forecast synchrony/asynchrony and resulting fitness? That is match/mismatch. We need a clear goal for the flow diagram, otherwise, why follow it?
+
+(8) Singer and Parmesan also suggest that genetic constraints on size or phenology could be another mechanism for asynchrony
+-> EMW (re 8) We could probably come up with 20+ mechanisms ... we either need to classify into smaller groups (related to theory ... so 'constraints related to body size' or such where it's obvious what we mean) or we need to focus on what we think are the top mechanisms. As I am not sure it's useful to tell people to test 20+ mechanisms. 
+
+(9) I think having the asynchrony in  'if climate change causes asynchrony' could be confusing although I don't have a better suggestion 
  
