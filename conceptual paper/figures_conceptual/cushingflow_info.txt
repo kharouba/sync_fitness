@@ -135,3 +135,17 @@ example 2- winter moth
 example 3- also insect  (not sure how specific we want to be but can get spp from Hopper 1999)
 
 I'm not sure what to do about the relationship between the assumptions and mechanism boxes. Maybe it's about adding another option/pathway and changing wording back to- assumptions met? yes, no, unknown (if unknown test ultimate mechanisms-> assumptions now met? yes- move on to climate change OR no
+
+
+---
+March 3 2019
+
+I took out top-down in mechanism box because it violates Asspmtn 1. 
+
+Did I miss any of your edits?
+
+Should we skip the blue versus red versus purple color for synchrony / asynchrony / both possible ... or keep for now?
+
+Please help me update example text!
+
+
