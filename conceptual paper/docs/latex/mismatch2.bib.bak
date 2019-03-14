@@ -12,7 +12,7 @@
 }
 
 @Article{thackeray2016,
-  author    = {Thackeray, Stephen J and Henrys, Peter A and Hemming, Deborah and Bell, James R and Botham, Marc S and Burthe, Sarah and Helaouet, Pierre and Johns, David G and Jones, Ian D and Leech, David I and others},
+  author    = {Thackeray, Stephen J. and Henrys, Peter A. and Hemming, Deborah and Bell, James R. and Botham, Marc S. and Burthe, Sarah and Helaouet, Pierre and Johns, David G. and Jones, Ian D. and Leech, David I. and others},
   title     = {Phenological sensitivity to climate across taxa and trophic levels},
   journal   = {Nature},
   year      = {2016},
@@ -354,7 +354,7 @@
 
 @Article{hampton2006,
   author    = {Hampton, Stephanie E and Scheuerell, Mark D and Schindler, Daniel E},
-  title     = {Coalescence in the Lake Washington story: Interaction strengths in a planktonic food web},
+  title     = {Coalescence in the Lake Washington story: interaction strengths in a planktonic food web},
   journal   = {Limnology and Oceanography},
   year      = {2006},
   volume    = {51},
@@ -628,6 +628,175 @@
   number    = {10},
   pages     = {2204--2220},
   publisher = {Wiley Online Library},
+}
+
+@Article{george2012,
+  author    = {George, DG},
+  title     = {The effect of nutrient enrichment and changes in the weather on the abundance of Daphnia in Esthwaite Water, Cumbria},
+  journal   = {Freshwater Biology},
+  year      = {2012},
+  volume    = {57},
+  number    = {2},
+  pages     = {360--372},
+  publisher = {Wiley Online Library},
+}
+
+@Article{law2009,
+  author    = {Law, Tony and Zhang, Weitao and Zhao, Jingyang and Arhonditsis, George B},
+  title     = {Structural changes in lake functioning induced from nutrient loading and climate variability},
+  journal   = {Ecological Modelling},
+  year      = {2009},
+  volume    = {220},
+  number    = {7},
+  pages     = {979--997},
+  publisher = {Elsevier},
+}
+
+@Article{francis2014,
+  author    = {Francis, Tessa B and Wolkovich, Elizabeth M and Scheuerell, Mark D and Katz, Stephen L and Holmes, Elizabeth E and Hampton, Stephanie E},
+  title     = {Shifting regimes and changing interactions in the Lake Washington, USA, plankton community from 1962--1994},
+  journal   = {PloS one},
+  year      = {2014},
+  volume    = {9},
+  number    = {10},
+  pages     = {e110363},
+  publisher = {Public Library of Science},
+}
+
+@Article{vatka2014,
+  author    = {Vatka, Emma and Rytk{\"o}nen, Seppo and Orell, Markku},
+  title     = {Does the temporal mismatch hypothesis match in boreal populations?},
+  journal   = {Oecologia},
+  year      = {2014},
+  volume    = {176},
+  number    = {2},
+  pages     = {595--605},
+  publisher = {Springer},
+}
+
+@Article{holliday1977,
+  author    = {Holliday, NJ},
+  title     = {Population ecology of winter moth (Operophtera brumata) on apple in relation to larval dispersal and time of bud burst},
+  journal   = {Journal of Applied Ecology},
+  year      = {1977},
+  pages     = {803--813},
+  publisher = {JSTOR},
+}
+
+@Article{tikkanen2000,
+  author    = {Tikkanen, O-P and Niemel{\"a}, Pekka and Ker{\"a}nen, Johanna},
+  title     = {Growth and development of a generalist insect herbivore, Operophtera brumata, on original and alternative host plants},
+  journal   = {Oecologia},
+  year      = {2000},
+  volume    = {122},
+  number    = {4},
+  pages     = {529--536},
+  publisher = {Springer},
+}
+
+@Article{wiltshire2008,
+  author    = {Wiltshire, Karen Helen and Malzahn, Arne Michael and Wirtz, Kai and Greve, Wulf and Janisch, Silvia and Mangelsdorf, Peter and Manly, Bryan FJ and Boersma, Maarten},
+  title     = {Resilience of North Sea phytoplankton spring bloom dynamics: An analysis of long-term data at Helgoland Roads},
+  journal   = {Limnology and Oceanography},
+  year      = {2008},
+  volume    = {53},
+  number    = {4},
+  pages     = {1294--1302},
+  publisher = {Wiley Online Library},
+}
+
+@Article{visser2006,
+  author    = {Visser, Marcel E. and Holleman, Leonard J. M. and Gienapp, Phillip},
+  title     = {Shifts in caterpillar biomass phenology due to climate change and its impact on the breeding biology of an insectivorous bird},
+  journal   = {Oecologia},
+  year      = {2006},
+  volume    = {147},
+  number    = {1},
+  pages     = {164--172},
+  publisher = {Springer},
+}
+
+@InCollection{henrich1990,
+  author    = {Henrich-Gebhardt, Sabine G.},
+  title     = {Temporal and spatial variation in food availability and its effects on fledgling size in the great tit},
+  booktitle = {Population biology of passerine birds},
+  publisher = {Springer},
+  year      = {1990},
+  pages     = {175--185},
+}
+
+@Article{kelleri1994effects,
+  author  = {KELLERI, L. F. and VAN NOORDWIJK, A. J.},
+  title   = {Effects of local environmental conditions},
+  journal = {Ardea},
+  year    = {1994},
+  volume  = {82},
+  pages   = {349--362},
+}
+
+@Article{dornelas2014,
+  author    = {Dornelas, Maria and Gotelli, Nicholas J. and McGill, Brian and Shimadzu, Hideyasu and Moyes, Faye and Sievers, Caya and Magurran, Anne E.},
+  title     = {Assemblage time series reveal biodiversity change but not systematic loss},
+  journal   = {Science},
+  year      = {2014},
+  volume    = {344},
+  number    = {6181},
+  pages     = {296--299},
+  publisher = {American Association for the Advancement of Science},
+}
+
+@Article{sgardeli2016,
+  author    = {Sgardeli, Vasiliki and Zografou, Konstantina and Halley, John M.},
+  title     = {Climate change versus ecological drift: assessing 13 years of turnover in a butterfly community},
+  journal   = {Basic and applied ecology},
+  year      = {2016},
+  volume    = {17},
+  number    = {4},
+  pages     = {283--290},
+  publisher = {Elsevier},
+}
+
+@Article{senner2017,
+  author    = {Senner, Nathan R and Stager, Maria and Sandercock, Brett K},
+  title     = {Ecological mismatches are moderated by local conditions for two populations of a long-distance migratory bird},
+  journal   = {Oikos},
+  year      = {2017},
+  volume    = {126},
+  number    = {1},
+  pages     = {61--72},
+  publisher = {Wiley Online Library},
+}
+
+@Article{deacy2017,
+  author    = {Deacy, William W and Armstrong, Jonathan B and Leacock, William B and Robbins, Charles T and Gustine, David D and Ward, Eric J and Erlenbach, Joy A and Stanford, Jack A},
+  title     = {Phenological synchronization disrupts trophic interactions between Kodiak brown bears and salmon},
+  journal   = {Proceedings of the National Academy of Sciences},
+  year      = {2017},
+  volume    = {114},
+  number    = {39},
+  pages     = {10432--10437},
+  publisher = {National Acad Sciences},
+}
+
+@Article{chuine2017,
+  author    = {Chuine, Isabelle and R{\'e}gni{\`e}re, Jacques},
+  title     = {Process-based models of phenology for plants and animals},
+  journal   = {Annual Review of Ecology, Evolution, and Systematics},
+  year      = {2017},
+  volume    = {48},
+  pages     = {159--182},
+  publisher = {Annual Reviews},
+}
+
+@Article{tikkanen2003,
+  author    = {Tikkanen, Olli-Pekka and Julkunen-Tiitto, Riitta},
+  title     = {Phenological variation as protection against defoliating insects: the case of Quercus robur and Operophtera brumata},
+  journal   = {Oecologia},
+  year      = {2003},
+  volume    = {136},
+  number    = {2},
+  pages     = {244--251},
+  publisher = {Springer},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
