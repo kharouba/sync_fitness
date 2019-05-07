@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  14 MAR 2019 11:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  14 MAR 2019 12:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**mismatch_review2.tex
-(./mismatch_review2.tex
+**mismatch_review3_march.tex
+(./mismatch_review3_march.tex
 LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
@@ -981,8 +981,8 @@ s
 \f@nch@O@olf=\skip66
 \f@nch@O@orf=\skip67
 )
-(./mismatch_review2.aux)
-\openout1 = `mismatch_review2.aux'.
+(./mismatch_review3_march.aux)
+\openout1 = `mismatch_review3_march.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
 LaTeX Font Info:    ... okay on input line 54.
@@ -1045,9 +1045,9 @@ LaTeX Info: Redefining \ref on input line 54.
 LaTeX Info: Redefining \pageref on input line 54.
 LaTeX Info: Redefining \nameref on input line 54.
 
-(./mismatch_review2.out) (./mismatch_review2.out)
+(./mismatch_review3_march.out) (./mismatch_review3_march.out)
 \@outlinefile=\write4
-\openout4 = `mismatch_review2.out'.
+\openout4 = `mismatch_review3_march.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: rotating package is loaded.
@@ -1107,80 +1107,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
-[1
 
-{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
-
- []
+Package natbib Warning: Citation `thackeray2016' on page 1 undefined on input l
+ine 87.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
-
- []
-
-[2] (./mismatch_review2.bbl [3]) [4] [5] [6
-
-]
-<fig1_v1.png, id=116, 690.4194pt x 670.4247pt>
-File: fig1_v1.png Graphic file (type png)
-<use fig1_v1.png>
-Package pdftex.def Info: fig1_v1.png  used on input line 182.
-(pdftex.def)             Requested size: 422.77664pt x 410.53386pt.
- [7
-
- <./fig1_v1.png>]
-<fig2.png, id=125, 372.1905pt x 679.338pt>
-File: fig2.png Graphic file (type png)
-<use fig2.png>
-Package pdftex.def Info: fig2.png  used on input line 191.
-(pdftex.def)             Requested size: 305.33789pt x 557.30954pt.
+Package natbib Warning: Citation `ovaskainen2013' on page 1 undefined on input 
+line 87.
 
 
-LaTeX Warning: Float too large for page by 8.87955pt on input line 193.
-
-[8 <./fig2.png (PNG copy)>]
-<fig3_v1.png, id=131, 803.0pt x 953.5625pt>
-File: fig3_v1.png Graphic file (type png)
-<use fig3_v1.png>
-Package pdftex.def Info: fig3_v1.png  used on input line 201.
-(pdftex.def)             Requested size: 375.80544pt x 446.28291pt.
+Package natbib Warning: Citation `caradonna' on page 1 undefined on input line 
+87.
 
 
-LaTeX Warning: Float too large for page by 20.25298pt on input line 203.
+Package natbib Warning: Citation `kharouba2018' on page 1 undefined on input li
+ne 87.
 
-[9 <./fig3_v1.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 209.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 209.
- (./mismatch_review2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 209.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 209.
-Package rerunfilecheck Info: File `mismatch_review2.out' has not changed.
-(rerunfilecheck)             Checksum: ACF56AE8272C4BDF12F252F70B134FBB;299.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 209.
- ) 
-Here is how much of TeX's memory you used:
- 20827 strings out of 492649
- 375834 string characters out of 6129622
- 460716 words of memory out of 5000000
- 24249 multiletter control sequences out of 15000+600000
- 16155 words of font info for 63 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 62i,11n,77p,1436b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
-sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
-/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/lo
-cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
-/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/t
-exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on mismatch_review2.pdf (9 pages, 752531 bytes).
-PDF statistics:
- 184 PDF objects out of 1000 (max. 8388607)
- 156 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 68 words of extra memory for PDF output out of 10000 (max. 10000000)
 
+Package natbib Warning: Citation `post2007' on page 1 undefined on input line 8
+7.
+
+
+Package natbib Warning: Citation `burkle2013' on page 1 undefined on input line
+ 87.
+
+
+Package natbib Warning: Citation `plard2014' on page 1 undefined on input line 
+87.
+
+
+Package natbib Warning: Citation `doiron2015' on page 1 undefined on input line
+ 87.
+
+
+Package natbib Warning: Citation `vatka2011' on page 1 undefined on input line 
+87.
+
+
+Package natbib Warning: Citation `burt

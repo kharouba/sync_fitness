@@ -1,0 +1,1016 @@
+curve(dnorm(x, mean=-2, sd=1.5), add=T, col=1, lwd=4)
+plot(function(x) dnorm(x, mean=0), -3, 3, lwd=3, xaxt="n", yaxt="n", xlab="time (days)", ylab="fitness", col=2, cex.lab=3) #was col=1
+curve(dnorm(x, mean=2, sd=1.5), add=T, col=1, lwd=4, yaxis="")
+plot(function(x) dnorm(x, mean=0), -3, 3, lwd=3, xaxt="n", yaxt="n", xlab="time (days)", ylab="fitness", col=2, cex.lab=3) #was col=1
+curve(dnorm(x, mean=2, sd=1.5), add=T, col=1, lwd=4, yaxis="")
+curve(dnorm(x, mean=2, sd=1.5), add=T, col=1, lwd=4, ylab="")
+4/10
+4/12
+40/50
+37/50
+39
+39/50
+41/5-
+41/50
+41/50
+43/50
+42/50
+44/50
+25/2
+75*2
+150*3
+75*1.5
+112.5*3
+450/6
+75*3
+240+240+240+450+450+450+450
+75*6
+15+22+50+13
+8+12+15+(1.67*6)+5+15+10+25
+26*10
+rm(list=ls())#
+source("/users/kharouba/google drive/UBC/summarySE.R")#
+source("/users/kharouba/google drive/UBC/multiplot.R")#
+setwd("/users/kharouba/google drive/UOttawa/research/jennyproject/")#
+source("stepAICc.R")#
+#setwd("/users/kharouba/google drive/UOttawa/
+library(lme4)#
+library(ggplot2)#
+library(plyr) # for count function#
+library(knitr) # for kable function#
+library(glmmADMB) #downloaded from http://glmmadmb.r-forge.r-project.org#
+library(glmmTMB)#
+library(car)#
+library(geiger) #for name.check#
+library(AICcmodavg) #for AICc#
+library(pez) #for community PGLMM#
+library(phytools)#
+library(corrplot)#
+library(usdm)#
+library(QuantPsyc)#
+library(nlme)#
+library(lmerTest)#
+library(DHARMa)#
+library(bbmle)#
+library(VGAM)#
+library(sjstats) #for R2#
+library(r2glmm) #R2 for glmmPQL (https://cran.r-project.org/web/packages/r2glmm/README.html)#
+library(visreg)
+dater<-read.csv("jennytraitdata2.csv", header=TRUE, na.strings="NA", as.is=TRUE)#
+dater$density<-with(dater, totpres/hull_area)#
+dater$overfit<-with(dater, obs/numvars)#
+dater$log_overfit<-log(dater$overfit)#
+dater$AUC_logit<-logit(dater$AUC_indep)#
+dater$species<-as.factor(dater$species)#
+dater$model<-as.factor(dater$model)#
+dater$woody<-as.factor(dater$woody)#
+dater$edge<-as.factor(dater$edge)#
+dater$reg<-as.factor(dater$reg)#
+dater$dispersal<-as.factor(dater$dispersal)#
+dater$log_seedwt<-log(dater$seedwt)#
+dater$log_obs<-log(dater$obs)#
+dater$log_density<-log(dater$density)#
+dater$modeltype<-with(dater, paste("model",model,"_","reg",reg))#
+dater$maxD2<-with(dater, maxD/1000000)#
+dater$meanlat2<-with(dater, meanlat/100000)#
+dater$log_seedwt2<-with(dater, log_seedwt/10)#
+dater$log_density2<-with(dater, log_density/10)
+dater$soil1_simps<-with(dater, (soil1_simp-mean(soil1_simp))/sd(soil1_simp)) # only species vary in values, not model type#
+dater$geo_simps<-with(dater, (geo_simp-mean(geo_simp))/sd(geo_simp))#
+dater$log_densitys<-with(dater, (log_density-mean(log_density))/sd(log_density)) #
+dater$maxDs<-with(dater, (maxD-mean(maxD))/sd(maxD))#
+dater$log_seedwts<-with(dater, (log_seedwt-mean(log_seedwt))/sd(log_seedwt))#
+dater$meanlats<-with(dater, (meanlat-mean(meanlat))/sd(meanlat))
+m1<-glmmTMB(AUC_indep~woody+dispersal+soil1_simps+log_densitys+maxDs+log_seedwts+I(log_seedwts^2)+meanlats+(1|modeltype), family=beta_family, data=dater); summary(m1); # 7 variables
+r2(m1)
+m1<-glmmTMB(AUC_indep~woody+dispersal+log_densitys+log_seedwts+I(log_seedwts^2)+(1|modeltype), family=beta_family, data=dater); summary(m1); # 4 variables
+r2(m1)
+cod(m1)
+m1<-glmmPQL(TPR_mpa~edge+woody+dispersal+log_densitys+maxDs+log_seedwts+meanlats, random=~1|modeltype, family=quasibinomial(link="logit"), data=dater); summary(m1) #The quasibinomial and quasipoisson families differ from the binomial and poisson families only in that the dispersion parameter is not fixed at one, so they can model over-dispersion.
+r2(m1)
+r2beta(model=m1, partial=TRUE, data=dater) #https://cran.r-project.org/web/packages/r2glmm/README.html; Each interpretation can be used for model selection; the proportion of generalized variance explained by the fixed predictors. This statistic is primarily used to select a covariance structure in the linear and generalized linear mixed model.
+r2beta(model=m1, partial=FALSE, data=dater) #https://cran.r-project.org/web/packages/r2glmm/README.html; Each interpretation can be used for model selection; the proportion of generalized variance explained by the fixed predictors. This statistic is primarily used to select a covariance structure in the linear and generalized linear mixed model.
+0.432-0.419
+0.0024+0.093+0.0523+0.025+0.0884+0.0194+0.0154+0.0817
+9+18+18+30+10+9.5
+17/20
+16/20
+8+17+15+21+10+8
+23/30
+15/20
+8+17+15+23+10+8
+81*0.2
+16.2/20
+81*0.4
+25/30
+25+32.4
+57.4/70
+9+19+18+29+10+9.5
+28/30
+setwd("/users/kharouba/google drive/uOttawa/research/synchrony_fitness/conceptual paper/figures")#
+source("/users/kharouba/google drive/UBC/multiplot.R")#
+#
+library(grid)#
+#
+## Figure 3#
+raw <- read.csv("HMK038_data.csv", header=TRUE, na.strings="NA")#
+sub<-subset(raw, tree!="NA")#
+yes<-aggregate(sub["mortality"], sub[c("day")], FUN=median)#
+yes2<-aggregate(sub["time"], sub[c("day")], FUN=median); names(yes2)[2]<-"corr_time"#
+yes3<-merge(yes,yes2)#
+yes3$expt<-"first"#
+#
+sub2<-raw[1:16,c("mortality","corr_time")]#
+sub2$expt<-"second"#
+raw2<-rbind(sub2,yes3[,2:4])
+raw2$surv<-with(raw2, 100-mortality)
+ggplot(raw2, aes(corr_time, y=surv))+geom_vline(xintercept=0, linetype="dashed", size=0.5)+geom_point(aes(colour=factor(expt)), size=3)+ylim(0,100)+xlim(-90, 90)+theme_bw()+theme(legend.position="none", axis.title.x = element_text(size=15), axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), axis.title.y=element_text(size=15, angle=90))+ylab("Survival of O. brumata (%)")+xlab("Relative timing (degree-days)")+annotation_custom(grob = textGrob(label = "a)", hjust = 0, gp = gpar(cex = 1.5)), ymin = 100, ymax = 100, xmin = -90, xmax = -90)
+head(raw2)
+range(raw2$corr_time)
+obs <- read.csv("vanAsch_data.csv", header=TRUE, na.strings="NA")
+head(obs)
+28/30
+94.5*0.4
+28+37.8
+65.8/70
+57.4/70
+26/30
+25/30
+57.4/70
+58.4/70
+## utility functions#
+#
+##' extract the 'conditional-model' term from a glmmTMB object;#
+##' otherwise, return x unchanged#
+collapse_cond <- function(x)#
+    if (is.list(x) && "cond" %in% names(x)) x[["cond"]] else x#
+#
+##' Cleaned-up/adapted version of Jon Lefcheck's code from SEMfit;#
+##' also incorporates some stuff from MuMIn::rsquaredGLMM.#
+##' Computes Nakagawa/Schielzeth/Johnson analogue of R^2 for#
+##' GLMMs. Should work for [g]lmer(.nb), glmmTMB models ...#
+##'#
+##' @param model a fitted model#
+##' @return a list composed of elements "family", "link", "marginal", "conditional"#
+my_rsq <- function(model) {#
+#
+    ## get basics from model (as generally as possible)#
+    vals <- list(#
+        beta=fixef(model),#
+        X=getME(model,"X"),#
+        vc=VarCorr(model),#
+        re=ranef(model))#
+#
+    ## glmmTMB-safety#
+    if (is(model,"glmmTMB")) {#
+        vals <- lapply(vals,collapse_cond)#
+        nullEnv <- function(x) {#
+            environment(x) <- NULL#
+            return(x)#
+        }#
+        if (!identical(nullEnv(model$modelInfo$allForm$ziformula),nullEnv(~0)))#
+            warning("R2 ignores effects of zero-inflation")#
+        dform <- nullEnv(model$modelInfo$allForm$dispformula)#
+        if (!identical(dform,nullEnv(~1)) &&#
+            (!identical(dform,nullEnv(~0))))#
+            warning("R2 ignores effects of dispersion model")#
+    }#
+    ## Test for non-zero random effects#
+    if (any(sapply(vals$vc, function(x) any(diag(x)==0)))) {#
+        ## FIXME: test more generally for singularity, via theta?#
+        stop("Some variance components equal zero. Respecify random structure!")#
+    }#
+#
+    ## set family/link info#
+    ret <- list()#
+    if (is(model,"glmmTMB") || is(model,"glmerMod")) {#
+        ret$family <- family(model)$family#
+        ret$link <- family(model)$link#
+    } else {#
+        ret$family <- "gaussian"; ret$link <- "identity"#
+    }#
+#
+    ## Get variance of fixed effects: multiply coefs by design matrix#
+    varF <- with(vals,var(as.vector(beta %*% t(X))))#
+#
+    ## Are random slopes present as fixed effects? Warn.#
+    random.slopes <- if("list" %in% class(vals$re)) {#
+                         ## multiple RE#
+                         unique(c(sapply(vals$re,colnames)))#
+                     } else {#
+                         colnames(vals$re)#
+                     }#
+    if (!all(random.slopes %in% names(vals$beta))) #
+        warning("Random slopes not present as fixed effects. This artificially inflates the conditional R2. Respecify fixed structure!")#
+    ## Separate observation variance from variance of random effects#
+    nr <- sapply(vals$re, nrow)#
+    not.obs.terms <- names(nr[nr != nobs(model)])#
+    obs.terms <- names(nr[nr==nobs(model)])#
+#
+    ## Compute variance associated with a random-effects term#
+    ## (Johnson 2014)#
+    getVarRand <- function(terms) {#
+        sum(#
+            sapply(vals$vc[terms],#
+                   function(Sigma) {#
+                Z <- vals$X[, rownames(Sigma), drop = FALSE]#
+                Z.m <- Z %*% Sigma#
+                return(sum(diag(crossprod(Z.m, Z))) / nobs(model))#
+            } )#
+        )#
+    }#
+    ## Variance of random effects #
+    varRand <- getVarRand(not.obs.terms)#
+#
+    if (is(model,"lmerMod") ||#
+        (ret$family=="gaussian" && ret$link=="identity")) {#
+        ## Get residual variance#
+        varDist <- sigma(model)^2#
+        varDisp <- 0#
+    } else {#
+        varDisp <- if (length(obs.terms)==0) 0 else getVarRand(obs.terms)#
+        badlink <- function(link,family) {#
+            warning(sprintf("Model link '%s' is not yet supported for the %s distribution",link,family))#
+            return(NA)#
+        }#
+#
+        if(ret$family == "binomial") {#
+            varDist <- switch(ret$link,#
+                              logit=pi^2/3,#
+                              probit=1,#
+                              badlink(ret$link,ret$family))#
+        } else if (ret$family == "poisson" ||#
+                   grepl("nbinom",ret$family) ||#
+                   grepl("Negative Binomial", ret$family)) {#
+            ## Generate null model (intercept and random effects only, no fixed effects)#
+#
+            ## https://stat.ethz.ch/pipermail/r-sig-mixed-models/2014q4/023013.html#
+            ## FIXME: deparse is a *little* dangerous#
+            rterms <- paste0("(",sapply(findbars(formula(model)),deparse),")")#
+            nullform <- reformulate(rterms,response=".")#
+            null.model <- update(model,nullform)#
+#
+            ## from MuMIn::rsquaredGLMM#
+#
+            ## Get the fixed effects of the null model#
+            null.fixef <- unname(collapse_cond(fixef(null.model)))#
+#
+            ## in general want log(1+var(x)/mu^2)#
+            logVarDist <- function(null.fixef) {#
+                mu <- exp(null.fixef)#
+                if (mu < 6)#
+                    warning(sprintf("mu of %0.1f is too close to zero, estimate may be unreliable \n",mu))#
+                vv <- switch(ret$family,#
+                            poisson=mu,#
+                            nbinom1=,#
+                            nbinom2=family(model)$variance(mu,sigma(model)),#
+                            if (is(model,"merMod"))#
+                                mu*(1+mu/getME(model,"glmer.nb.theta"))#
+                            else mu*(1+mu/model$theta))#
+                cvsquared <- vv/mu^2#
+                return(log1p(cvsquared))#
+            }#
+#
+            varDist <- switch(ret$link,#
+                              log=logVarDist(null.fixef),#
+                              sqrt=0.25,#
+                              badlink(ret$link,ret$family))#
+        }#
+    }#
+    ## Calculate R2 values#
+    ret$Marginal = varF / (varF + varRand + varDisp + varDist)#
+    ret$Conditional = (varF + varRand) / (varF + varRand + varDisp + varDist)#
+    return(ret)#
+}#
+#
+if (FALSE) {#
+    fm1 <- lmer(Reaction~Days+(Days|Subject),data=sleepstudy)#
+    fm2 <- glmmTMB(Reaction~Days+(Days|Subject),data=sleepstudy)#
+    my_rsq(fm1)#
+    my_rsq(fm2)#
+#
+    ## devtools::install_github("jslefche/piecewiseSEM")#
+    library(piecewiseSEM)#
+    sem.model.fits(fm1)  ## same answer#
+#
+    fm3 <- glmer(incidence/size~period+(1|herd),cbpp,#
+                 family=binomial,weights=size)#
+    fm4 <- glmmTMB(incidence/size~period+(1|herd),cbpp,#
+                   family=binomial,weights=size)#
+    my_rsq(fm3)#
+    my_rsq(fm4)#
+#
+    fm5 <- glmer.nb(TICKS~YEAR+scale(HEIGHT)+(1|BROOD),grouseticks)#
+    fm6 <- glmmTMB(TICKS~YEAR+scale(HEIGHT)+(1|BROOD),grouseticks,family=nbinom2)#
+    my_rsq(fm5)#
+    my_rsq(fm6)#
+}#
+#
+## Tjur's coeff of determination, from sjmisc ... ????#
+## only does Bernoulli responses ???#
+cod <- function(x) {#
+    y <- model.response(model.frame(x))#
+    pred <- predict(fm,type="response")#
+    if (anyNA(rr <- residuals(x)))#
+        pred <- pred[!is.na(rr)]#
+    categories <- unique(y)#
+    m1 <- mean(pred[which(y == categories[1])], na.rm = TRUE)#
+    m2 <- mean(pred[which(y == categories[2])], na.rm = TRUE)#
+    cod <- abs(m2 - m1)#
+    return(cod)#
+}
+my_rsq(m1)
+m1<-glmmTMB(AUC_indep~woody+dispersal+soil1_simps+log_densitys+maxDs+log_seedwts+I(log_seedwts^2)+meanlats+(1|modeltype), family=beta_family, data=dater); summary(m1); # 7 variables
+my_rsq(m1)
+my_rsq <- function(model) {#
+    ## get basics from model (as generally as possible)#
+    vals <- list(#
+        beta=fixef(model),#
+        X=getME(model,"X"),#
+        vc=VarCorr(model),#
+        re=ranef(model))#
+    ## glmmTMB-safety#
+    if (is(model,"glmmTMB")) {#
+        vals <- lapply(vals,collapse_cond)#
+        nullEnv <- function(x) {#
+            environment(x) <- NULL#
+            return(x)#
+        }#
+        if (!identical(nullEnv(model$modelInfo$allForm$ziformula),nullEnv(~0)))#
+            warning("R2 ignores effects of zero-inflation")#
+        dform <- nullEnv(model$modelInfo$allForm$dispformula)#
+        if (!identical(dform,nullEnv(~1)) &&#
+            (!identical(dform,nullEnv(~0))))#
+            warning("R2 ignores effects of dispersion model")#
+    }#
+    ## Test for non-zero random effects#
+    if (any(sapply(vals$vc, function(x) any(diag(x)==0)))) {#
+        ## FIXME: test more generally for singularity, via theta?#
+        stop("Some variance components equal zero. Respecify random structure!")#
+    }
+)
+my_rsq <- function(model) {#
+    ## get basics from model (as generally as possible)#
+    vals <- list(#
+        beta=fixef(model),#
+        X=getME(model,"X"),#
+        vc=VarCorr(model),#
+        re=ranef(model))#
+    ## glmmTMB-safety#
+    if (is(model,"glmmTMB")) {#
+        vals <- lapply(vals,collapse_cond)#
+        nullEnv <- function(x) {#
+            environment(x) <- NULL#
+            return(x)#
+        }#
+        if (!identical(nullEnv(model$modelInfo$allForm$ziformula),nullEnv(~0)))#
+            warning("R2 ignores effects of zero-inflation")#
+        dform <- nullEnv(model$modelInfo$allForm$dispformula)#
+        if (!identical(dform,nullEnv(~1)) &&#
+            (!identical(dform,nullEnv(~0))))#
+            warning("R2 ignores effects of dispersion model")#
+    }#
+    ## Test for non-zero random effects#
+    if (any(sapply(vals$vc, function(x) any(diag(x)==0)))) {#
+        ## FIXME: test more generally for singularity, via theta?#
+        stop("Some variance components equal zero. Respecify random structure!")#
+    }
+]
+my_rsq <- function(model) {#
+    ## get basics from model (as generally as possible)#
+    vals <- list(#
+        beta=fixef(model),#
+        X=getME(model,"X"),#
+        vc=VarCorr(model),#
+        re=ranef(model))#
+    ## glmmTMB-safety#
+    if (is(model,"glmmTMB")) {#
+        vals <- lapply(vals,collapse_cond)#
+        nullEnv <- function(x) {#
+            environment(x) <- NULL#
+            return(x)#
+        }#
+        if (!identical(nullEnv(model$modelInfo$allForm$ziformula),nullEnv(~0)))#
+            warning("R2 ignores effects of zero-inflation")#
+        dform <- nullEnv(model$modelInfo$allForm$dispformula)#
+        if (!identical(dform,nullEnv(~1)) &&#
+            (!identical(dform,nullEnv(~0))))#
+            warning("R2 ignores effects of dispersion model")#
+    }#
+    ## Test for non-zero random effects#
+    if (any(sapply(vals$vc, function(x) any(diag(x)==0)))) {#
+        ## FIXME: test more generally for singularity, via theta?#
+        stop("Some variance components equal zero. Respecify random structure!")#
+    }
+}
+my_rsq(m1)
+my_rsq(m1)
+my_rsq
+t2<- my_rsq(m1)
+t2
+m1<-glmmPQL(TPR_mpa~woody+dispersal+log_densitys+maxDs+log_seedwts, random=~1|modeltype, family=quasibinomial(link="logit"), data=dater); summary(m1) #The quasibinomial and quasipoisson families differ from the binomial and poisson families only in that the dispersion parameter is not fixed at one, so they can model over-dispersion.
+r_sq(m1)
+collapse_cond <- function(x)#
+    if (is.list(x) && "cond" %in% names(x)) x[["cond"]] else x#
+#
+##' Cleaned-up/adapted version of Jon Lefcheck's code from SEMfit;#
+##' also incorporates some stuff from MuMIn::rsquaredGLMM.#
+##' Computes Nakagawa/Schielzeth/Johnson analogue of R^2 for#
+##' GLMMs. Should work for [g]lmer(.nb), glmmTMB models ...#
+##'#
+##' @param model a fitted model#
+##' @return a list composed of elements "family", "link", "marginal", "conditional"#
+my_rsq <- function(model) {#
+#
+    ## get basics from model (as generally as possible)#
+    vals <- list(#
+        beta=fixef(model),#
+        X=getME(model,"X"),#
+        vc=VarCorr(model),#
+        re=ranef(model))#
+#
+    ## glmmTMB-safety#
+    if (is(model,"glmmTMB")) {#
+        vals <- lapply(vals,collapse_cond)#
+        nullEnv <- function(x) {#
+            environment(x) <- NULL#
+            return(x)#
+        }#
+        if (!identical(nullEnv(model$modelInfo$allForm$ziformula),nullEnv(~0)))#
+            warning("R2 ignores effects of zero-inflation")#
+        dform <- nullEnv(model$modelInfo$allForm$dispformula)#
+        if (!identical(dform,nullEnv(~1)) &&#
+            (!identical(dform,nullEnv(~0))))#
+            warning("R2 ignores effects of dispersion model")#
+    }#
+    ## Test for non-zero random effects#
+    if (any(sapply(vals$vc, function(x) any(diag(x)==0)))) {#
+        ## FIXME: test more generally for singularity, via theta?#
+        stop("Some variance components equal zero. Respecify random structure!")#
+    }#
+#
+    ## set family/link info#
+    ret <- list()#
+    if (is(model,"glmmTMB") || is(model,"glmerMod")) {#
+        ret$family <- family(model)$family#
+        ret$link <- family(model)$link#
+    } else {#
+        ret$family <- "gaussian"; ret$link <- "identity"#
+    }#
+#
+    ## Get variance of fixed effects: multiply coefs by design matrix#
+    varF <- with(vals,var(as.vector(beta %*% t(X))))#
+#
+    ## Are random slopes present as fixed effects? Warn.#
+    random.slopes <- if("list" %in% class(vals$re)) {#
+                         ## multiple RE#
+                         unique(c(sapply(vals$re,colnames)))#
+                     } else {#
+                         colnames(vals$re)#
+                     }#
+    if (!all(random.slopes %in% names(vals$beta))) #
+        warning("Random slopes not present as fixed effects. This artificially inflates the conditional R2. Respecify fixed structure!")#
+    ## Separate observation variance from variance of random effects#
+    nr <- sapply(vals$re, nrow)#
+    not.obs.terms <- names(nr[nr != nobs(model)])#
+    obs.terms <- names(nr[nr==nobs(model)])#
+#
+    ## Compute variance associated with a random-effects term#
+    ## (Johnson 2014)#
+    getVarRand <- function(terms) {#
+        sum(#
+            sapply(vals$vc[terms],#
+                   function(Sigma) {#
+                Z <- vals$X[, rownames(Sigma), drop = FALSE]#
+                Z.m <- Z %*% Sigma#
+                return(sum(diag(crossprod(Z.m, Z))) / nobs(model))#
+            } )#
+        )#
+    }#
+    ## Variance of random effects #
+    varRand <- getVarRand(not.obs.terms)#
+#
+    if (is(model,"lmerMod") ||#
+        (ret$family=="gaussian" && ret$link=="identity")) {#
+        ## Get residual variance#
+        varDist <- sigma(model)^2#
+        varDisp <- 0#
+    } else {#
+        varDisp <- if (length(obs.terms)==0) 0 else getVarRand(obs.terms)#
+        badlink <- function(link,family) {#
+            warning(sprintf("Model link '%s' is not yet supported for the %s distribution",link,family))#
+            return(NA)#
+        }#
+#
+        if(ret$family == "binomial") {#
+            varDist <- switch(ret$link,#
+                              logit=pi^2/3,#
+                              probit=1,#
+                              badlink(ret$link,ret$family))#
+        } else if (ret$family == "poisson" ||#
+                   grepl("nbinom",ret$family) ||#
+                   grepl("Negative Binomial", ret$family)) {#
+            ## Generate null model (intercept and random effects only, no fixed effects)#
+#
+            ## https://stat.ethz.ch/pipermail/r-sig-mixed-models/2014q4/023013.html#
+            ## FIXME: deparse is a *little* dangerous#
+            rterms <- paste0("(",sapply(findbars(formula(model)),deparse),")")#
+            nullform <- reformulate(rterms,response=".")#
+            null.model <- update(model,nullform)#
+#
+            ## from MuMIn::rsquaredGLMM#
+#
+            ## Get the fixed effects of the null model#
+            null.fixef <- unname(collapse_cond(fixef(null.model)))#
+#
+            ## in general want log(1+var(x)/mu^2)#
+            logVarDist <- function(null.fixef) {#
+                mu <- exp(null.fixef)#
+                if (mu < 6)#
+                    warning(sprintf("mu of %0.1f is too close to zero, estimate may be unreliable \n",mu))#
+                vv <- switch(ret$family,#
+                            poisson=mu,#
+                            nbinom1=,#
+                            nbinom2=family(model)$variance(mu,sigma(model)),#
+                            if (is(model,"merMod"))#
+                                mu*(1+mu/getME(model,"glmer.nb.theta"))#
+                            else mu*(1+mu/model$theta))#
+                cvsquared <- vv/mu^2#
+                return(log1p(cvsquared))#
+            }#
+#
+            varDist <- switch(ret$link,#
+                              log=logVarDist(null.fixef),#
+                              sqrt=0.25,#
+                              badlink(ret$link,ret$family))#
+        }#
+    }#
+    ## Calculate R2 values#
+    ret$Marginal = varF / (varF + varRand + varDisp + varDist)#
+    ret$Conditional = (varF + varRand) / (varF + varRand + varDisp + varDist)#
+    return(ret)#
+}#
+#
+if (FALSE) {#
+    fm1 <- lmer(Reaction~Days+(Days|Subject),data=sleepstudy)#
+    fm2 <- glmmTMB(Reaction~Days+(Days|Subject),data=sleepstudy)#
+    my_rsq(fm1)#
+    my_rsq(fm2)#
+#
+    ## devtools::install_github("jslefche/piecewiseSEM")#
+    library(piecewiseSEM)#
+    sem.model.fits(fm1)  ## same answer#
+#
+    fm3 <- glmer(incidence/size~period+(1|herd),cbpp,#
+                 family=binomial,weights=size)#
+    fm4 <- glmmTMB(incidence/size~period+(1|herd),cbpp,#
+                   family=binomial,weights=size)#
+    my_rsq(fm3)#
+    my_rsq(fm4)#
+#
+    fm5 <- glmer.nb(TICKS~YEAR+scale(HEIGHT)+(1|BROOD),grouseticks)#
+    fm6 <- glmmTMB(TICKS~YEAR+scale(HEIGHT)+(1|BROOD),grouseticks,family=nbinom2)#
+    my_rsq(fm5)#
+    my_rsq(fm6)#
+}#
+#
+## Tjur's coeff of determination, from sjmisc ... ????#
+## only does Bernoulli responses ???#
+cod <- function(x) {#
+    y <- model.response(model.frame(x))#
+    pred <- predict(fm,type="response")#
+    if (anyNA(rr <- residuals(x)))#
+        pred <- pred[!is.na(rr)]#
+    categories <- unique(y)#
+    m1 <- mean(pred[which(y == categories[1])], na.rm = TRUE)#
+    m2 <- mean(pred[which(y == categories[2])], na.rm = TRUE)#
+    cod <- abs(m2 - m1)#
+    return(cod)#
+}
+my_rsq(m1)
+varDist <- switch(ret$link,#
+                              log=logVarDist(null.fixef),#
+                              sqrt=0.25,#
+                              badlink(ret$link,ret$family))
+ret <- list()#
+    if (is(model,"glmmTMB") || is(model,"glmerMod")) {#
+        ret$family <- family(model)$family#
+        ret$link <- family(model)$link#
+    } else {#
+        ret$family <- "gaussian"; ret$link <- "identity"#
+    }
+ret <- list()#
+    if (is(m1,"glmmTMB") || is(model,"glmerMod")) {#
+        ret$family <- family(model)$family#
+        ret$link <- family(model)$link#
+    } else {#
+        ret$family <- "gaussian"; ret$link <- "identity"#
+    }
+ret <- list()#
+    if (is(m1,"glmmTMB") || is(model,"glmerMod")) {#
+        ret$family <- family(m1)$family#
+        ret$link <- family(m1)$link#
+    } else {#
+        ret$family <- "gaussian"; ret$link <- "identity"#
+    }
+ret <- list()#
+    if (is(m1,"glmmTMB") || is(m1,"glmerMod")) {#
+        ret$family <- family(m1)$family#
+        ret$link <- family(m1)$link#
+    } else {#
+        ret$family <- "gaussian"; ret$link <- "identity"#
+    }
+ret
+varF <- with(vals,var(as.vector(beta %*% t(X))))
+if (is(model,"glmmTMB")) {#
+        vals <- lapply(vals,collapse_cond)#
+        nullEnv <- function(x) {#
+            environment(x) <- NULL#
+            return(x)#
+        }#
+        if (!identical(nullEnv(model$modelInfo$allForm$ziformula),nullEnv(~0)))#
+            warning("R2 ignores effects of zero-inflation")#
+        dform <- nullEnv(model$modelInfo$allForm$dispformula)#
+        if (!identical(dform,nullEnv(~1)) &&#
+            (!identical(dform,nullEnv(~0))))#
+            warning("R2 ignores effects of dispersion model")#
+    }
+if (is(m1l,"glmmTMB")) {#
+        vals <- lapply(vals,collapse_cond)#
+        nullEnv <- function(x) {#
+            environment(x) <- NULL#
+            return(x)#
+        }#
+        if (!identical(nullEnv(model$modelInfo$allForm$ziformula),nullEnv(~0)))#
+            warning("R2 ignores effects of zero-inflation")#
+        dform <- nullEnv(model$modelInfo$allForm$dispformula)#
+        if (!identical(dform,nullEnv(~1)) &&#
+            (!identical(dform,nullEnv(~0))))#
+            warning("R2 ignores effects of dispersion model")#
+    }
+if (is(m1,"glmmTMB")) {#
+        vals <- lapply(vals,collapse_cond)#
+        nullEnv <- function(x) {#
+            environment(x) <- NULL#
+            return(x)#
+        }#
+        if (!identical(nullEnv(model$modelInfo$allForm$ziformula),nullEnv(~0)))#
+            warning("R2 ignores effects of zero-inflation")#
+        dform <- nullEnv(model$modelInfo$allForm$dispformula)#
+        if (!identical(dform,nullEnv(~1)) &&#
+            (!identical(dform,nullEnv(~0))))#
+            warning("R2 ignores effects of dispersion model")#
+    }
+varF <- with(vals,var(as.vector(beta %*% t(X))))
+vals
+vals <- list(#
+        beta=fixef(m1),#
+        X=getME(m1,"X"),#
+        vc=VarCorr(m1),#
+        re=ranef(m1))
+m1<-glmmTMB(AUC_indep~edge+woody+dispersal+geo_simp+I(geo_simp^2)+log_density+maxD2+log_seedwt+I(log_seedwt^2)+meanlat2+(1|modeltype), family=beta_family, data=dater); summary(m1); # 8 variables BUT CAN'T ACCOUNT FOR DISPERSAL!!
+vals <- list(#
+        beta=fixef(m1),#
+        X=getME(m1,"X"),#
+        vc=VarCorr(m1),#
+        re=ranef(m1))
+vals
+if (is(model,"glmmTMB")) {#
+        vals <- lapply(vals,collapse_cond)#
+        nullEnv <- function(x) {#
+            environment(x) <- NULL#
+            return(x)#
+        }#
+        if (!identical(nullEnv(model$modelInfo$allForm$ziformula),nullEnv(~0)))#
+            warning("R2 ignores effects of zero-inflation")#
+        dform <- nullEnv(model$modelInfo$allForm$dispformula)#
+        if (!identical(dform,nullEnv(~1)) &&#
+            (!identical(dform,nullEnv(~0))))#
+            warning("R2 ignores effects of dispersion model")#
+    }
+if (is(m1,"glmmTMB")) {#
+        vals <- lapply(vals,collapse_cond)#
+        nullEnv <- function(x) {#
+            environment(x) <- NULL#
+            return(x)#
+        }#
+        if (!identical(nullEnv(m1$modelInfo$allForm$ziformula),nullEnv(~0)))#
+            warning("R2 ignores effects of zero-inflation")#
+        dform <- nullEnv(model$modelInfo$allForm$dispformula)#
+        if (!identical(dform,nullEnv(~1)) &&#
+            (!identical(dform,nullEnv(~0))))#
+            warning("R2 ignores effects of dispersion model")#
+    }
+if (is(m1,"glmmTMB")) {#
+        vals <- lapply(vals,collapse_cond)#
+        nullEnv <- function(x) {#
+            environment(x) <- NULL#
+            return(x)#
+        }#
+        if (!identical(nullEnv(m1$modelInfo$allForm$ziformula),nullEnv(~0)))#
+            warning("R2 ignores effects of zero-inflation")#
+        dform <- nullEnv(m1$modelInfo$allForm$dispformula)#
+        if (!identical(dform,nullEnv(~1)) &&#
+            (!identical(dform,nullEnv(~0))))#
+            warning("R2 ignores effects of dispersion model")#
+    }
+if (any(sapply(vals$vc, function(x) any(diag(x)==0)))) {#
+        ## FIXME: test more generally for singularity, via theta?#
+        stop("Some variance components equal zero. Respecify random structure!")#
+    }
+ret <- list()#
+    if (is(m1,"glmmTMB") || is(m1,"glmerMod")) {#
+        ret$family <- family(m1)$family#
+        ret$link <- family(m1)$link#
+    } else {#
+        ret$family <- "gaussian"; ret$link <- "identity"#
+    }
+ret
+varF <- with(vals,var(as.vector(beta %*% t(X))))
+varF
+random.slopes <- if("list" %in% class(vals$re)) {#
+                         ## multiple RE#
+                         unique(c(sapply(vals$re,colnames)))#
+                     } else {#
+                         colnames(vals$re)#
+                     }
+if (!all(random.slopes %in% names(vals$beta))) #
+        warning("Random slopes not present as fixed effects. This artificially inflates the conditional R2. Respecify fixed structure!")
+nr <- sapply(vals$re, nrow)#
+    not.obs.terms <- names(nr[nr != nobs(m1)])#
+    obs.terms <- names(nr[nr==nobs(m1)])
+getVarRand <- function(terms) {#
+        sum(#
+            sapply(vals$vc[terms],#
+                   function(Sigma) {#
+                Z <- vals$X[, rownames(Sigma), drop = FALSE]#
+                Z.m <- Z %*% Sigma#
+                return(sum(diag(crossprod(Z.m, Z))) / nobs(m1))#
+            } )#
+        )
+}
+varRand <- getVarRand(not.obs.terms)
+varRand
+if (is(model,"lmerMod") ||#
+        (ret$family=="gaussian" && ret$link=="identity")) {#
+        ## Get residual variance#
+        varDist <- sigma(model)^2#
+        varDisp <- 0#
+    } else {#
+        varDisp <- if (length(obs.terms)==0) 0 else getVarRand(obs.terms)#
+        badlink <- function(link,family) {#
+            warning(sprintf("Model link '%s' is not yet supported for the %s distribution",link,family))#
+            return(NA)#
+        }#
+#
+        if(ret$family == "binomial") {#
+            varDist <- switch(ret$link,#
+                              logit=pi^2/3,#
+                              probit=1,#
+                              badlink(ret$link,ret$family))#
+        } else if (ret$family == "poisson" ||#
+                   grepl("nbinom",ret$family) ||#
+                   grepl("Negative Binomial", ret$family)) {#
+            ## Generate null model (intercept and random effects o
+if (is(model,"lmerMod") ||#
+        (ret$family=="gaussian" && ret$link=="identity")) {#
+        ## Get residual variance#
+        varDist <- sigma(model)^2#
+        varDisp <- 0#
+    }
+}
+}
+if (is(model,"lmerMod") ||#
+        (ret$family=="gaussian" && ret$link=="identity")) {#
+        ## Get residual variance#
+        varDist <- sigma(model)^2#
+        varDisp <- 0#
+    }
+if (is(m`,"lmerMod") ||#
+        (ret$family=="gaussian" && ret$link=="identity")) {#
+        ## Get residual variance#
+        varDist <- sigma(model)^2#
+        varDisp <- 0#
+    }
+}
+}
+}
+}
+ret$family=="gaussian" && ret$link=="identity"
+varDisp <- if (length(obs.terms)==0) 0 else getVarRand(obs.terms)
+varDisp
+badlink <- function(link,family) {#
+            warning(sprintf("Model link '%s' is not yet supported for the %s distribution",link,family))#
+            return(NA)#
+        }
+badlink
+ret$family == "binomial"
+ret$family == "beta"
+ret$Marginal = varF / (varF + varRand + varDisp + varDist)
+varDist <- switch(ret$link,#
+                              log=logVarDist(null.fixef),#
+                              sqrt=0.25,#
+                              badlink(ret$link,ret$family))
+ret$link
+ret$family
+log=logVarDist(null.fixef)
+logVarDist(null.fixef)
+null.fixef
+rterms <- paste0("(",sapply(findbars(formula(model)),deparse),")")
+rterms <- paste0("(",sapply(findbars(formula(m`)),deparse),")")
+rterms <- paste0("(",sapply(findbars(formula(m1)),deparse),")")
+rterms
+nullform <- reformulate(rterms,response=".")
+null.model <- update(model,nullform)
+null.model <- update(m1,nullform)
+null.fixef <- unname(collapse_cond(fixef(null.model)))
+null.fixef
+logVarDist <- function(null.fixef) {#
+                mu <- exp(null.fixef)#
+                if (mu < 6)#
+                    warning(sprintf("mu of %0.1f is too close to zero, estimate may be unreliable \n",mu))#
+                vv <- switch(ret$family,#
+                            poisson=mu,#
+                            nbinom1=,#
+                            nbinom2=family(model)$variance(mu,sigma(model)),#
+                            if (is(model,"merMod"))#
+                                mu*(1+mu/getME(model,"glmer.nb.theta"))#
+                            else mu*(1+mu/model$theta))#
+                cvsquared <- vv/mu^2#
+                return(log1p(cvsquared))#
+            }
+logVarDis
+logVarDist
+mu
+mu <- exp(null.fixef)
+mu
+if (mu < 6)#
+                    warning(sprintf("mu of %0.1f is too close to zero, estimate may be unreliable \n",mu))#
+                vv <- switch(ret$family,#
+                            poisson=mu,#
+                            nbinom1=,#
+                            nbinom2=family(model)$variance(mu,sigma(model)),#
+                            if (is(model,"merMod"))#
+                                mu*(1+mu/getME(model,"glmer.nb.theta"))#
+                            else mu*(1+mu/model$theta))#
+                cvsquared <- vv/mu^2#
+                return(log1p(cvsquared))
+log(1+var(x)/mu^2)
+ret$Marginal = varF / (varF + varRand + varDisp + varDist)
+ret$Marginal
+varF
+varRand
+varDisp
+varDist
+varDisp <- if (length(obs.terms)==0) 0 else getVarRand(obs.terms)
+varDisp
+length(obs.terms)
+obs.terms
+any(sapply(vals$vc, function(x) any(diag(x)==0)
+)
+)
+if (any(sapply(vals$vc, function(x) any(diag(x)==0)))) {#
+        ## FIXME: test more generally for singularity, via theta?#
+        stop("Some variance components equal zero. Respecify random structure!")#
+    }
+my_rsq(m1)
+logVarDist <- function(null.fixef) {#
+                mu <- exp(null.fixef)#
+                if (mu < 6)#
+                    warning(sprintf("mu of %0.1f is too close to zero, estimate may be unreliable \n",mu))#
+                vv <- switch(ret$family,#
+                            poisson=mu,#
+                            nbinom1=,#
+                            nbinom2=family(model)$variance(mu,sigma(model)),#
+                            if (is(model,"merMod"))#
+                                mu*(1+mu/getME(model,"glmer.nb.theta"))#
+                            else mu*(1+mu/model$theta))#
+                cvsquared <- vv/mu^2#
+                return(log1p(cvsquared))#
+            }
+logVarDist
+logVarDist <- function(null.fixef) {#
+                mu <- exp(null.fixef)#
+                if (mu < 6)#
+                    warning(sprintf("mu of %0.1f is too close to zero, estimate may be unreliable \n",mu))#
+                vv <- switch(ret$family,#
+                            poisson=mu,#
+                            nbinom1=,#
+                            nbinom2=family(m1)$variance(mu,sigma(m1)),#
+                            if (is(m1,"merMod"))#
+                                mu*(1+mu/getME(m1,"glmer.nb.theta"))#
+                            else mu*(1+mu/m1$theta))#
+                cvsquared <- vv/mu^2#
+                return(log1p(cvsquared))#
+            }
+logVarDist
+null.fixef
+mu
+vv
+vv <- switch(ret$family,#
+                            poisson=mu,#
+                            nbinom1=,#
+                            nbinom2=family(model)$variance(mu,sigma(model)),#
+                            if (is(model,"merMod"))#
+                                mu*(1+mu/getME(model,"glmer.nb.theta"))#
+                            else mu*(1+mu/model$theta))
+vv <- switch(ret$family,#
+                            poisson=mu,#
+                            nbinom1=,#
+                            nbinom2=family(m1)$variance(mu,sigma(m1)),#
+                            if (is(m1,"merMod"))#
+                                mu*(1+mu/getME(m1,"glmer.nb.theta"))#
+                            else mu*(1+mu/m1$theta))
+vv
+log=logVarDist(null.fixef)
+varRand
+varF
+varRand
+varDisp
+varDist
+getVarRand(not.obs.terms)
+getVarRand(obs.terms)
+rterms <- paste0("(",sapply(findbars(formula(model)),deparse),")")#
+            nullform <- reformulate(rterms,response=".")#
+            null.model <- update(model,nullform)
+rterms <- paste0("(",sapply(findbars(formula(m1)),deparse),")")#
+            nullform <- reformulate(rterms,response=".")#
+            null.model <- update(m1,nullform)
+rterms
+null.fixef
+varDist <- switch(ret$link,#
+                              log=logVarDist(null.fixef),#
+                              sqrt=0.25,#
+                              badlink(ret$link,ret$family))
+nsp = 10 # number of sites#
+ntot = 50 # numbers of obs per sites.#
+#
+# Define the distribution that sites are drawn from ...#
+intermean <- 5 # mean for selecting intercept across all sites#
+intersd <- 1 # SD for selecting site intercepts#
+spint <- rnorm(nsp, intermean, intersd)  # different intercepts by sites#
+#
+spint # these are the true baseline differences in the sites#
+#
+# Now the other stuff#
+effectsize <- 5#
+sigmahere <- 0.1 # measurement error#
+xvarmean <- 10 # mean of x-variable#
+xvarsigma <- 4 # sigma of x-variable#
+#
+# now start building ...#
+testdat2 <- vector()#
+#
+for(i in 1:nsp){#
+    xvarhere <- rnorm(ntot/nsp, xvarmean, xvarsigma) # set up the x-variable for one set of sites ... this we need to alter to make the xvariable confounded (so to speak) with the site#
+    ypred <- spint[i] + effectsize*xvarhere # basic linear regression#
+    ydat <- rnorm(ntot/nsp, ypred, sigmahere) # add the measurement error to the linear regression predictions#
+    testdatx2 <- data.frame(yhere = ydat, sp = i, xvar=xvarhere)#
+    testdat2 <- rbind(testdat2, testdatx2)  #
+}#
+#
+plot(yhere~sp, data=testdat2)
+goo <- lmer(yhere~xvar+(1|sp), data=testdat2)
+summary(goo)
+ggplot(dater, aes(x=log_densitys, y=AUC_indep, colour=factor(modeltype)))+geom_point()+theme_bw()+geom_smooth(method="lm", se=FALSE)+theme_bw()+theme(legend.position="none")
+ggplot(dater, aes(x=woody, y=AUC_indep, colour=factor(modeltype)))+geom_point()+theme_bw()+geom_smooth(method="lm", se=FALSE)+theme_bw()+theme(legend.position="none")
+ggplot(dater, aes(x=log_seedwts, y=AUC_indep, colour=factor(modeltype)))+geom_point()+theme_bw()+geom_smooth(method="lm", se=FALSE)+theme_bw()+theme(legend.position="none")
+ggplot(dater, aes(x=log_seedwts, y=AUC_indep, colour=factor(modeltype)))+geom_point()+theme_bw()+geom_smooth(method="lm", formula=y~x+I(x^2), se=FALSE)+theme_bw()+theme(legend.position="none")
+m1<-glmmTMB(AUC_indep~woody+dispersal+log_densitys+log_seedwts+I(log_seedwts^2)+(1|modeltype), family=beta_family, data=dater); summary(m1); # 4 variables
+m1<-glm(AUC_indep~woody+dispersal+log_densitys+log_seedwts+I(log_seedwts^2)+modeltype, family=beta_family, data=dater); summary(m1); # 4 variables
+AIC(m1)
+m1<-glm(AUC_indep~woody+dispersal+log_densitys+log_seedwts+I(log_seedwts^2), family=beta_family, data=dater); summary(m1); # 4 variables
+m1<-glm(AUC_indep~woody+dispersal+log_densitys+log_seedwts+I(log_seedwts^2), family=beta, data=dater); summary(m1); # 4 variables
+m1<-betareg(AUC_indep~woody+dispersal+log_densitys+log_seedwts+I(log_seedwts^2), data=dater); summary(m1); # 4 variables
+library(betareg)
+m1<-betareg(AUC_indep~woody+dispersal+log_densitys+log_seedwts+I(log_seedwts^2), data=dater); summary(m1); # 4 variables
+AIC(m1)
+varF
+m1<-betareg(AUC_indep~model_type+woody+dispersal+log_densitys+log_seedwts+I(log_seedwts^2), data=dater); summary(m1); # 4 variables
+m1<-betareg(AUC_indep~modeltype+woody+dispersal+log_densitys+log_seedwts+I(log_seedwts^2), data=dater); summary(m1); # 4 variables
+AIC(m1)
+ggplot(dater, aes(x=modeltype, y=AUC_indep)+geom_point()+theme_bw()+theme(legend.position="none")
+ggplot(dater, aes(x=modeltype, y=AUC_indep))+geom_point()+theme_bw()
+ggplot(dater, aes(x=modeltype, y=AUC_indep, colour=factor(species)))+geom_point()+theme_bw()
+ggplot(dater, aes(x=modeltype, y=AUC_indep, colour=factor(species)))+geom_point()+theme_bw()+theme(legend.position="none")
+m1<-lm(AUC_indep~modeltype, data=dater)
+m1<-lm(AUC_indep~modeltype, data=dater); summary(m1)
+m1<-betareg(AUC_indep~modeltype, data=dater); summary(m1)
+anova(m1)
+varF
+ggplot(dater, aes(x=modeltype, y=AUC_indep, colour=factor(species)))+geom_point()+geom_line()+theme_bw()+theme(legend.position="none")
+ggplot(dater, aes(x=modeltype, y=AUC_indep, colour=species))+geom_point()+geom_line()+theme_bw()+theme(legend.position="none")
+ggplot(dater, aes(x=modeltype, y=AUC_indep, colour=species))+geom_line()+theme_bw()+theme(legend.position="none")
+ggplot(dater, aes(x=modeltype, y=AUC_indep))+geom_line()+theme_bw()+theme(legend.position="none")
+head(dater)
+ggplot(subset(dater, species=="Aplectrum_hyemale", aes(x=modeltype, y=AUC_indep))+geom_line()+theme_bw()+theme(legend.position="none")
+ggplot(subset(dater, species=="Aplectrum_hyemale"), aes(x=modeltype, y=AUC_indep))+geom_line()+theme_bw()+theme(legend.position="none")
+ggplot(subset(dater, species=="Aplectrum_hyemale"), aes(x=modeltype, y=AUC_indep))+geom_line()+theme_bw()+theme(legend.position="none")
+ggplot(subset(dater, species=="Aplectrum_hyemale"), aes(x=modeltype, y=AUC_indep))+geom_point()+theme_bw()+theme(legend.position="none")
+ggplot(dater, aes(x=modeltype, y=AUC_indep, colour=factor(species), group=species))+geom_line()+theme_bw()+theme(legend.position="none")
+ggplot(dater, aes(x=modeltype, y=AUC_indep, colour=factor(species), group=species))+geom_point()+geom_line()+theme_bw()+theme(legend.position="none")
+ggplot(dater, aes(x=modeltype, y=AUC_indep)+geom_boxplot()+geom_line()+theme_bw()+theme(legend.position="none")
+ggplot(dater, aes(x=modeltype, y=AUC_indep))+geom_boxplot()+geom_line()+theme_bw()+theme(legend.position="none")
+ggplot(dater, aes(x=modeltype, y=AUC_indep))+geom_boxplot()+theme_bw()+theme(legend.position="none")
+gplot(dater, aes(x=modeltype, y=AUC_indep, colour=factor(species), group=species))+geom_point()+geom_line()+theme_bw()+theme(legend.position="none")
+ggplot(dater, aes(x=modeltype, y=AUC_indep, colour=factor(species), group=species))+geom_point()+geom_line()+theme_bw()+theme(legend.position="none")

@@ -1,5 +1,7 @@
-setwd("/users/kharouba/google drive/uOttawa/research/synchrony_fitness/figures_conceptual")
+setwd("/users/kharouba/google drive/uOttawa/research/synchrony_fitness/conceptual paper/figures")
 source("/users/kharouba/google drive/UBC/multiplot.R")
+
+library(grid)
 
 ## Figure 3
 raw <- read.csv("HMK038_data.csv", header=TRUE, na.strings="NA")
@@ -14,9 +16,13 @@ sub2$expt<-"second"
 raw2<-rbind(sub2,yes3[,2:4])
 
 raw2$surv<-with(raw2, 100-mortality)
-a<-ggplot(raw2, aes(corr_time, y=surv))+geom_vline(xintercept=0, linetype="dashed", size=0.5)+geom_point(aes(colour=factor(expt)), size=3)+ylim(0,100)+xlim(-90, 90)+theme_bw()+theme(legend.position="none", axis.title.x = element_text(size=15), axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), axis.title.y=element_text(size=15, angle=90))+ylab("Survival of O. brumata (%)")+xlab("")+annotation_custom(grob = textGrob(label = "a)", hjust = 0, gp = gpar(cex = 1.5)), ymin = 100, ymax = 100, xmin = -90, xmax = -90)
+a<-ggplot(raw2, aes(corr_time, y=surv))+geom_vline(xintercept=0, linetype="dashed", size=0.5)+geom_point(aes(colour=factor(expt)), size=3)+ylim(0,100)+xlim(-90, 90)+theme_bw()+theme(legend.position="none", axis.title.x = element_text(size=15), axis.text.x=element_text(size=15), axis.text.y=element_text(size=15), axis.title.y=element_text(size=15, angle=90))+ylab("Survival of O. brumata (%)")+xlab("Relative timing (degree-days)")+annotation_custom(grob = textGrob(label = "a)", hjust = 0, gp = gpar(cex = 1.5)), ymin = 100, ymax = 100, xmin = -90, xmax = -90)
+
+#Equations for regression lines are: Y=12.37 e 0.055 X for (A) and Y=50.88+0.492X for (B)
+#+geom_segment(aes(x=0, xend=80, y=-0.492+49.12, yend=-0.492+49.12*80), size=0.75)
 #+geom_smooth(method="lm", formula=y~x+I(x^2), se=FALSE)
 
++geom_abline(slope=0.08, intercept=1.26, size=0.75)
 
 obs <- read.csv("vanAsch_data.csv", header=TRUE, na.strings="NA")
 obs$order<-10:1 
@@ -28,12 +34,12 @@ dev.off()
 
 ## to make normal distribution curves-- Figure 1
 
-plot(function(x) dnorm(x, mean=0), -3, 3, lwd=3, xaxt="n", yaxt="n", xlab="day of year", ylab="fitness", cex.lab=3)
-curve(dnorm(x), add=T)
-curve(dnorm(x), add=T, col=1, lwd=4)
-curve(dnorm(x, sd=1.5), add=T, col=2, lwd=4) #directly overlap
-curve(dnorm(x, mean=-2, sd=1.5), add=T, col=2, lwd=4)
-curve(dnorm(x, mean=2, sd=1.5), add=T, col=2, lwd=4, yaxis="")
+plot(function(x) dnorm(x, mean=0), -3, 3, lwd=3, xaxt="n", yaxt="n", xlab="time (days)", ylab="fitness", col=2, cex.lab=3) #was col=1
+#curve(dnorm(x), add=T)
+curve(dnorm(x), add=T, col=2, lwd=4)
+curve(dnorm(x, sd=1.5), add=T, col=1, lwd=4) #directly overlap
+curve(dnorm(x, mean=-2, sd=1.5), add=T, col=1, lwd=4)
+curve(dnorm(x, mean=2, sd=1.5), add=T, col=1, lwd=4, ylab="")
 
 #baseline
 plot(function(x) dnorm(x, mean=0), -3, 3, lwd=3, xaxt="n", yaxt="n", xlab="relative timing (days)", ylab="fitness", cex.lab=3)
