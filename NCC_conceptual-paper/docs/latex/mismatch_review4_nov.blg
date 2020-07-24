@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: mismatch_review4_nov.aux
+The style file: naturemag.bst
+Database file #1: mismatch2.bib
+You've used 26 entries,
+            2348 wiz_defined-function locations,
+            1154 strings with 14892 characters,
+and the built_in function-call counts, 11469 in all, are:
+= -- 848
+> -- 280
+< -- 0
++ -- 138
+- -- 70
+* -- 1410
+:= -- 1255
+add.period$ -- 78
+call.type$ -- 26
+change.case$ -- 32
+chr.to.int$ -- 0
+cite$ -- 26
+duplicate$ -- 991
+empty$ -- 1054
+format.name$ -- 95
+if$ -- 2316
+int.to.chr$ -- 0
+int.to.str$ -- 26
+missing$ -- 225
+newline$ -- 138
+num.names$ -- 30
+pop$ -- 161
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 203
+stack$ -- 0
+substring$ -- 672
+swap$ -- 1000
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 74
+width$ -- 28
+write$ -- 292

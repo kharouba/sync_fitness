@@ -1,0 +1,224 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{thackeray2016}
+\bibinfo{author}{Thackeray, S.~J.} \emph{et~al.}
+\newblock \bibinfo{title}{Phenological sensitivity to climate across taxa and
+  trophic levels}.
+\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{535}},
+  \bibinfo{pages}{241} (\bibinfo{year}{2016}).
+
+\bibitem{ovaskainen2013}
+\bibinfo{author}{Ovaskainen, O.} \emph{et~al.}
+\newblock \bibinfo{title}{Community-level phenological response to climate
+  change}.
+\newblock \emph{\bibinfo{journal}{Proceedings of the National Academy of
+  Sciences}} \textbf{\bibinfo{volume}{110}}, \bibinfo{pages}{13434--13439}
+  (\bibinfo{year}{2013}).
+
+\bibitem{caradonna2014}
+\bibinfo{author}{CaraDonna, P.~J.}, \bibinfo{author}{Iler, A.~M.} \&
+  \bibinfo{author}{Inouye, D.~W.}
+\newblock \bibinfo{title}{Shifts in flowering phenology reshape a subalpine
+  plant community}.
+\newblock \emph{\bibinfo{journal}{Proceedings of the National Academy of
+  Sciences}} \textbf{\bibinfo{volume}{111}}, \bibinfo{pages}{4916--4921}
+  (\bibinfo{year}{2014}).
+
+\bibitem{kharouba2018}
+\bibinfo{author}{Kharouba, H.~M.} \emph{et~al.}
+\newblock \bibinfo{title}{Global shifts in the phenological synchrony of
+  species interactions over recent decades}.
+\newblock \emph{\bibinfo{journal}{Proceedings of the National Academy of
+  Sciences}} \textbf{\bibinfo{volume}{115}}, \bibinfo{pages}{5211--5216}
+  (\bibinfo{year}{2018}).
+
+\bibitem{post2007}
+\bibinfo{author}{Post, E.} \& \bibinfo{author}{Forchhammer, M.~C.}
+\newblock \bibinfo{title}{Climate change reduces reproductive success of an
+  arctic herbivore through trophic mismatch}.
+\newblock \emph{\bibinfo{journal}{Philosophical Transactions of the Royal
+  Society B: Biological Sciences}} \textbf{\bibinfo{volume}{363}},
+  \bibinfo{pages}{2367--2373} (\bibinfo{year}{2007}).
+
+\bibitem{burkle2013}
+\bibinfo{author}{Burkle, L.~A.}, \bibinfo{author}{Marlin, J.~C.} \&
+  \bibinfo{author}{Knight, T.~M.}
+\newblock \bibinfo{title}{Plant-pollinator interactions over 120 years: loss of
+  species, co-occurrence, and function}.
+\newblock \emph{\bibinfo{journal}{Science}} \textbf{\bibinfo{volume}{339}},
+  \bibinfo{pages}{1611--1615} (\bibinfo{year}{2013}).
+
+\bibitem{plard2014}
+\bibinfo{author}{Plard, F.} \emph{et~al.}
+\newblock \bibinfo{title}{Mismatch between birth date and vegetation phenology
+  slows the demography of roe deer}.
+\newblock \emph{\bibinfo{journal}{PLoS biology}} \textbf{\bibinfo{volume}{12}},
+  \bibinfo{pages}{e1001828} (\bibinfo{year}{2014}).
+
+\bibitem{doiron2015}
+\bibinfo{author}{Doiron, M.}, \bibinfo{author}{Gauthier, G.} \&
+  \bibinfo{author}{L{\'e}vesque, E.}
+\newblock \bibinfo{title}{Trophic mismatch and its effects on the growth of
+  young in an arctic herbivore}.
+\newblock \emph{\bibinfo{journal}{Global Change Biology}}
+  \textbf{\bibinfo{volume}{21}}, \bibinfo{pages}{4364--4376}
+  (\bibinfo{year}{2015}).
+
+\bibitem{vatka2011}
+\bibinfo{author}{Vatka, E.}, \bibinfo{author}{Orell, M.} \&
+  \bibinfo{author}{Rytk{\"O}nen, S.}
+\newblock \bibinfo{title}{Warming climate advances breeding and improves
+  synchrony of food demand and food availability in a boreal passerine}.
+\newblock \emph{\bibinfo{journal}{Global Change Biology}}
+  \textbf{\bibinfo{volume}{17}}, \bibinfo{pages}{3002--3009}
+  (\bibinfo{year}{2011}).
+
+\bibitem{burthe2012}
+\bibinfo{author}{Burthe, S.} \emph{et~al.}
+\newblock \bibinfo{title}{Phenological trends and trophic mismatch across
+  multiple levels of a north sea pelagic food web}.
+\newblock \emph{\bibinfo{journal}{Marine Ecology Progress Series}}
+  \textbf{\bibinfo{volume}{454}}, \bibinfo{pages}{119--133}
+  (\bibinfo{year}{2012}).
+
+\bibitem{samplonius2016}
+\bibinfo{author}{Samplonius, J.~M.}, \bibinfo{author}{Kappers, E.~F.},
+  \bibinfo{author}{Brands, S.} \& \bibinfo{author}{Both, C.}
+\newblock \bibinfo{title}{Phenological mismatch and ontogenetic diet shifts
+  interactively affect offspring condition in a passerine}.
+\newblock \emph{\bibinfo{journal}{Journal of Animal Ecology}}
+  \textbf{\bibinfo{volume}{85}}, \bibinfo{pages}{1255--1264}
+  (\bibinfo{year}{2016}).
+
+\bibitem{oconnor2012}
+\bibinfo{author}{O'Connor, M.~I.}, \bibinfo{author}{Selig, E.~R.},
+  \bibinfo{author}{Pinsky, M.~L.} \& \bibinfo{author}{Altermatt, F.}
+\newblock \bibinfo{title}{Toward a conceptual synthesis for climate change
+  responses}.
+\newblock \emph{\bibinfo{journal}{Global Ecology and Biogeography}}
+  \textbf{\bibinfo{volume}{21}}, \bibinfo{pages}{693--703}
+  (\bibinfo{year}{2012}).
+
+\bibitem{chmura2018}
+\bibinfo{author}{Chmura, H.~E.} \emph{et~al.}
+\newblock \bibinfo{title}{The mechanisms of phenology: the patterns and
+  processes of phenological shifts}.
+\newblock \emph{\bibinfo{journal}{Ecological Monographs}}
+  (\bibinfo{year}{2018}).
+
+\bibitem{cushing1974}
+\bibinfo{author}{Cushing, D.~H.}
+\newblock \bibinfo{title}{The natural regulation of fish populations}.
+\newblock In \bibinfo{editor}{HardenJones, F.~R.} (ed.)
+  \emph{\bibinfo{booktitle}{Sea Fisheries Research}}, \bibinfo{pages}{399--412}
+  (\bibinfo{publisher}{Elek Science}, \bibinfo{address}{London, UK},
+  \bibinfo{year}{1974}).
+
+\bibitem{millerrushing2010}
+\bibinfo{author}{Miller-Rushing, A.~J.}, \bibinfo{author}{H{\o}ye, T.~T.},
+  \bibinfo{author}{Inouye, D.~W.} \& \bibinfo{author}{Post, E.}
+\newblock \bibinfo{title}{The effects of phenological mismatches on
+  demography}.
+\newblock \emph{\bibinfo{journal}{Philosophical Transactions of the Royal
+  Society B: Biological Sciences}} \textbf{\bibinfo{volume}{365}},
+  \bibinfo{pages}{3177--3186} (\bibinfo{year}{2010}).
+
+\bibitem{renner2018}
+\bibinfo{author}{Renner, S.~S.} \& \bibinfo{author}{Zohner, C.~M.}
+\newblock \bibinfo{title}{Climate change and phenological mismatch in trophic
+  interactions among plants, insects, and vertebrates}.
+\newblock \emph{\bibinfo{journal}{Annual Review of Ecology, Evolution, and
+  Systematics}} \textbf{\bibinfo{volume}{49}}, \bibinfo{pages}{165--182}
+  (\bibinfo{year}{2018}).
+
+\bibitem{winder2004}
+\bibinfo{author}{Winder, M.} \& \bibinfo{author}{Schindler, D.~E.}
+\newblock \bibinfo{title}{Climate change uncouples trophic interactions in an
+  aquatic ecosystem}.
+\newblock \emph{\bibinfo{journal}{Ecology}} \textbf{\bibinfo{volume}{85}},
+  \bibinfo{pages}{2100--2106} (\bibinfo{year}{2004}).
+
+\bibitem{arula2014}
+\bibinfo{author}{Arula, T.}, \bibinfo{author}{Gr{\"o}ger, J.},
+  \bibinfo{author}{Ojaveer, H.} \& \bibinfo{author}{Simm, M.}
+\newblock \bibinfo{title}{Shifts in the spring herring (clupea harengus
+  membras) larvae and related environment in the eastern baltic sea over the
+  past 50 years}.
+\newblock \emph{\bibinfo{journal}{PloS one}} \textbf{\bibinfo{volume}{9}},
+  \bibinfo{pages}{e91304} (\bibinfo{year}{2014}).
+
+\bibitem{cury2003}
+\bibinfo{author}{Cury~P, S.~Y., Shannon~L}.
+\newblock \bibinfo{title}{The functioning of marineecosystems: a fisheries
+  perspective.}
+\newblock In \emph{\bibinfo{booktitle}{Responsible fisheries in the
+  marineecosystem}}, \bibinfo{pages}{103–123} (\bibinfo{publisher}{FAO, Rome
+  and CABI Publishing}, \bibinfo{year}{2003}).
+
+\bibitem{durant2005}
+\bibinfo{author}{Durant, J.~M.} \emph{et~al.}
+\newblock \bibinfo{title}{Timing and abundance as key mechanisms affecting
+  trophic interactions in variable environments}.
+\newblock \emph{\bibinfo{journal}{Ecology Letters}}
+  \textbf{\bibinfo{volume}{8}}, \bibinfo{pages}{952--958}
+  (\bibinfo{year}{2005}).
+
+\bibitem{durant2007}
+\bibinfo{author}{Durant, J.~M.}, \bibinfo{author}{Hjermann, D.~{\O}.},
+  \bibinfo{author}{Ottersen, G.} \& \bibinfo{author}{Stenseth, N.~C.}
+\newblock \bibinfo{title}{Climate and the match or mismatch between predator
+  requirements and resource availability}.
+\newblock \emph{\bibinfo{journal}{Climate research}}
+  \textbf{\bibinfo{volume}{33}}, \bibinfo{pages}{271--283}
+  (\bibinfo{year}{2007}).
+
+\bibitem{leggett1994}
+\bibinfo{author}{Leggett, W.} \& \bibinfo{author}{Deblois, E.}
+\newblock \bibinfo{title}{Recruitment in marine fishes: is it regulated by
+  starvation and predation in the egg and larval stages?}
+\newblock \emph{\bibinfo{journal}{Netherlands Journal of Sea Research}}
+  \textbf{\bibinfo{volume}{32}}, \bibinfo{pages}{119--134}
+  (\bibinfo{year}{1994}).
+
+\bibitem{philippart2003}
+\bibinfo{author}{Philippart, C.~J.} \emph{et~al.}
+\newblock \bibinfo{title}{Climate-related changes in recruitment of the bivalve
+  macoma balthica}.
+\newblock \emph{\bibinfo{journal}{Limnology and Oceanography}}
+  \textbf{\bibinfo{volume}{48}}, \bibinfo{pages}{2171--2185}
+  (\bibinfo{year}{2003}).
+
+\bibitem{reed2013a}
+\bibinfo{author}{Reed, T.~E.}, \bibinfo{author}{Jenouvrier, S.} \&
+  \bibinfo{author}{Visser, M.~E.}
+\newblock \bibinfo{title}{Phenological mismatch strongly affects individual
+  fitness but not population demography in a woodland passerine}.
+\newblock \emph{\bibinfo{journal}{Journal of Animal Ecology}}
+  \textbf{\bibinfo{volume}{82}}, \bibinfo{pages}{131--144}
+  (\bibinfo{year}{2013}).
+
+\bibitem{atkinson2015}
+\bibinfo{author}{Atkinson, A.} \emph{et~al.}
+\newblock \bibinfo{title}{Questioning the role of phenology shifts and trophic
+  mismatching in a planktonic food web}.
+\newblock \emph{\bibinfo{journal}{Progress in Oceanography}}
+  \textbf{\bibinfo{volume}{137}}, \bibinfo{pages}{498--512}
+  (\bibinfo{year}{2015}).
+
+\bibitem{kerby2012}
+\bibinfo{author}{Kerby, J.}, \bibinfo{author}{Wilmers, C.} \&
+  \bibinfo{author}{Post, E.}
+\newblock \bibinfo{title}{Climate change, phenology, and the nature of
+  consumer--resource interactions: advancing the match/mismatch hypothesis}.
+\newblock In \bibinfo{editor}{Ohgushi, T.}, \bibinfo{editor}{Schmitz, O.} \&
+  \bibinfo{editor}{Holt, R.} (eds.) \emph{\bibinfo{booktitle}{Trait-mediated
+  indirect interactions: ecological and evolutionary perspectives}},
+  \bibinfo{pages}{508--525} (\bibinfo{publisher}{Cambridge University Press
+  Cambridge, UK}, \bibinfo{year}{2012}).
+
+\end{thebibliography}
