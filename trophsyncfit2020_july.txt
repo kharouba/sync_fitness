@@ -1,0 +1,161 @@
+EMW notes
+
+Started 12 July 2020
+Back to synchrony and fitness
+
+<><> Take-homes on plotting <><>
+Could you plot fitness versus mismatch?
+(HMK11) Yes (though do they give the actual fitness data anywhere?)
+(HMK30) Yes, though I was not convinced they knew what should match up (they have effectively defined a 0, they just haven't tried to defend it)
+(HMK41) Maybe. Though they don't define 0 and they don't give enough detail on caterpillar phenology data. 
+(HMK42) No. Not based on the paper alone, but I think you could add zeros to their caterpillar data and get peaks most years. 
+
+No one really measured total fitness, but even these metrics seem clearly influenced by way more than resource availability. 
+
+<><> Further notes on the papers <><>
+HMK11
+14 y 
+Where: Finland, boreal forest
+Intxn: bird (willow tit, resident) x caterpillars
+Climate: spring temperature
+Phenology: birds (onset of egg laying and time of hatching, all 1 d accuracy, weekly abundance of caterpillars but measured as "middle of measurement period with highest abundance" and they seem to have issues with finding a peak, they also discuss that there's more likely a threshold than a peak that matters)
+Zero (peak energetic demand versus peak resource) defined? YES (10 d after hatching or 8-13 d)
+Fitness: nestling survival rate and mean nestling weight (pretty sure it's not TOTAL for an individual but I think they have the data to get total)
+
+Good argument that caterpillars are main food. 
+Also measured clutch size. Worked on first clutch, not sure they discussed how many clutches are common. 
+
+
+HMK30
+Where: Greenland 
+Intxn: plants x caribou
+Climate: sea ice and temperature
+Phenology: 50% of species emergence 
+Zero (peak energetic demand versus peak resource) defined? Used a 'Trophic Mismatch Index' which is defined in Post & Forchhammer 2008 as "percent of plant species emerged on date of 50% caribou births"... given their naming and stuff you can pretend it has a zero, but feels very suspect to me
+Fitness: "early calf mortality" and calf production 
+
+
+
+HMK41
+Where: Netherlands
+Intxn: bird (pied flycatcher, migratory, no clear mention of clutches) x caterpillars
+Climate: spring temperature
+Phenology: Very little detail on the phenology! Would have to dig into methods/other papers. 
+Zero (peak energetic demand versus peak resource) defined? Did not find clear info on this at all, but could guess at it. 
+Fitness: They measured # recruits (birds born that bred the next year) and the two components of that: # of receipts and probably fledging became receipts; but in analyses they seem to use 'Standardized selection gradient' (which is linear relationship between egg laying date versus # recruits). Could be that they have total fitness as they have tagged birds. 
+
+Did not find a fitness x mismatch relationship, they argue it's because spring temperature mattered more (but it was hard to tell if they teased out spring temp versus arrival date) so focused on resource not being key determinant of fitness 
+
+Height of resource peak mattered to fitness. 
+
+I think they use Standardized selection gradient as they are trying to understand what drives fitness by timing relationship -- they get the selection estimate and compare to various things (year, arrival temperature), including the resource (mismatch). 
+
+
+HMK42
+Where: New Hampshire (Hubbard Brook)
+Intxn: bird (black throated blue warbler -- BBBW, multibrooded migratory bird) x caterpillars x plants
+Climate: spring temperature
+Phenology:
+Zero (peak energetic demand versus peak resource) defined? No, because they say there is no peak in caterpillar abundance, but if you look at their data they COULD get a peak in many years (but perhaps not the LOW caterpillar years, which is interesting) if they added the zeros that must occur before and after their sampling, so if you ask me it's partly a BIG sampling issue here. 
+Fitness: annual estimates of daily survival probability maybe and then mean annual reproductive success as fledging #/year for a bird pair
+
+
+They reject seasonality of prey hypothesis, and they also mention prey is not dominant controller on fitness. They say spring leaf emergence does predict bird timing and lots of other interesting points.
+
+
+<><> Thoughts I had <><>
+- Trying to add in the 0 point (where peak energetic demand matches peak resource availability) will make any sort of standardization we do a bit weird. I think it will effectively mute any sort of standardization. Maybe that's okay? Maybe (based on next point) we then just predict those should show lower correlations with fitness. 
+
+
+- Mismatch hypothesis seems to predict all species in a community do the same thing -- all aim to match peak energetic demand matches peak resource availability; but selection in a multi species environment should mean some species would not aim for that (and they probably would be the ones where total fitness is not tied so strongly to that match). 
+
+
+- HMK11 removes nest predation before doing analysis; HMK42 mentions nest predation is biggest controller on their fitness measures. 
+
+- I know the authors of HMK42 pretty well and have met one author of HMK30 (Kerby).
+
+- Clear from reviewing these that all the cut diagrams of resource curves are lies! These curves are much messier -- flatter, lumpier etc. I wondered if there were some simple models you could do about overlap of curves that would provide insight (basically, if you assume curves are flatter, then what are fitness outcomes of asynchrony?), but it would be much more a modeling project (not null models exactly) which seems outside anything we'd want to. 
+
+
+- Related to above, a good side project for someone? Get the raw data and do distribution overlap instead of these sad point estimates that we're stuff with. Honestly just plotting the raw data of these resource curves (and consumer curves) could be illuminating and helpful to modelers. 
+
+- Also someday idea -- use raw data and account for individual ID effects etc. 
+
+
+---------------------------
+HMK notes
+July 13
+
+Overall thoughts-
+- I wonder whether new papers might be easier to deal with, higher expectations about defining mismatch?
+- Standardizing match across studies (i.e. to have a single definition of match) still seems impossible OR at least difficult if using all studies
+- same battle as 2017- defining 0 vs. defining match
+- need a new list of criteria, maybe more refined than Samplonius, checklist for studies (e.g., defined 0 (easier) vs defined match (harder))
+- think about amount of food vs. just availability
+
+Papers:
+HMK025
+France 1985-2010
+Roe deer and vegetation
+(assumption 1) Phenology: seasonal range NOT well defined for either taxa, vague- end of April to mid-June
+'match'= median birth date- mean flowering date
+Defined 0 *BUT* not clear when peak demand is
+Standardized mismatch so that 0 is base year
+(assumption 2) this population is not subject to predation or hunting pressure
+
+
+HMK054
+Netherlands 1973-2011
+great tits and caterpillars
+(assumption 1) Phenology: Seasonal range for both taxa well defined
+'match'= (laying date+30 days)- peak caterpillar frass
+Defined 0- peak demand is 9-10 after hatching
+
+RE001
+Greenland 1996-2013
+*migratory* birds and arthropods; is migratory an issue?
+(assumption 1) Phenology: seasonal range NOT well defined (June-July)
+'match'= chick hatch date- peak arthropod abundance
+Defined 0 *BUT* but not clear when peak demand is
+- (assumption 2) evidence that resource abundance closely predicts consumer fitness
+
+HMK058
+France 1986-2011
+Pyrenean chamois (mountain mammal, isard) and vegetation
+(assumption 1) Phenology: seasonal range for both well defined (plant March 11 to May20), for consumer look at fig 3 
+(assumption 2)- no natural predators in the study area
+'match'= birth date- onset of spring plant phenology
+not explicit about peak energetic demand BUT do mention that late gestation and early lactation have HIGH (rather than highest) energetic demands
+
+
+July 20
+adding fitness notes
+
+HMK025
+- mean individual fitness (annual asymptotic population growth rate, annual mean fitness)
+- early survival (cohort-specific, proportion of fawns that survived to the onset of winter each year)
+- Yes total fitness
+- still can't draw figure
+
+HMK054
+-individual (fledgling success, offspring recruitment probability, number of recruits)and population level fitness
+- Yes total fitness
+- Yes can draw figure
+
+RE001
+- clutch survival
+-chick growth- body mass
+I don't think total fitness
+- no can't draw figure
+
+HMK058
+- tracked population size but not clearly they link to relative timing
+- goal seemed to predict timing of birth 
+- no can't draw figure 
+
+Other thoughts
+-individual- level data- definitely more mammal and bird-centric.
+-out of 8 studies, 3-4 seem potentially useable, likely only few systems where this will be possible. Is this interesting?
+
+Questions:
+How do fitness consequences change for consumer depending on shape/degree of temporal overlap?
