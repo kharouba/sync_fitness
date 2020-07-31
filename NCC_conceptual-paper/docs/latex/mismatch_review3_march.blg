@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: mismatch_review3_march.aux
+The style file: naturemag.bst
+Database file #1: mismatch2.bib
+Too many commas in name 1 of "Kerby, J.T., Wilmers, C.C., Post, E." for entry kerby2012
+while executing---line 1516 of file naturemag.bst
+Too many commas in name 1 of "Kerby, J.T., Wilmers, C.C., Post, E." for entry kerby2012
+while executing---line 1516 of file naturemag.bst
+Too many commas in name 1 of "Kerby, J.T., Wilmers, C.C., Post, E." for entry kerby2012
+while executing---line 1516 of file naturemag.bst
+Too many commas in name 1 of "Ohgushi, T, Schmitz, OJ, Holt, RD" for entry kerby2012
+while executing---line 1516 of file naturemag.bst
+Too many commas in name 1 of "Ohgushi, T, Schmitz, OJ, Holt, RD" for entry kerby2012
+while executing---line 1516 of file naturemag.bst
+Too many commas in name 1 of "Ohgushi, T, Schmitz, OJ, Holt, RD" for entry kerby2012
+while executing---line 1516 of file naturemag.bst
+You've used 26 entries,
+            2348 wiz_defined-function locations,
+            1154 strings with 14879 characters,
+and the built_in function-call counts, 11313 in all, are:
+= -- 840
+> -- 264
+< -- 0
++ -- 130
+- -- 66
+* -- 1382
+:= -- 1243
+add.period$ -- 78
+call.type$ -- 26
+change.case$ -- 32
+chr.to.int$ -- 0
+cite$ -- 26
+duplicate$ -- 981
+empty$ -- 1050
+format.name$ -- 89
+if$ -- 2288
+int.to.chr$ -- 0
+int.to.str$ -- 26
+missing$ -- 221
+newline$ -- 138
+num.names$ -- 30
+pop$ -- 155
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 199
+stack$ -- 0
+substring$ -- 672
+swap$ -- 982
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 74
+width$ -- 28
+write$ -- 292
+(There were 6 error messages)

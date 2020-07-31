@@ -1,0 +1,66 @@
+Notes on match-mismatch versus mistiming
+31 August 2019
+
+Questions I have:
+- Does Cushing's hypothesis include fitness? Yes, I think so. 
+- What is mistiming? Is it different than how we defined mismatch? (If so, is it better?) See below, yes and not really.
+
+Cushing 1990
+- This hypothesis seems to focus on match and mismatch and how it relates to growth and mortality (I admit I could not read the whole paper but see second paragraph of discussion which is all about how this part of the hypothesis has not been tested). 
+- Discussion also interestingly mentions 'the difficulties that occur when growth and mortality are allowed to interact.' (And 'by its nature, the hypothesis is hard to demonstrate.')
+- The whole thing seems to me about showing synchrony and then showing it relates to growth ... this is what we say in our paper, no?
+
+
+Mistiming as defined by Visser & Giennap 2019:
+"Mistiming (rather than mismatch) is then defined as the deviation between the actual (either of the individual or the population) and the optimal phenotype (Fig. 1b). ... However, if fitness depends (additionally) on other ecological variables, there may be no relationship between mismatches and mistiming. ... Since selection on a trait depends on whether total fitness, the net effect of all fitness components, co-varies with the trait, true mis- timing may also depend on environmental variables other than only mismatch, such as the cost of egg production under conditions in early spring that are potentially still adverse38,40."
+
+Definition also given in the caption: Mistiming occurs when the phenology (of either the individual (dots) or the population (vertical lines)) deviates from the time at which fitness peaks
+
+How this varies from our definition of mismatch:
+(1) It seems focused on total fitness. We have not made that distinction and I am not sure we need to (or want to).
+(2) Our definition focuses on the biotic interactions, I think mistiming includes abiotic environmental costs/benefits as well. For example I believe it suggests if you have a species that is mismatched to the resource but matched to when it is warm enough to live the species would mismatched not be mistimed. (In our hypothesis we would say -- assumption 1 is violated). 
+(3) As mentioned above, mistiming does NOT assume our assumption 1 (resource is major controlled of consumer fitness). 
+Basically I think our definition is narrower and given how complex things already are I think perhaps we should stay with what we have. 
+
+I think this paper (Visser et al. 1998: Warmer springs lead to mistimed reproduction in great tits (Parus major)) is the originator of the term mistiming perhaps and does not really define it ... but seems separate from our meaning, "We believe that this is the first documented case of an adaptive response being hampered because a changing abiotic factor a¡ects the environment in which a reproductive decision is made di¡erently from the environment in which selection occurs."
+
+What to do?
+We could stick with what we had and:
+(a) Add an acknowledgement of this term to our glossary of mismatch, such as 'this is similar to mistiming, a definition often used in the avian literature that focuses on total fitness including costs from abiotic effects.'
+(b) Double check all our usages about fitness, selection etc.. Just make sure we're making sense and thinking things through!
+
+
+Other papers using mistiming
+
+Visser et al. 1998: Warmer springs lead to mistimed reproduction in great tits (Parus major) -- term used in title never used in text ... avian paper
+
+I think this paper is originator of the term mistiming perhaps and does not really define it ... but seems separate from our meaning, "We believe that this is the first documented case of an adaptive response being hampered because a changing abiotic factor a¡ects the environment in which a reproductive decision is made di¡erently from the environment in which selection occurs."
+
+Saino et al. 2011: Climate warming, ecological mismatch at arrival and population decline in migratory birds -- uses mistiming but not defined (also bird paper): https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3049050/
+
+Both, Ch 11: Food availability, mistiming, and climatic change -- term used in title never used in text I believe (but see caption of 11.2) https://www.rug.nl/staff/c.both/bothclimchangebook2010.pdf .... avian paper
+
+
+DOES *not* use mistiming but does seem to define synchrony versus timing: Different Ultimate Factors Define Timing of Breeding in Two Related Species (Pakanen et al. 2016: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0162643)
+
+<><><><><><>><><><>>
+
+From HMK on 15 Aug 2019:
+
+R1’s [actually R2's] comment about our terminology had been bugging me so I went back through a bunch of papers including Visser and Gienapp, and Cushing’s, and have come to the realization that they’re right! Most of the papers I’ve checked have used mismatch as asynchrony rather than mismatch=fitness consequences as we have. That being said, Visser and Gienapp are the only ones I can find so far to use mistiming=fitness consequences. So now I’m thinking we should follow suit… This will mean changing terms throughout! Papers without tying fitness consequences directly to mismatch so far include:
+
+
+Singer and Parmesan
+
+Reed et al. 2013
+
+Renner and Zohner 2018
+
+Post and Forchhammer 2008
+
+Johansson et al. 2015
+
+Miller-Rushing et al. 2010
+
+
+I still haven’t figured out where I came up with mismatch=fitness consequences. Clearly I let my bias affect my readings of these papers! A very good lesson here. I’m curious to know your thoughts.
