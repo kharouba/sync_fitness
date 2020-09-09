@@ -30,3 +30,8 @@ tot2<-merge(tot, lol3)
 tot2$mismatch<-with(tot2, bird_date-cat_date)
 
 write.csv(tot2, "/users/kharouba/google drive/uOttawa/research/synchrony_fitness/papers/HMK088_phenodata.csv")
+
+
+newdata<-read.csv("/users/kharouba/google drive/uOttawa/research/synchrony_fitness/papers/HMK024_greattit1.csv", header=TRUE, na.strings="NA", as.is=TRUE)
+
+lol<-with(newdata, aggregate(SYN_SYNCHRONY, by=list(YEAR), FUN=mean, na.rm=T))
