@@ -2,6 +2,7 @@ EMW notes
 
 Started 12 July 2020
 Back to synchrony and fitness
+Updated 11 Sep 2020 (see HMK074)
 
 <><> Take-homes on plotting <><>
 Could you plot fitness versus mismatch?
@@ -159,3 +160,25 @@ Other thoughts
 
 Questions:
 How do fitness consequences change for consumer depending on shape/degree of temporal overlap?
+
+
+11 Sep 2020 (Lizzie)
+
+HMK074
+
+- Deirdre happened to have emailed these authors for data so I think we should wait to receive it. I just emailed them again (11 Sep 2020, original email 5 Sep 2020, plus whenever Deirdre asked)
+- This is a tri-trophic sycamore tree -> 2 aphid species -> family of parasitoids (not ID-ed further).
+- Phenology data: Fig 1
+- Fitness data ... HARDER! They mention aphid population growth as a f(x) of tree "mismatch between tree and parasitoid attack" so I think they do not give mismatch between adjacent trophic levels? But we could construct it ...?
+- Seasonality -- not mentioned, but they only sampled in certain windows
+- Resource dominant control on consumer -- no, they test for and find density dependence 
+- Data is at scale of individual tree ID originally (so plant is at individual, and upper trophic levels are counts per tree as best I understand), but we don't have access to that 
+
+- Events
+	- Trees: Sycamore leafing phenology was calculated as the closest Julian date at which 50% of the trees had achieved budburst (stage 4).
+	- Aphids:  Emergence phenology for D. platanoidis and P. testudinaceus was calculated as the date in which aphid abundance reached 10% of the total cumulative annual abundance recorded on the focal tree. 
+	- Phenology of parasitoid attack occurrence was calculated as the date in which the number of aphids parasitized reached 10% of the total cumulative number of parasitized aphids.
+
+- Aphids are differing levels of specialists: "The focal aphid species differ in their selectivity of host plants with D. platanoidis being largely confined to sycamore (Douglas, 1993), whilst P. testudinaceus select a wider range of tree species within the Aceraceae family (Wilkaniec & Sztukowska, 2008)."
+
+- I may be missing it, but I cannot figure out why they define mismatch as non-adjacent trophic levels. 
