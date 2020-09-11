@@ -181,4 +181,34 @@ HMK074
 
 - Aphids are differing levels of specialists: "The focal aphid species differ in their selectivity of host plants with D. platanoidis being largely confined to sycamore (Douglas, 1993), whilst P. testudinaceus select a wider range of tree species within the Aceraceae family (Wilkaniec & Sztukowska, 2008)."
 
-- I may be missing it, but I cannot figure out why they define mismatch as non-adjacent trophic levels. 
+- I may be missing it, but I cannot figure out why they define mismatch as non-adjacent trophic levels (I asked Deirdre to double-check myself). 
+
+
+HMK076
+
+3 years of data (2015-2017)
+
+Specialist seed predator (beetle: Byturus ochraceus) on Geum urbanum (forest understory). They seem to be studying fitness (sort of, they look at compensatory flowering but they also have seed mass data which seems good) on the plant (top down) when we need bottom-up control ... right? Fitness effects on the consumer, right?
+
+They also don't have data for the timing of the consumer (the beetle), they just have 'predated' and 'non-predated flowers' so I think this doesn't work. I saw your comment to pull the data from the SI, but it's not clear these data were collected in any way to get at the timing of the beetle (check out the last paragraph on pg 1117, that starts "In 2015 and 2016..."). It seems the authors are really studying synchrony, they seem more to just be study predation versus no predation so do we include this? [The only way the term 'synchrony' is used in this paper is for 'synchronous flowering' and they only say mismatch in the abstract so I am not 100% sure what we should do.]
+
+"We found no indication for compensatory flowering within a growing season, but plants that experienced predation shifted their flowers to the end of the flowering season the subsequent year."
+
+Seasonality: " We observed two flowering peaks per season during the three consecutive years of observations and during a preliminary study in 2014: high number of flowers in June (around day of year 150) and in August (around day of year 225) and a period with fewer flowers in between (around day of year 194) (Supporting Information S1)."
+
+
+HMK077
+
+Migratory birds with different specialist eating: red knot (Calidris canutus rufa) specializes on Horseshoe crab while the ruddy turnstone (Arenaria interpres) feeds more generally.
+
+Shorebird arrivals and timing of crab spawning 
+- They posted the fitness data, but I don't see the phenology data (Fig 2) and we'd need it as the resource is shown in just a color.
+- Do we want the raw weight data they posted or the estimates shown in Fig 3? I could email and ask for those as well as phenology data...
+
+
+Tick! They say temporally aggregated food resource! And explain further in their paper, so they meet the seasonality requirement.
+
+As they are studying food on a stop-over habitat I don't think we can say it's the dominant controller on the consumer, but they make a good case that they're related. 
+
+
+
