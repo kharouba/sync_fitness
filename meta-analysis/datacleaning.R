@@ -35,3 +35,7 @@ write.csv(tot2, "/users/kharouba/google drive/uOttawa/research/synchrony_fitness
 newdata<-read.csv("/users/kharouba/google drive/uOttawa/research/synchrony_fitness/papers/HMK024_greattit1.csv", header=TRUE, na.strings="NA", as.is=TRUE)
 
 lol<-with(newdata, aggregate(SYN_SYNCHRONY, by=list(YEAR), FUN=mean, na.rm=T))
+
+
+newdata<-read.csv("/users/kharouba/google drive/uOttawa/research/synchrony_fitness/papers/HMK024_willowtit1.csv", header=TRUE, na.strings="NA", as.is=TRUE)
+lol<-with(newdata, aggregate(SYN_SYNCHRONY, by=list(YEAR), FUN=mean, na.rm=T))
