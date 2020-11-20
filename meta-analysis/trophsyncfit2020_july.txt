@@ -164,7 +164,7 @@ How do fitness consequences change for consumer depending on shape/degree of tem
 
 11 Sep 2020 (Lizzie)
 
-HMK074
+HMK074 (Senior et al 2020)
 
 - Deirdre happened to have emailed these authors for data so I think we should wait to receive it. I just emailed them again (11 Sep 2020, original email 5 Sep 2020, plus whenever Deirdre asked)
 - This is a tri-trophic sycamore tree -> 2 aphid species -> family of parasitoids (not ID-ed further).
@@ -183,6 +183,7 @@ HMK074
 
 - I may be missing it, but I cannot figure out why they define mismatch as non-adjacent trophic levels (I asked Deirdre to double-check myself). 
 
+--> Extract data from Figures 1 and 4 (and try to line up myself). 
 
 HMK076
 
@@ -194,7 +195,14 @@ They also don't have data for the timing of the consumer (the beetle), they just
 
 "We found no indication for compensatory flowering within a growing season, but plants that experienced predation shifted their flowers to the end of the flowering season the subsequent year."
 
-Seasonality: " We observed two flowering peaks per season during the three consecutive years of observations and during a preliminary study in 2014: high number of flowers in June (around day of year 150) and in August (around day of year 225) and a period with fewer flowers in between (around day of year 194) (Supporting Information S1)."
+Seasonality: "We observed two flowering peaks per season during the three consecutive years of observations and during a preliminary study in 2014: high number of flowers in June (around day of year 150) and in August (around day of year 225) and a period with fewer flowers in between (around day of year 194) (Supporting Information S1)."
+
+Email from Heather on 16 Sep 2020, "You're right about the type of fitness data collected so I've noted to exclude it. There's another couple of papers like this."
+
+--> 19 Nov 2020 -- I (Lizzie) double checked if there is ANY consumer data (meaning actual counts) and looked into whether there is a minimum of five datapoints of year x site combo. Answers:
+	- We could use top panel of S1 *if* we want to assume predation = consumer abundance (seems wishy-washy to me, they're counting predated seeds which I think are predated by the consumer larvae, but I suspect one larvae can predate more than one seed? We need more natural history I think).
+	- Reminder -- there is also no consumer fitness data. They're looking at resource (flower effects). 
+	- There's also only THREE years of data, they have 10 'groups of plants' but I don't think that counts as a site (and the data are not shown by group, so we'd have to ask for that -- feels like we should only use 'site' maybe when the authors also do?), so they really only have three years of data. 
 
 
 HMK077
@@ -203,12 +211,19 @@ Migratory birds with different specialist eating: red knot (Calidris canutus ruf
 
 Shorebird arrivals and timing of crab spawning 
 - They posted the fitness data, but I don't see the phenology data (Fig 2) and we'd need it as the resource is shown in just a color.
-- Do we want the raw weight data they posted or the estimates shown in Fig 3? I could email and ask for those as well as phenology data...
+- Do we want the raw weight data they posted or the estimates shown in Fig 3 (and/or Fig 4)? I could email and ask for those as well as phenology data...
 
+*Either way, we have an issue in that they provide several estimates of both the phenology and the fitness. For fitness they have the mass gain as max rate, inflection point, max mass gain and min mass gain and they have phenology as start of mass gain for the consumers and end of mass gain ('peak refueling' period). They don't easily show the resource phenology (see Fig 2, it's shown in just a color) and from Table 2 it's unclear what went into the model for resource timing, but I could write and ask. I could just explain what we're doing and ask for the most relevant data?!* 
+
+*Be sure to ask for everything by YEAR as I am not sure we have that in the paper either...*
 
 Tick! They say temporally aggregated food resource! And explain further in their paper, so they meet the seasonality requirement.
 
 As they are studying food on a stop-over habitat I don't think we can say it's the dominant controller on the consumer, but they make a good case that they're related. 
 
+
+Email from Heather on 16 Sep 2020, "HMK077- Seems like it would be worth reaching out to the authors although it feels like an imposition to ask for both phenology and fitness data. I think we can use data from Fig 3 for phenology of consumer (panel B) and fitness."
+
+--> Get the data (Deirdre sent me Tuckeretal2019_plovermass.csv on 11 Sep 2020, but this appears identical (save for every other row being empty) to HMK077_all_weights_clean.csv so I did not keep it. 
 
 
