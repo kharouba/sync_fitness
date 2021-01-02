@@ -2,7 +2,7 @@ EMW notes
 
 Started 12 July 2020
 Back to synchrony and fitness
-Updated 11 Sep 2020 (see HMK074)
+Last updated 2 Jan 2021
 
 <><> Take-homes on plotting <><>
 Could you plot fitness versus mismatch?
@@ -162,14 +162,18 @@ Questions:
 How do fitness consequences change for consumer depending on shape/degree of temporal overlap?
 
 
+<><><><><><><><><><><><><>
+Papers assigned to Lizzie! 
+
 11 Sep 2020 (Lizzie)
+with updates on 2 Jan 2020
 
 HMK074 (Senior et al 2020)
 
 - Deirdre happened to have emailed these authors for data so I think we should wait to receive it. I just emailed them again (11 Sep 2020, original email 5 Sep 2020, plus whenever Deirdre asked)
 - This is a tri-trophic sycamore tree -> 2 aphid species -> family of parasitoids (not ID-ed further).
 - Phenology data: Fig 1
-- Fitness data ... HARDER! They mention aphid population growth as a f(x) of tree "mismatch between tree and parasitoid attack" so I think they do not give mismatch between adjacent trophic levels? But we could construct it ...?
+- Fitness data ... HARDER! They mention aphid population growth as a f(x) of tree "mismatch between tree and parasitoid attack" but they don't say anything super specific. They say in intro that one of their goals is "to tease apart the direct effects of weather on aphid population growth rates versus those of trophic mismatches with budburst and thus food availability (bottom-up control) and attack from parasitoids (top-down control)."
 - Seasonality -- not mentioned, but they only sampled in certain windows
 - Resource dominant control on consumer -- no, they test for and find density dependence 
 - Data is at scale of individual tree ID originally (so plant is at individual, and upper trophic levels are counts per tree as best I understand), but we don't have access to that 
@@ -181,9 +185,12 @@ HMK074 (Senior et al 2020)
 
 - Aphids are differing levels of specialists: "The focal aphid species differ in their selectivity of host plants with D. platanoidis being largely confined to sycamore (Douglas, 1993), whilst P. testudinaceus select a wider range of tree species within the Aceraceae family (Wilkaniec & Sztukowska, 2008)."
 
-- I may be missing it, but I cannot figure out why they define mismatch as non-adjacent trophic levels (I asked Deirdre to double-check myself). 
+- I may be missing it, but I cannot figure out why they define mismatch as non-adjacent trophic levels (I asked Deirdre to double-check myself). UPDATE -- they calculate BOTH mismatches (see the text from 2818-2819).
 
---> Extract data from Figures 1 and 4 (and try to line up myself). 
+
+UPDATE:
+--> Nov-Dec 2020 plan was to extract data from Figures 1 and 4 (and try to line up myself), but because the y-axis tick marks do not expand to cover all data you cannot extract all data. 
+--> Senior wrote on 28 Dec 2020 with a working email address (V.L.Senior@outlook.com) and said she will aim to send the data in the New Year. I wrote on 2 Jan 2021 and said, 'yes, please!'
 
 HMK076
 
@@ -199,10 +206,14 @@ Seasonality: "We observed two flowering peaks per season during the three consec
 
 Email from Heather on 16 Sep 2020, "You're right about the type of fitness data collected so I've noted to exclude it. There's another couple of papers like this."
 
---> 19 Nov 2020 -- I (Lizzie) double checked if there is ANY consumer data (meaning actual counts) and looked into whether there is a minimum of five datapoints of year x site combo. Answers:
+--> 19 Nov 2020 -- I (Lizzie) double checked if there is ANY consumer data (meaning actual counts) and looked into whether there is a minimum of five datapoints of year x site combo. 
+
+Answers:
 	- We could use top panel of S1 *if* we want to assume predation = consumer abundance (seems wishy-washy to me, they're counting predated seeds which I think are predated by the consumer larvae, but I suspect one larvae can predate more than one seed? We need more natural history I think).
 	- Reminder -- there is also no consumer fitness data. They're looking at resource (flower effects). 
 	- There's also only THREE years of data, they have 10 'groups of plants' but I don't think that counts as a site (and the data are not shown by group, so we'd have to ask for that -- feels like we should only use 'site' maybe when the authors also do?), so they really only have three years of data. 
+
+So, EXCLUDE either because (1) they have no actual consumer data (just predation) and/or (2) they only have 3 yeas of data.
 
 
 HMK077
@@ -217,13 +228,18 @@ Shorebird arrivals and timing of crab spawning
 
 *Be sure to ask for everything by YEAR as I am not sure we have that in the paper either...*
 
+Heather wrote on 20-23 Nov 2020 in response to above:
+
+Maybe leave it to the authors to provide what's easiest for them? Looks like we have enough to work with for consumer fitness but that's about it! Can we focus on variable with most support? This would be the closest to other studies. Are the means in Table 2 comparable across covariates (meaning: use the effect size to decide which fitness response variable to use but that depends on whether we can compare ES between variables)? Can we use them as effect sizes? Or maybe we can randomly choose one of the model parameters.
+
 Tick! They say temporally aggregated food resource! And explain further in their paper, so they meet the seasonality requirement.
 
 As they are studying food on a stop-over habitat I don't think we can say it's the dominant controller on the consumer, but they make a good case that they're related. 
 
-
 Email from Heather on 16 Sep 2020, "HMK077- Seems like it would be worth reaching out to the authors although it feels like an imposition to ask for both phenology and fitness data. I think we can use data from Fig 3 for phenology of consumer (panel B) and fitness."
 
+
 --> Get the data (Deirdre sent me Tuckeretal2019_plovermass.csv on 11 Sep 2020, but this appears identical (save for every other row being empty) to HMK077_all_weights_clean.csv so I did not keep it. 
+--> 2 Jan 2021: Emailed the authors asking for phenological data by year. If we can get it, we can use it. If we cannot get it, we cannot use it. 
 
 
